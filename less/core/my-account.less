@@ -1,0 +1,64 @@
+#user-account {
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    right: 0;
+    list-style: none;
+    z-index: @zindex-level-15;
+    background: transparent;
+    color: @my-account-button-text;
+
+    #my-account-content {
+        margin-right: 1rem;
+        border-radius: 0 0 @default-border-radius-large-content @default-border-radius-large-content;
+        background: @my-account-wrapper-background;
+
+        .my-account-button {
+            background: @my-account-button-background;
+            box-shadow: @my-account-button-box-shadow;
+            color: @my-account-button-text;
+            font-size: 1.2rem;
+            padding: 0.3rem 0.6rem;
+            border-radius: 0 0 @default-border-radius-large-content @default-border-radius-large-content;
+
+            &:before {
+                margin-right: 0.4rem;
+                .account();
+            }
+
+            &:hover {
+                color: @my-account-button-text-hover;
+
+                &:before {
+                    .down-arrow();
+                }
+            }
+        }
+
+        .my-account-button-dropdown-open {
+            &:hover {
+                &:before {
+                    .up-arrow();
+                }
+            }
+        }
+
+        .my-account-login {
+            background: @my-account-button-background;
+            box-shadow: @my-account-button-box-shadow;
+            color: @my-account-button-text;
+            font-size: 1.2rem;
+            padding: 0.3rem 0.6rem;
+            border-radius: 0 0 @default-border-radius-large-content @default-border-radius-large-content;
+
+            &:before {
+                margin-right: 0.4rem;
+                .login();
+            }
+
+            &:hover {
+                color: @my-account-button-text-hover;
+            }
+        }
+    }
+}

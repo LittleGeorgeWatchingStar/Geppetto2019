@@ -1,0 +1,789 @@
+// TODO move these
+.required-input:after {
+    content: '*';
+    color: @text-danger;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.close-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 1rem;
+
+    &:before {
+        .x-icon;
+    }
+}
+
+
+.module-data-viewer {
+    padding: 0;
+    position: relative;
+    overflow: visible;
+    background: @container-background-light;
+
+    main {
+        height: 100%;
+    }
+
+    .editable-data__tab {
+        .module-svg-container {
+            padding: 1rem;
+
+            path.footprint {
+                fill: none;
+            }
+        }
+
+        .large-module-svg {
+            path.footprint, line {
+                stroke-width: 3;
+            }
+        }
+    }
+}
+
+.module-data-view__loader {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 9;
+    background: @loader-background;
+
+    > * {
+        height: 100%;
+        display: flex;
+    }
+
+    .load-icon {
+        margin: auto;
+        width: 10rem;
+    }
+}
+
+.cad-data-editor__profile-picker {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: @container-background;
+
+    .header-container-functions {
+        padding: 0.75rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: @container-background-dark;
+
+        button {
+            display: flex;
+            align-items: center;
+            padding: 0.4rem 1.5rem;
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.35);
+            background: @dashboard-workspace-button-background;
+            border-radius: 2px;
+            white-space: nowrap;
+
+            &:before {
+                .geppetto();
+                width: 18px;
+                height: 18px;
+                margin-right: 0.5rem;
+            }
+
+            &:hover {
+                color: @dashboard-workspace-button-hover;
+
+                &:before {
+                    .to-workspace-arrow();
+                }
+            }
+        }
+    }
+
+    .header-container {
+        white-space: nowrap;
+        background: @container-background;
+        box-shadow: @container-box-shadow-light;
+
+        h3 {
+            padding: 1rem;
+        }
+    }
+
+    ul {
+        max-height: ~"calc(100% - 8rem)";
+        overflow-y: auto;
+
+        li:last-child {
+            margin-bottom: 3rem;
+        }
+    }
+}
+
+.cad-data-editor__data {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 9;
+
+    & > .header-container {
+        padding: 0.75rem 1.5rem;
+        line-height: 1.4rem;
+        position: relative;
+        z-index: 10;
+        background: @container-background-complementary !important;
+
+        h2 {
+            font-weight: normal;
+        }
+    }
+
+    .selected-profile-heading {
+        opacity: 0.65;
+        font-weight: normal;
+        margin-right: 0.5rem;
+    }
+
+    .data-content {
+        height: 100%;
+    }
+
+    .nets-list-btn {
+        display: none;
+    }
+}
+
+.nets-list {
+    box-shadow: @container-box-shadow;
+    margin-left: 1rem;
+
+    .nets-list-header {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem 1rem;
+        background: @container-background-dark;
+
+        h3 {
+            font-weight: normal;
+            line-height: 2rem;
+
+        }
+
+        span {
+            &:before {
+                .close();
+            }
+        }
+    }
+
+    .nets-list-container {
+        overflow-y: auto;
+        max-height: 47rem;
+
+        .nets-list {
+            overflow-x: hidden;
+            margin: 0;
+            list-style-type: none;
+            padding: 1rem;
+            width: 100%;
+        }
+    }
+}
+
+.create-profile-message {
+    font-size: 0.8rem;
+    line-height: 0.95rem;
+    font-style: italic;
+    margin: 1rem;
+}
+
+.default-profile {
+    font-style: italic;
+}
+
+.profile {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    word-break: break-word;
+    border-bottom: 1px solid @container-border-sdm;
+
+    &.profile-selected {
+        font-weight: bold;
+        border-left: 3px solid @regular-button-hover;
+        color: @regular-button-hover;
+
+        h5 {
+            font-weight: bold;
+        }
+    }
+
+    &:hover {
+        background: @item-selection-background-hover;
+    }
+}
+
+.profile-svg-container {
+    flex-grow: 1;
+    max-width: 125px;
+    width: 10rem;
+
+    .module-svg-container {
+        padding: 0.5rem 1rem;
+    }
+
+    path.footprint {
+        fill: @container-background-complementary-light;
+    }
+
+    .large-module-svg {
+        path.footprint, line {
+            stroke-width: 5;
+        }
+    }
+}
+
+.profile-content-container {
+    position: relative;
+    flex-grow: 1;
+
+    h5 {
+        padding-top: 0.5rem;
+        font-weight: normal;
+        max-width: 102px;
+        max-height: 55px;
+        overflow-y: hidden;
+    }
+
+    .delete-profile-icon {
+        position: absolute;
+        right: 0;
+        bottom: 0.5rem;
+
+        &:before {
+            .delete-icon;
+            font-weight: normal;
+            opacity: 0.5;
+            font-size: 0.9rem;
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+.module-data-detail-button-container {
+    padding: 0.75rem 1.5rem;
+    display: flex;
+}
+
+.editable-data__nets-container {
+    padding: 1.5rem;
+    padding-right: 1rem;
+
+    .nets-header-container {
+        min-width: 12rem;
+        white-space: nowrap;
+    }
+
+    .nets-edit-buttons {
+        margin: 0.5rem 0;
+        white-space: nowrap;
+        padding-bottom: 0.5rem;
+    }
+}
+
+.sync-data-btn,
+.fork-btn,
+.show-in-lib-btn,
+.module-data-btn,
+.nets-list-btn {
+    padding: 0.4rem 0.75rem;
+    background: @regular-button-background-complementary;
+    box-shadow: @regular-button-box-shadow;
+    border-radius: @default-border-radius-child-content;
+    white-space: nowrap;
+
+    &:hover {
+        color: @regular-button-hover;
+    }
+}
+
+.fork-btn {
+    font-weight: bold;
+    color: @action-button;
+    background: @action-button-background;
+
+    &:hover:not([disabled]) {
+        color: @action-button;
+        background: @action-button-background-hover;
+    }
+
+    &:before {
+        .branch-icon;
+        font-size: 0.9rem;
+        vertical-align: bottom;
+        margin-right: 0.3rem;
+        line-height: 1rem;
+    }
+}
+
+.sync-data-btn {
+    font-weight: bold;
+    white-space: nowrap;
+    margin-right: 1.5rem;
+
+    &:before {
+        .reload;
+        font-size: 0.9rem;
+        font-weight: normal;
+        vertical-align: bottom;
+        margin-right: 0.3rem;
+        line-height: 1rem;
+    }
+}
+
+.show-in-lib-btn {
+    margin-left: auto;
+
+    &:before {
+        .location-arrow();
+        font-size: 0.8rem;
+        font-weight: normal;
+        vertical-align: bottom;
+        margin-right: 0.3rem;
+        line-height: 1rem;
+    }
+}
+
+.nets-list-btn {
+    margin-left: 1.5rem;
+}
+
+.editable-data__cad-data-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.schematic-tab {
+    .iframe-container {
+        overflow: hidden;
+        padding-top: 56.25%; // 16:9 Aspect Ratio
+        position: relative;
+    }
+
+    .iframe-container iframe {
+        border: 0;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+}
+
+.layout-tab {
+    .iframe-container {
+        overflow: hidden;
+        padding-top: 56.25%; // 16:9 Aspect Ratio
+        position: relative;
+    }
+
+    .iframe-container iframe {
+        border: 0;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+}
+
+.parts-tab {
+    .header-container {
+        h3 {
+            font-weight: normal;
+            line-height: 2rem;
+        }
+
+        padding: 0.5rem 1rem;
+        text-align: right;
+    }
+
+    .designator {
+        display: inline-block;
+        padding: 0 0.25rem;
+        margin-right: 0.25rem;
+        margin-bottom: 0.15rem;
+        background: rgba(126, 126, 126, 0.25);
+        border-radius: 2px;
+        font-size: 0.8rem;
+    }
+}
+
+.parts-tab__parts-table {
+    thead {
+        position: relative;
+        margin: 0.2rem 0;
+        box-shadow: @container-box-shadow-light;
+        clip-path: inset(0 -5px -5px -5px);
+        z-index: 10;
+    }
+
+    th {
+        text-align: left;
+    }
+
+    td {
+        border-bottom: 1px solid @container-border-complementary-sdm;
+    }
+
+    tbody tr {
+        &:hover {
+            background: lighten(@container-background-complementary, 5%);
+        }
+    }
+}
+
+.editable-data__bus-tab {
+    user-select: none;
+
+    .add-bus-container {
+
+        h3 {
+            font-weight: normal;
+            line-height: 2rem;
+        }
+
+        padding: 0.5rem 1rem;
+        text-align: right;
+    }
+
+    .add-bus-btn {
+        padding: 0.3rem 1rem;
+        border-radius: 2px;
+        font-weight: bold;
+        color: @theme-action-color;
+    }
+
+    .cpu-container {
+        line-height: 2rem;
+
+        b {
+            margin-right: 0.5rem;
+        }
+
+        select {
+            border-radius: 2px;
+            background: @container-background;
+            border: 1px solid @container-border-sdm;
+        }
+    }
+
+    .table-container {
+        position: absolute;
+        top: 9rem;
+        bottom: 5rem;
+        left: 0;
+        right: 0;
+        overflow-y: auto;
+    }
+}
+
+.editable-data__bus-table {
+    thead {
+        box-shadow: @container-box-shadow-light;
+        clip-path: inset(0 -5px -5px -5px);
+        z-index: 10;
+    }
+
+    th {
+        text-align: left;
+    }
+
+    tbody tr {
+        cursor: pointer;
+
+        &:hover {
+            background: lighten(@container-background-complementary, 5%);
+        }
+    }
+
+    td {
+        border-bottom: 1px solid @container-border-complementary-sdm;
+    }
+}
+
+.editable-data__tab-button-container {
+    display: flex;
+    width: 100%;
+    background: @container-background-complementary;
+}
+
+.editable-data__tab-button {
+    display: inline-block;
+    padding: 0.25rem 1rem;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-bottom: 0;
+
+    &:hover,
+    &.selected-js {
+        background: @container-background;
+        border: 1px solid @container-border-sdm;
+        border-bottom: 0;
+        color: @theme-action-color;
+    }
+}
+
+.profile-creation-window-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(100, 100, 100, 0.2);
+    z-index: 100;
+}
+
+.confirmation-window {
+    padding: 1.5rem;
+    border-radius: 2px;
+    width: 26rem;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-top: 4px solid @theme-action-color;
+    background: @container-background;
+    box-shadow: @container-box-shadow;
+
+    .field-header {
+        display: block;
+        margin-top: 1rem;
+        font-weight: bold;
+        margin-bottom: 0.25rem;
+    }
+
+    .unavailable-message {
+        color: @text-unready;
+        padding-top: 0.5rem;
+    }
+
+    .confirmation-window-actions {
+        display: flex;
+        justify-content: right;
+        margin-top: 1rem;
+
+        button {
+            margin: 0 0.5rem;
+        }
+    }
+}
+
+.editable-data__modal-container {
+    background: @modal-background;
+}
+
+.bus-editor {
+    background: @container-background;
+    box-shadow: @container-box-shadow-light;
+
+    .voltage-domain {
+        background-color: @container-background-complementary-light;
+    }
+
+    table {
+        background: @container-background;
+    }
+
+    .assignable-signal-row {
+        cursor: pointer;
+
+        .signal-name:hover + .signal-value,
+        .signal-value:hover,
+        .signal-value.assigning-js {
+            color: @theme-color-triad;
+        }
+    }
+
+    td {
+        border-bottom: 1px solid @container-border-complementary-sdm;
+    }
+}
+
+.bus-editor__header-container {
+    background: @container-background;
+}
+
+.profile-creation-window__button-container {
+    margin-top: 1rem;
+}
+
+/*
+ * Css Rewrite for separate module edit window
+ */
+
+.module-data-viewer-container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+
+    .module-data-viewer-header {
+        position: absolute;
+        width: 100%;
+        background: @container-background-complementary;
+        z-index: @zindex-level-2;
+        box-shadow: @container-box-shadow;
+
+        h2 {
+            line-height: 1.4rem;
+            padding: 1.3rem 1.5rem;
+        }
+    }
+
+    .module-data-library-container {
+        height: 100%;
+        display: flex;
+        box-shadow: @container-box-shadow;
+        z-index: @zindex-level-1;
+        position: relative;
+        min-width: 17rem;
+        width: 17rem;
+        background: @container-background;
+
+        ul {
+            overflow-y: auto;
+        }
+    }
+
+    .cad-data-editor__data {
+        margin-top: 4rem;
+
+        .header-container {
+            display: none;
+        }
+
+        .data-content {
+            padding: 0 1rem;
+            display: flex;
+            position: relative;
+        }
+
+        .schematic-tab {
+            .iframe-container {
+                padding-top: 50.25%;
+            }
+        }
+
+        .module-data-view__loader {
+            top: 4rem;
+            right: 16.5rem;
+        }
+
+        .nets-list-btn {
+            display: inline-block;
+        }
+    }
+
+    .cad-data-editor__profile-picker {
+        margin-top: 4rem;
+    }
+
+    .module-data-detail-button-container {
+        padding: 1rem 0;
+    }
+
+    .editable-data__tab-button-container {
+        background: @container-background-complementary-dark;
+    }
+
+    .editable-data__tab-button {
+        &:hover,
+        &.selected-js {
+            background: @container-background-dark;
+        }
+    }
+
+    .editable-data__modal-container {
+        background: @modal-background;
+        left: -1rem;
+        width: 103%;
+    }
+
+
+
+    .bus-editor__form {
+        .add-functionality-btn {
+            color: @theme-action-color;
+            border: 1px solid @container-border;
+            background: @regular-button-background-complementary;
+
+            &:hover {
+                color: @theme-action-color-light;
+            }
+        }
+
+        .edit-btn {
+            color: @theme-action-color;
+
+            &:hover {
+                color: @theme-action-color-light;
+            }
+        }
+    }
+
+    .voltage-domain-editor {
+        .allowed-voltage {
+            background: @container-background-light;
+        }
+
+        .select-existing {
+            border-right: 1px solid @container-border-complementary-sdm;
+        }
+    }
+
+    .set-power-btn,
+    .set-data-btn {
+        border: 1px solid @container-border-complementary-sdm;
+        border-left: 3px solid #777;
+    }
+
+    .signal-editor-container {
+        border: 1px solid @container-border-sdm;
+        border-top: 3px solid #777;
+        background: @container-background-light;
+    }
+
+    .signal-editor__nets-list {
+        li.selected-js {
+            color: darken(@theme-action-color, 10%);
+        }
+    }
+
+    .bus-view__bus-template {
+        background: @container-background-complementary-light;
+        border-left: 2px solid @container-border-sdm;
+    }
+
+    .bus-template-picker {
+        background: @container-background-light;
+        border: 1px solid @container-border-sdm;
+        border-top: 3px solid @theme-action-color;
+
+        .template-list {
+            li.selected-js {
+                color: darken(@theme-action-color, 10%);
+            }
+        }
+    }
+}

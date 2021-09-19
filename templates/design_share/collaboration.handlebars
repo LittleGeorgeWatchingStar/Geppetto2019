@@ -1,0 +1,25 @@
+<tr>
+    <td>
+        <label><input type="checkbox"/></label>
+    </td>
+
+    <td class="name" title="{{collaboration.name}}">{{collaboration.name}}</td>
+    <td class="email" title="{{collaboration.email}}">{{collaboration.email}}</td>
+    <td class="removed-message"><em>Removed</em></td>
+    <td class="permission">
+        {{#if allowEdit}}
+            <label>
+                <select>
+                    <option value="view">View</option>
+                    <option value="edit">Edit</option>
+                </select>
+            </label>
+        {{else}}
+            View
+        {{/if}}
+    </td>
+    <td>
+        <button class="remove-collaboration" title="Remove"></button>
+        <button class="undo" title="Undo remove"></button>
+    </td>
+</tr>

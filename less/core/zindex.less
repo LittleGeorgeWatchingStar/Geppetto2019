@@ -1,0 +1,69 @@
+/**
+   This .less file is for z-index variable declaration
+   The variables follow the squence from bottom layer to top layer
+   Naming style will use the "zindex-level-'number'"
+   *The number will be based on a factor set to 100
+**/
+
+//bottom layer :
+@zindex-level-bottom: -1;
+
+//lever 1
+// workspace:
+// design tabs: design open button,
+@zindex-level-1: 100;
+
+//lever 2
+// workspace: module info,
+// design tabs: info box title, design preview header
+@zindex-level-2: 200;
+
+//lever 3
+// dashboard: left sidebar
+// workspace: price, design helper, action history, module library
+// designs: left filter, filtered selection box
+@zindex-level-3: 300;
+
+//lever 4: power consumptions
+@zindex-level-4: 400;
+
+//lever 5: toolbar
+@zindex-level-5: 500;
+
+//level 10:
+// workspace: context menu, widget, require/provide bus menu, tutorial
+// footer: notices
+@zindex-level-10: 1000;
+
+//level 12:
+// workspace: upverter view, cad view
+@zindex-level-12: 1200;
+
+//lever 15: for tab bar (including the dropdown menu), footer
+@zindex-level-15: 1500;
+
+//second top layer: for modals, error dialogs
+@zindex-level-20: 2000;
+
+//top layer: for page loader and server error
+@zindex-level-top: 10000;
+
+
+/**
+    The z-index variable declaration for child elements
+**/
+
+@zindex-child-level--2: -2; //board title, .warning-label
+@zindex-child-level--1: -1; //.ui-icon
+@zindex-child-0: 0; //board-builder-heading,
+@zindex-child-level-1: 1; //suggestions-container,
+@zindex-child-level-2: 2; //panel-cover,
+@zindex-child-level-3: 3; //panel-header,
+@zindex-child-level-4: 4;
+@zindex-child-level-5: 5; //panel-back
+@zindex-child-level-top: 100; //buffer
+
+/**
+    Special variables
+**/
+@zindex-bg-images: -1;

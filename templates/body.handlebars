@@ -1,0 +1,37 @@
+<!-- Dialogs -->
+<div class="dialog" id="dialog-message"></div>
+<div id="container-3d">
+    <div id="viewport-3d"></div>
+    <div id="display-msg">Drag to change perspective.<br />3D models are best efforts but not guaranteed for accuracy.</div>
+</div>
+
+<div class="dialog" id="dialog-help"></div>
+<div class="dialog" id="dialog-productpage"></div>
+<!-- End dialogs -->
+
+<div id="user-account">
+</div>
+<div id="tabbuttons">
+</div>
+<div id="alltabcontainer">
+</div>
+
+<div id="footer">
+    <div class="branding">
+        <img src="{{ static_url }}/image/{{ partner_footer }}" id="logo-black" class="footer-logo"/>
+        <img src="{{ static_url }}/image/{{ partner_footer }}" id="logo-white" class="footer-logo"/>
+        <span>dream, design, deliver&trade;</span>
+    </div>
+    <div id="legal">
+        <span>© {{ current_year }} Gumstix, Inc.</span>
+        <a href={{ partner_terms_url }} target="_blank">Terms of Use</a>
+        <a href={{ partner_privacy_url }} target="_blank">Privacy Policy</a>
+    </div>
+    <div class="footer-right">
+        <div id="user">
+            <span id="user-email" class="logged-in"></span>
+            <span id="user-name" class="logged-in"></span>
+        </div>
+        <div id="notices-view"></div>
+    </div>
+</div>

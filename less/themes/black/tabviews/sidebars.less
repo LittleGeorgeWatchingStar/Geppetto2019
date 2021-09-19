@@ -1,0 +1,113 @@
+aside input[type=search] {
+    background: @container-background-light;
+    border: 1px solid #777777;
+}
+
+.panel {
+    background: #272727;
+
+    .panel-cover {
+        background: rgba(100, 100, 100, 0.4);
+    }
+
+    h3 {
+        background: #2b2b2b;
+    }
+
+    .category-shelves-new-ui {
+        background: #2b2b2b;
+    }
+
+    .default-header:hover,
+    .category-header {
+        color: @green;
+    }
+
+    .filtered-library h3,
+    .search-library h3 {
+        color: @green;
+    }
+}
+
+.panel-back {
+    color: @green;
+
+    &:before {
+        background: #333333;
+    }
+
+    &:hover {
+        color: @lighter-green;
+    }
+}
+
+.filtered-library,
+.search-library,
+.category-modules {
+    background: #333333;
+}
+
+//dashboard sidebar
+.dashboard-sidebar {
+    #dashboard-gumstix-icon:before {
+        .partner-gray('gumstix', 23px) !important;
+    }
+
+    #dashboard-seeed-icon:before {
+        .partner-gray('seeed', 28px) !important;
+    }
+
+    #dashboard-rpi-icon:before {
+        .partner-gray('rpi', 28px) !important;
+    }
+
+    #dashboard-adlink-icon:before {
+        .partner-gray('adlink', 27px) !important;
+    }
+
+    #dashboard-arduino-icon:before {
+        .partner-gray('arduino', 28px) !important;
+    }
+}
+
+// these style seems not used anymore, leave here for now to prevent errors
+.module-info {
+    table {
+        border: 1px solid #666666;
+
+        .bus-title {
+            border-top: 1px solid #444444;
+            background-color: #373737;
+        }
+
+        .bus-info {
+            border-top: 1px solid #555555;
+            background-color: #444444;
+        }
+
+        td {
+            border-right: 1px solid #444444;
+        }
+    }
+}
+
+// these style seems not used anymore, leave here for now to prevent errors
+.module-info {
+    table {
+        border: 1px solid #666666;
+
+        .bus-title {
+            border-top: 1px solid #444444;
+            background-color: #373737;
+        }
+
+        .bus-info {
+            border-top: 1px solid #555555;
+            background-color: #444444;
+        }
+
+        td {
+            border-right: 1px solid #444444;
+        }
+    }
+}

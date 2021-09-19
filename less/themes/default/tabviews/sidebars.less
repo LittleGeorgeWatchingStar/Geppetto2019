@@ -1,0 +1,71 @@
+.panel {
+    background: #ffffff;
+}
+
+.panel-back {
+    color: @theme-color;
+
+    &:before {
+        background: white;
+    }
+
+    &:hover {
+        color: @theme-color-light;
+    }
+}
+
+.default-header {
+    background: white;
+
+    &:hover {
+        color: @theme-action-color;
+        border-left: 2px solid @theme-action-color;
+    }
+}
+
+.category-header,
+.functional-group-header {
+    color: @theme-color;
+    border-left: 2px solid @theme-color;
+}
+
+.default-library .category-header,
+.functional-group-header {
+    &:hover {
+        color: @theme-color-light;
+    }
+}
+
+.panel-navigation button {
+    color: @theme-action-color;
+
+    &:hover {
+        color: @theme-action-color-light;
+    }
+
+    &:after {
+        color: #888888;
+    }
+}
+
+.panel-cover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.default-library,
+.filtered-library,
+.search-library,
+.category-modules {
+    background-color: #eeeeee;
+}
+
+.functional-group {
+    background: white;
+    border: 1px solid #999999;
+    border-top: 1px solid #bbbbbb;
+    border-right: 3px solid @theme-action-color;
+
+    &:hover {
+        color: @theme-action-color;
+    }
+}

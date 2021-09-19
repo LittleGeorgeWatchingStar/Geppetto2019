@@ -1,0 +1,54 @@
+<div class="bus-menu-container">
+    <ol class="bus require"></ol>
+    <ol class="bus provide"></ol>
+</div>
+
+<div class="module-error-tooltip module-error-tooltip-hide">
+    <p>{{ title }}</p>
+    <span></span>
+</div>
+
+{{#if showOrtho}}
+<div class="module-orthographic-container">
+    {{#if orthoUrl}}
+    <img src="{{ orthoUrl }}" alt="Orthographic Image">
+    {{/if}}
+</div>
+{{/if}}
+
+{{#if showOrtho}}
+    {{#if orthoUrl}}
+    <div title="{{ summary }}" class="module-svg-container svg-container svg-container-with-ortho">
+    {{else}}
+    <div title="{{ summary }}" class="module-svg-container svg-container svg-container-threed-active">
+    {{/if}}
+{{else}}
+<div title="{{ summary }}" class="module-svg-container svg-container">
+{{/if}}
+    <svg xmlns="http://www.w3.org/2000/svg"
+         viewBox="{{ outline.xmin }} {{ outline.ymin }} {{ outline.width }} {{ outline.height }}"
+         preserveAspectRatio="xMinYMin meet">
+        <g transform="translate(0, {{ outline.mirror }}) scale(1, -1)">
+            <path class="path-wall"/>
+            <path class="footprint"/>
+            <g class="anchors"/>
+        </g>
+    </svg>
+    <div class="module-title">
+        {{ title }}
+    </div>
+    <div class="placed-module-warnings">
+        {{#if showDev}}
+            <div class="warning-label dev-text">DEV</div>
+        {{/if}}
+        {{#if showMugr}}
+            <div class="warning-label mugr-text">MUGR</div>
+        {{/if}}
+        {{#if showInactive}}
+            <div class="warning-label inactive-text">INACTIVE</div>
+        {{/if}}
+    </div>
+</div>
+
+<!-- Cover the gap between the menu and the module: -->
+<div class="buffer"></div>

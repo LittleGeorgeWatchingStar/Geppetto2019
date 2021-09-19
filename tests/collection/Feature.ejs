@@ -1,0 +1,40 @@
+/*global define,describe,it,expect, console, beforeEach*/
+
+var app;
+
+define(function (require) {
+    "use strict";
+    var Backbone = require('backbone'),
+        FeatureCollection = require('collection/Feature').default;
+
+    describe("FeatureCollection", function() {
+        var c;
+
+        beforeEach(function() {
+            c = new FeatureCollection([
+                {
+                    type: 'footprint',
+                    points: [{x:0, y:0}, {x:3, y:0}]
+                },
+                {
+                    type: 'footprint',
+                    points: [{x:3, y:0}, {x:3, y:3}]
+                },
+                {
+                    type: 'footprint',
+                    points: [{x:3, y:3}, {x:0, y:3}]
+                },
+                {
+                    type: 'footprint',
+                    points: [{x:0, y:3}, {x:0, y:0}]
+                }
+            ]);
+        });
+
+        it("can calculate the footprint", function() {
+            var f = c.footprint();
+            expect(f).not.toBe(null);
+            expect(f.polyline.points.length).toEqual(4);
+        });
+    });
+});

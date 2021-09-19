@@ -1,0 +1,730 @@
+/**
+ * This will be the common styles for all the widgets in workspace
+ * Unique style for each widget will be in this file but after this section
+ * - All the widget should use the basic structure
+ * - <>
+ * -   <button className="workspace-widget-button"/>
+ * -   <div className="workspace-widget">
+ * -      <div className="header"/>
+ * -      <div className="container"/>
+ * -   </div>
+ * - </>
+ */
+.workspace-widget-container {
+    width: 4rem;
+    z-index: @zindex-level-3;
+    position: absolute;
+    top: 60px;
+    padding-top: 1rem;
+
+    > div {
+        border-radius: @default-border-radius-large-content;
+        width: 16rem;
+    }
+
+    > :not(:last-child) {
+        margin-bottom: 0.4rem;
+    }
+}
+
+.workspace-widget {
+    box-shadow: @design-helper-box-shadow;
+    background: @design-helper-background;
+    overflow: hidden;
+    margin-left: 5px;
+
+    .header {
+        padding: 0.3rem 1rem 0.2rem 1rem;
+        width: 100%;
+        text-align: left;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid @design-helper-border;
+
+        span {
+            letter-spacing: 0.04rem;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .widget-close-button {
+            &:after {
+                .close();
+                padding: 0;
+                font-size: 0.8rem;
+            }
+        }
+    }
+
+    .container {
+        padding: 0.75rem;
+        position: relative;
+    }
+}
+
+.workspace-widget-button {
+    background: @design-helper-background;
+    box-shadow: @design-helper-box-shadow;
+    font-size: 1.2rem;
+    padding: 0.25rem 0.2rem 0.25rem 0.6rem;
+    border-radius: 0 8px 8px 0;
+    display: block;
+    position: relative;
+    height: 34px;
+
+    &:before {
+        display: inline-block;
+        box-shadow: none;
+        margin: 0;
+        width: 19px;
+    }
+
+    span {
+        position: absolute;
+        font-size: 0.7rem;
+        padding: 0.1rem 0.15rem;
+        border-radius: 50%;
+        background: @design-helper-button-warning;
+        color: @design-helper-button-warning-text;
+        min-width: 17px;
+        left: 0.9rem;
+        top: 0.7rem;
+    }
+
+    .complete {
+        display: none;
+    }
+
+    &:after {
+        .right-arrow();
+        padding: 0 0.5rem;
+    }
+}
+
+// Style for Workspace Mode Widget
+.workspace-mode {
+    .container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .mode-toggle {
+        position: relative;
+        cursor: pointer;
+        text-align: center;
+        flex-grow: 1;
+        flex-basis: 100%;
+        border-radius: @default-border-radius-large-content;
+
+        &:not(:last-child) {
+            margin-right: 4px;
+
+            &:after {
+                content: ' ';
+                height: 50px;
+                width: 1px;
+                background-color: @container-border-sdm;
+                display: inline-block;
+                position: absolute;
+                top: 10px;
+                right: -2px;
+            }
+        }
+
+        .icon {
+            display: block;
+            font-size: 1.5rem;
+            margin: 0.2rem 0;
+        }
+
+        p {
+            display: block;
+            font-size: 0.7rem;
+            padding-top: 0;
+        }
+
+        &:hover {
+            background: @theme-color-light-bg;
+        }
+    }
+
+    .mode-toggle-on {
+        color: @theme-action-color;
+    }
+}
+
+#select-mode {
+    .icon:before {
+        .mouse-pointer();
+    }
+}
+
+#connect-mode {
+    .icon:before {
+        .bezier-curve();
+    }
+}
+
+#dimension-mode {
+    .icon:before {
+        .ruler();
+    }
+
+    .lock-icon {
+        color: @toolbutton-active-color;
+        position: absolute;
+        right: 7px;
+        top: 2.8rem;
+
+        &:before {
+            font-size: 0.6rem;
+            .lock-icon();
+        }
+    }
+
+    .dimension-warning {
+        position: absolute;
+        bottom: -11px;
+        left: 7px;
+        color: @text-unready;
+        font-size: 0.8rem;
+
+        &:before {
+            .caret-top();
+            margin-right: 2px;
+        }
+    }
+}
+
+.workspace-mode-collapsed {
+    width: 10rem !important;
+    border-radius: 0 @default-border-radius-large-content @default-border-radius-large-content 0 !important;
+    margin-left: 0;
+
+    .header {
+        display: none;
+    }
+
+    .container {
+        padding: 0.5rem 1rem 0.5rem 0.5rem;
+    }
+
+    .mode-toggle {
+        p {
+            display: none;
+        }
+
+        &:not(:last-child):after {
+            height: 20px;
+            top: 8px;
+            margin-right: 8px;
+            right: -10px;
+        }
+    }
+
+    #dimension-mode
+    {
+        &:after {
+            display: none;
+        }
+
+        .lock-icon {
+            position: absolute;
+            right: 2px;
+            top: 1.4rem;
+            font-size: 0.55rem;
+        }
+
+        .dimension-warning {
+            left: 0;
+        }
+    }
+
+    .expand-icon {
+        position: absolute;
+        top: 50%;
+        right: 2px;
+        font-size: 1.3rem;
+        margin-top: -13px;
+
+        &:before {
+            .right-arrow();
+        }
+    }
+}
+
+/**
+ * Section for Design Helper Widget
+ */
+.design-helper-open-button:before {
+    .design-helper();
+}
+
+.design-helper {
+    .container {
+        padding: 0;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    .module-name {
+        white-space: nowrap;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    .list-container {
+        overflow-y: auto;
+        max-height: 8rem;
+    }
+
+    .list-container,
+    .empty-message {
+        padding: 0.75rem;
+        padding-top: 0.5rem;
+    }
+
+    .complete:before,
+    .error-count:before {
+        font-size: 0.75rem;
+        opacity: 0.8;
+        margin: 0 0.2rem;
+        vertical-align: bottom;
+    }
+
+    .error-count:before {
+        .warning-sign;
+    }
+
+    .complete:before {
+        .checkmark-icon;
+    }
+
+    .design-name {
+        padding: 0.25rem 1rem;
+        font-size: 1.1rem;
+    }
+
+    .suggestion {
+        cursor: help;
+    }
+}
+
+.design-helper__list-containers {
+    max-height: 12rem;
+}
+
+.design-helper__module-list-container {
+    li {
+        display: flex;
+        padding: 0.15rem 0;
+    }
+
+    li:before {
+        margin-right: 0.25rem;
+        .checkmark-icon;
+        font-size: 0.8rem;
+        vertical-align: bottom;
+    }
+
+    .unconnected:before {
+        .help;
+    }
+
+    .collision:before {
+        .warning-sign;
+    }
+}
+
+.design-helper-board-status {
+    padding: 0.75rem;
+    background: @container-background-complementary;
+
+    h5 {
+        color: @text-paragraph-highlight;
+    }
+
+    p {
+        font-size: 0.9rem;
+
+        span {
+            content: " ";
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+    }
+
+    .design-helper-board-status-connected {
+        color: @text-connected;
+
+        span {
+            background: @text-connected;
+        }
+    }
+
+    .design-helper-board-status-ready {
+        color: @text-ready;
+
+        span {
+            background: @text-ready;
+        }
+    }
+
+    .design-helper-board-status-unready {
+        color: @text-unready;
+
+        span {
+            background: @text-unready;
+        }
+    }
+}
+
+.design-helper__error-list {
+    li {
+        padding: 0.25rem 0;
+    }
+
+    .module-name {
+        max-width: 10rem;
+        display: inline-block;
+        vertical-align: bottom;
+    }
+}
+
+.design-helper__optional-suggestions {
+    padding-top: 0.5rem;
+    white-space: normal;
+
+    li {
+        list-style: disc;
+        margin-left: 1rem;
+        padding: 0.15rem 0;
+    }
+
+    .optional-suggestions-header {
+        padding: 0.5rem 0;
+        font-weight: bold;
+    }
+
+    .view-options {
+        margin-left: 0.25rem;
+    }
+}
+
+.design-helper-valid-design-suggestions {
+    margin-bottom: 0.5rem;
+
+    span {
+        display: block;
+        white-space: normal;
+    }
+
+    .order-button {
+        display: block;
+        margin: 0.5rem auto;
+        padding: 0.2rem 1rem;
+        background: @my-account-button-background;
+        color: @my-account-button-text;
+        border-radius: @default-border-radius-small-content;
+        box-shadow: @my-account-button-box-shadow;
+
+        &:hover {
+            color: @my-account-button-text-hover;
+        }
+    }
+}
+
+/**
+ * Section for Module List Widget
+ */
+.module-list-open-button:before {
+    .module-list();
+}
+
+.module-list-widget {
+    .container {
+        padding-top: 0.5rem;
+    }
+
+    .module-name {
+        white-space: nowrap;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+.module-list__module-list-container {
+    max-height: 12rem;
+    overflow-y: auto;
+
+    li {
+        list-style: none;
+        display: flex;
+        padding: 0.15rem 0;
+        overflow-x: hidden;
+    }
+
+    li:before {
+        margin-right: 0.25rem;
+        .checkmark-icon;
+        font-size: 0.8rem;
+        vertical-align: bottom;
+    }
+
+    .unconnected:before {
+        .help;
+    }
+
+    .collision:before {
+        .warning-sign;
+    }
+}
+
+/**
+ * Section for Price Widget
+ */
+.price-chart-open-button:before {
+    .dollar();
+}
+
+.price-chart {
+    text-align: center;
+
+    & > *:not(:last-child, :first-child) {
+        margin-bottom: 1rem;
+    }
+
+    hr {
+        padding-top: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    thead {
+        background: none;
+        font-size: 0.9rem;
+    }
+
+    td {
+        border: 0;
+    }
+
+    th {
+        padding: 0.2rem;
+    }
+}
+
+.price-chart-gumstix {
+    .price-chart__ship-date {
+        padding-top: 0.25rem;
+        font-size: 0.9rem;
+    }
+
+    .price-chart__setup-fee {
+        padding-top: 0.25rem;
+        font-size: 0.9rem;
+    }
+
+    .price-chart__detailed-info {
+        margin-top: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+}
+
+.price-chart-price-table {
+    padding-top: 0.75rem;
+
+    table {
+        background: @design-helper-background;
+        border: 0;
+
+        th {
+            border: none;
+            border-bottom: 1px solid @design-helper-border;
+
+            &:first-child {
+                border-right: 1px solid @design-helper-border;
+            }
+        }
+
+        tr > :first-child {
+            border-right: 1px solid @design-helper-border;
+        }
+    }
+}
+
+.price-login-container {
+    p {
+        padding: 0;
+    }
+
+    button {
+        margin-top: 0.5rem;
+        padding: 0.2rem 1rem;
+        background: @my-account-button-background;
+        color: @my-account-button-text;
+        border-radius: @default-border-radius-small-content;
+        box-shadow: @my-account-button-box-shadow;
+
+        &:hover {
+            color: @my-account-button-text-hover;
+        }
+    }
+}
+
+/**
+ * Section for Power Tree Widget
+ */
+.power-tree-open-button:before {
+    .power();
+}
+
+.power-tree-widget {
+    position: relative;
+
+    .collapse-control {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        font-size: 1.6rem;
+        margin-top: -15px;
+        z-index: @zindex-child-level-1;
+
+        &:before {
+            .right-arrow();
+        }
+    }
+
+    .collapse-control-expanded {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        font-size: 1.6rem;
+        margin-top: -15px;
+        z-index: @zindex-child-level-1;
+
+        &:before {
+            .left-arrow();
+        }
+    }
+}
+
+.power-tree-list-container {
+
+    .power-tree-collapsed-chart {
+        max-height: 8rem;
+        overflow-y: auto;
+
+        .module-power {
+            display: flex;
+            padding: 0.2rem 0;
+
+            .module-power-label {
+                flex: 2;
+                text-align: left;
+            }
+
+            .module-power-value {
+                flex: 1;
+                text-align: right;
+                padding-right: 0.5rem;
+            }
+
+            &:not(:first-child) {
+                border-top: 1px solid @design-helper-content-border;
+            }
+        }
+    }
+
+    .power-tree-full-chart {
+        max-height: 10rem;
+        overflow-y: auto;
+
+        .module-power {
+            display: flex;
+            padding: 0.25rem 1.5rem;
+
+            .module-power-label {
+                flex: 2;
+                text-align: left;
+            }
+
+            .module-power-value {
+                flex: 1;
+                text-align: right;
+                padding-right: 0.5rem;
+            }
+
+            &:not(:first-child) {
+                border-top: 1px solid @design-helper-content-border;
+            }
+        }
+
+        .module-power-total {
+            .grab-cursor;
+            display: flex;
+            flex-flow: row nowrap;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+
+            .module-power-label {
+                flex: 1;
+                text-align: center;
+                padding: 0 20px;
+            }
+
+            .module-power-value {
+                flex: 1;
+                text-align: right;
+                padding-right: 4px;
+            }
+        }
+
+        .module-power-units {
+            width: 3em;
+        }
+
+        .children {
+            flex: 1;
+            // Change the values to alter the power tree's indentation
+            margin: 0 3vw;
+            border-left: 3px solid @design-helper-content-border;
+
+            .module-power {
+                border-top: 1px dashed @design-helper-content-border;
+            }
+        }
+
+        .spacer {
+            min-width: 2rem;
+            text-align: right;
+            padding: 0 0.5rem;
+        }
+    }
+
+    .power-tree-total {
+        border-top: 1px solid @design-helper-border;
+        padding-top: 0.5rem;
+        margin-top: 0.75rem;
+        text-align: right;
+        font-weight: bold;
+    }
+}
+
+#power-tree-expanded {
+    width: 32rem;
+}

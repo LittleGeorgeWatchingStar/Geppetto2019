@@ -1,0 +1,154 @@
+.downloads-dialog {
+    background: @container-background;
+}
+
+.downloads-dialog-error {
+    text-align: center;
+    padding: 0.5rem 0;
+    margin: 1rem auto;
+    margin-top: 0;
+    width: 95%;
+    background: @downloads-dialog-error-background;
+    border: 1px solid @downloads-dialog-error-border;
+
+    button {
+        margin-left: 1.5rem;
+    }
+}
+
+.downloads-dialog-header {
+    padding: 1rem;
+    font-size: 1.4rem;
+}
+
+.software-item {
+    display: flex;
+    min-height: 5rem;
+    border-radius: 2px;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    text-align: left;
+    width: 95%;
+    margin: auto;
+    margin-bottom: 0.25rem;
+    cursor: pointer;
+    position: relative;
+    background: @container-background-light;
+    border: 1px solid @regular-button-border;
+
+    &:not(.disabled-js):hover {
+        .software-item-header {
+            color: @theme-action-color;
+        }
+
+        .software-item-icon {
+            color: @theme-action-color;
+        }
+    }
+}
+
+.software-item-header {
+    .transition-speed(0.2s);
+}
+
+.downloads-dialog .software-item {
+
+    &.disabled-js {
+        opacity: 0.5;
+    }
+
+    p {
+        padding: 0;
+    }
+
+    &:not(.disabled-js):hover {
+        .software-item-icon:before {
+            opacity: 0.2;
+        }
+
+        .download-icon:before {
+            opacity: 1;
+            transform: translateY(3px);
+        }
+    }
+}
+
+.downloads-dialog,
+.validation-dialog {
+    .loading {
+        height: 100%
+    }
+}
+
+.software-item-icon-container {
+    min-width: 5rem;
+    position: relative;
+}
+
+.software-item-icon,
+.download-icon {
+    cursor: pointer;
+    font-size: 2.25rem;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+
+    &:before {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        .transition-speed(0.1s);
+    }
+}
+
+.download-icon:before {
+    .download();
+    opacity: 0;
+    transform: translateY(-3px);
+    .transition-speed(0.2s);
+    font-size: 2rem;
+    color: @theme-action-color;
+}
+
+.autodoc-icon:before {
+    .book-icon();
+}
+
+.autobsp-icon:before {
+    .package-icon();
+}
+
+.cad-icon:before {
+    .page-icon();
+}
+
+.schematic-preview-icon:before {
+    .image();
+}
+
+.software-item-content {
+    padding: 0.5rem;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.download-item-flag {
+    text-transform: uppercase;
+    font-weight: bold;
+    position: absolute;
+    top: 0.25rem;
+    right: 0.75rem;
+    font-size: 0.9rem;
+}
+
+.validation-dialog {
+    border: none;
+}
+
+.validation-dialog .software-item {
+    color: unset;
+}

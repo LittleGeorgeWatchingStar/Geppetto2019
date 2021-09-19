@@ -1,0 +1,264 @@
+/**
+Items in the library panel or substitute dialog.
+ */
+.module-tile {
+    .grab-cursor();
+    position: relative;
+    vertical-align: top;
+    display: inline-block;
+    width: 190px;
+    margin-left: 0.2rem;
+    margin-top: 0.2rem;
+    border: 1px solid @container-border-dark-sdm;
+    background: @container-background-light;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    border-radius: 2px;
+    .transition-ease(0.1s);
+
+    &:hover {
+        box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+        border-color: @theme-action-color;
+
+        .module-header {
+            background: darken(@container-background-complementary, 4%);
+        }
+
+        line, path, polygon {
+            fill: @svg-fill;
+        }
+    }
+
+    .module-header {
+        height: 37px;
+        overflow: hidden;
+        font-size: 0.9rem;
+        line-height: 1.1rem;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        background-color: @container-background-complementary;
+        .transition-ease(0.2s);
+
+        span {
+            /* Control text height before cutoff */
+            max-height: 33px;
+            padding: 0 0.5rem;
+        }
+
+        .custom:after {
+            margin-left: 0.5rem;
+            font: 0.7rem 'Glyphicons Regular';
+            content: "\E195";
+        }
+    }
+
+    .module-container {
+        position: relative;
+        height: 67px;
+        width: 75px;
+        border-right: 1px solid @container-border-complementary-sdm;
+        .grab-cursor;
+
+        img {
+            max-height: 67px;
+            object-fit: contain; //not work in IE11, need to update the method once the IE11 loading issue is fixed
+        }
+    }
+
+    .module-image-container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .module-svg-container,
+    .module-image-container {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        .transition-speed(0.2s);
+        padding: 0.4rem;
+    }
+
+    .module-image-container + .module-svg-container {
+        opacity: 0;
+    }
+
+    &:hover {
+        .module-svg-container {
+            opacity: 1;
+        }
+
+        .module-image-container {
+            opacity: 0.1;
+        }
+    }
+
+    .icons {
+        position: absolute;
+        top: 42px;
+        left: 85px;
+
+        .design-feature {
+            max-height: 20px;
+            max-width: 25px;
+            margin-right: 0.3rem;
+        }
+    }
+
+    .custom-label {
+        position: absolute;
+        font-size: 0.7rem;
+        bottom: 10%;
+        left: 11px;
+    }
+
+    .price-text {
+        position: absolute;
+        top: 80px;
+        left: 85px;
+        font-size: 0.9rem;
+        color: @text-default;
+    }
+
+    .module-delete {
+        position: absolute;
+        top: 80px;
+        right: 10px;
+        font-size: 0.7rem;
+
+        &:before {
+            .delete-icon();
+        }
+    }
+
+    .module-delete-confirmation {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        text-align: center;
+        color: @inverted-font-color;
+
+        h5 {
+            padding: 0.3rem 0.2rem;
+            overflow: hidden;
+            max-height: 40px;
+        }
+
+        button {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            display: inline-block;
+            padding: 0.2rem 1rem;
+            margin-left: -44px;
+            text-align: center;
+            background-color: lighten(@text-danger, 5%);
+            color: @inverted-font-color;
+            border-radius: @default-border-radius-small-content;
+
+            &:hover {
+                background-color: @text-danger;
+                color: @inverted-font-color;
+            }
+        }
+
+        p {
+            position: absolute;
+            bottom: 3px;
+            font-size: 0.8rem;
+            left: 50%;
+            margin-left: -23px;
+            cursor: pointer;
+
+            &:hover {
+                color: @theme-action-color;
+            }
+        }
+    }
+
+    line, path, polygon {
+        stroke: @svg-stroke;
+    }
+}
+
+.module-tile-hide {
+    display: none;
+}
+
+//use the !important to overwrite the existing style. (for mockup purpose only)
+.new-module-tile {
+    border: none !important;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5) !important;
+    border-radius: @default-border-radius-large-content;
+    width: 180px !important;
+    margin-left: 0.7rem !important;
+    margin-top: 0.7rem !important;
+    padding: 0.3rem 0 !important;
+    background: @container-background-light !important;
+
+    .module-container {
+        height: 95px !important;
+        width: 100% !important;
+
+        .ortho-image {
+            position: absolute !important;
+            max-height: unset !important;
+        }
+
+        .custom-label {
+            font-size: 0.6rem !important;
+            top: 0 !important;
+            left: 5px !important;
+            color: @text-danger;
+        }
+    }
+
+    .module-header {
+        background: @container-background-light !important;
+        text-align: left !important;
+        border-radius: @default-border-radius-large-content;
+        justify-content: left !important;
+
+        span {
+            font-size: 0.8rem;
+        }
+    }
+
+    .module-delete {
+        top: 110px !important;
+    }
+
+    .module-delete-confirmation {
+        border-radius: @default-border-radius-large-content;
+    }
+
+    &:hover {
+        border: none;
+        transform: none;
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.7) !important;
+
+        .module-header span {
+            color: @theme-action-color;
+        }
+    }
+}
+
+// update style when dragging
+.module-svg-container-with-ortho {
+    .ortho-image {
+        position: absolute !important;
+    }
+
+    svg {
+        .shadow {
+            stroke-width: 0 !important;
+        }
+    }
+}

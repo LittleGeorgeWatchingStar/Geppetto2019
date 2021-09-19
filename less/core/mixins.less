@@ -1,0 +1,682 @@
+.noselect() {
+    /* Disable selection highlighting */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+
+.transition-speed(@seconds) {
+    transition: @seconds;
+    -webkit-transition: @seconds;
+}
+
+.transition-ease(@seconds) {
+    -webkit-transition: all @seconds ease;
+    -moz-transition: all @seconds ease;
+    -o-transition: all @seconds ease;
+    transition: all @seconds ease;
+}
+
+.fade-in(@seconds) {
+    transition: opacity @seconds, visibility @seconds;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+    opacity: 1;
+}
+
+.grab-cursor() {
+    cursor: move;
+    cursor: -webkit-grab;
+    cursor: -moz-grab;
+    cursor: grab;
+}
+
+.grabbing-cursor() {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+}
+
+.glyphicon() {
+    font-family: "Glyphicons Regular";
+}
+
+.font-awesome() {
+    font-family: "FontAwesome Solid";
+}
+
+.more() {
+    .glyphicon();
+    content: "\e188";
+}
+
+// A left-pointing chevron.
+.left-chevron() {
+    .glyphicon();
+    content: "\E225";
+}
+
+// A right-pointing chevron.
+.right-chevron() {
+    .glyphicon();
+    content: "\E224";
+}
+
+.x-icon() {
+    .glyphicon();
+    content: "\E208";
+}
+
+.builder() {
+    .glyphicon();
+    content: "\E281";
+}
+
+.new-icon() {
+    .glyphicon();
+    content: "\E191";
+}
+
+.shop() {
+    .glyphicon();
+    content: "\E452";
+}
+
+.cart() {
+    .glyphicon;
+    content: "\E203";
+}
+
+.public() {
+    .glyphicon();
+    content: "\E052";
+}
+
+.undo-icon() {
+    .glyphicon();
+    content: "\e222";
+}
+
+.share() {
+    .glyphicon();
+    content: "\E223";
+}
+
+.next-icon() {
+    .glyphicon();
+    content: "\E223";
+}
+
+.compile() {
+    .glyphicon();
+    content: "\E259";
+}
+
+.download() {
+    .glyphicon();
+    content: "\E182";
+}
+
+.delete-icon() {
+    .glyphicon();
+    content: "\E017";
+}
+
+.power-connector() {
+    .glyphicon();
+    content: "\e266";
+}
+
+.power() {
+    .font-awesome();
+    content: "\f0e7";
+}
+
+.bluetooth() {
+    .glyphicon();
+    content: "\e226";
+}
+
+.audio() {
+    .glyphicon();
+    content: "\e185";
+}
+
+.monitors() {
+    .glyphicon();
+    content: "\e161";
+}
+
+.display() {
+    .glyphicon();
+    content: "\e162";
+}
+
+.mechanical() {
+    .glyphicon();
+    content: "\e137";
+}
+
+.meter() {
+    .glyphicon();
+    content: "\e332";
+}
+
+.reload {
+    .glyphicon();
+    content: "\e366";
+}
+
+.relay() {
+    .glyphicon();
+    content: "\e366";
+}
+
+.converter() {
+    .glyphicon();
+    content: "\e404";
+}
+
+.transfer() {
+    .glyphicon();
+    content: "\e458";
+}
+
+.save() {
+    .glyphicon();
+    content: "\E444";
+}
+
+.connector() {
+    .glyphicon();
+    content: '\e152';
+}
+
+.help() {
+    .glyphicon();
+    content: "\E195";
+}
+
+.flag() {
+    .glyphicon;
+    content: "\e267";
+}
+
+.lightbulb() {
+    .glyphicon();
+    content: "\E065";
+}
+
+.header() {
+    .glyphicon();
+    content: "\e168"
+}
+
+.calculator() {
+    .glyphicon();
+    content: "\e324";
+}
+
+.hard-drive() {
+    .glyphicon();
+    content: "\e343";
+}
+
+.network() {
+    .glyphicon();
+    content: "\e372";
+}
+
+.upload() {
+    .glyphicon();
+    content: "\e416";
+}
+
+.back-icon() {
+    .glyphicon();
+    content: "\e217";
+}
+
+.back-arrow() {
+    .glyphicon();
+    content: "\e211";
+}
+
+.search() {
+    .glyphicon();
+    content: "\e028";
+}
+
+.image() {
+    .glyphicon();
+    content: "\e139";
+}
+
+.keep-out() {
+    .glyphicon();
+    content: "\e192";
+}
+
+.focus-icon() {
+    .glyphicon();
+    content: "\e378";
+}
+
+.move-icon() {
+    .glyphicon;
+    content: '\e187';
+}
+
+.expand-icon() {
+    .glyphicon();
+    content: "\e350";
+}
+
+.unlock-icon() {
+    .glyphicon();
+    content: "\e205";
+}
+
+.tag-icon() {
+    .glyphicon();
+    content: "\e066";
+}
+
+.upload-cloud() {
+    .glyphicon();
+    content: "\e365";
+}
+
+.rotate-icon() {
+    .glyphicon();
+    content: "\e366";
+}
+
+.page-icon() {
+    .glyphicon();
+    content: "\e359";
+}
+
+.book-icon() {
+    .glyphicon();
+    content: "\e352";
+}
+
+.package-icon() {
+    .glyphicon();
+    content: "\e326";
+}
+
+.up-icon() {
+    .glyphicon;
+    content: "\e219";
+}
+
+.checkmark-icon() {
+    .glyphicon;
+    content: "\E207";
+}
+
+.circle-checkmark() {
+    .glyphicon;
+    content: "\E199";
+}
+
+.warning-sign() {
+    .glyphicon;
+    content: "\E079";
+}
+
+.view-icon() {
+    .glyphicon;
+    content: '\E052';
+}
+
+.branch-icon() {
+    .glyphicon;
+    content: "\E424";
+}
+
+.edit-icon() {
+    .glyphicon;
+    content: '\E151';
+}
+
+.pin-icon() {
+    .glyphicon;
+    content: '\E239';
+}
+
+.exclamation-icon() {
+    .glyphicon;
+    content: '\E197';
+}
+
+.lock-icon() {
+    //NOTE: Due the the missing of the lock icon in glyphicions (v1.1)
+    //these comment out css are reserved for future updating of the glyphicions
+    //.glyphicon();
+    //content: "\E205";
+    .font-awesome();
+    content: "\F023";
+}
+
+.refocus() {
+    .glyphicon;
+    content: "\E378";
+}
+
+.zoom-in() {
+    .glyphicon;
+    content: "\E237";
+}
+
+.zoom-out() {
+    .glyphicon;
+    content: "\E238";
+}
+
+.profile-tag() {
+    .glyphicon;
+    content: "\E353";
+}
+
+.feature-flag() {
+    .glyphicon;
+    content: "\E338";
+}
+
+.tutorial() {
+    .glyphicon;
+    content: "\E310";
+}
+
+.logout() {
+    .glyphicon;
+    content: "\E389";
+}
+
+.dark-mode() {
+    .font-awesome();
+    content: "\F042";
+}
+
+.home() {
+    .font-awesome();
+    content: "\F015";
+}
+
+.fire() {
+    .font-awesome();
+    content: "\F06D";
+}
+
+.user-edit() {
+    .font-awesome();
+    content: "\F4FF";
+}
+
+.brand-toggle-icon(@icon: 'geppetto') {
+    content: '';
+    background: url("../../image/icons/@{icon}_logo.png") no-repeat;
+    background-size: contain;
+    width: 26px;
+    height: 29px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.partner-white(@icon: 'gumstix', @size: 23px) {
+    content: '';
+    background: url("../../image/icons/@{icon}_logo_white.png") no-repeat;
+    background-size: contain;
+    width: @size;
+    height: @size;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.partner-gray(@icon: 'gumstix', @size: 23px) {
+    content: '';
+    background: url("../../image/icons/@{icon}_logo_gray.png") no-repeat;
+    background-size: contain;
+    width: @size;
+    height: @size;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.community() {
+    .font-awesome();
+    content: "\F0C0";
+}
+
+.shared() {
+    .font-awesome();
+    content: "\F1E0";
+}
+
+.back() {
+    .glyphicon();
+    content: "\E222";
+}
+
+.undo() {
+    .glyphicon;
+    content: "\E222";
+}
+
+.redo() {
+    .glyphicon;
+    content: "\E223";
+}
+
+.history() {
+    .font-awesome();
+    content: "\F1DA";
+}
+
+.close() {
+    .glyphicon;
+    content: "\E208";
+}
+
+.parts() {
+    .font-awesome;
+    content: "\F1B3";
+}
+
+.design-helper() {
+    .font-awesome;
+    content: "\F46D";
+}
+
+.module-list() {
+    .font-awesome;
+    content: "\F187";
+}
+
+.left-arrow-no-border () {
+    .font-awesome;
+    content: "\f060";
+}
+
+.right-arrow-no-border () {
+    .font-awesome;
+    content: "\f061";
+}
+
+.left-arrow () {
+    .font-awesome;
+    content: "\F104";
+}
+
+.right-arrow () {
+    .font-awesome;
+    content: "\F105";
+}
+
+.down-arrow () {
+    .font-awesome;
+    content: "\f0ab";
+}
+
+.up-arrow() {
+    .font-awesome;
+    content: "\f0aa";
+}
+
+.account() {
+    .font-awesome;
+    content: "\F2BD";
+}
+
+.filter() {
+    .font-awesome;
+    content: "\F0B0";
+}
+
+.computer() {
+    .font-awesome;
+    content: "\f109";
+}
+
+.geppetto() {
+    content: '';
+    background: url("../../image/icons/geppetto_logo.png") no-repeat;
+    background-size: contain;
+    width: 26px;
+    height: 29px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.login() {
+    .font-awesome;
+    content: "\f2f6";
+}
+
+.to-dashboard-arrow() {
+    .font-awesome;
+    content: "\f0a8";
+    background: transparent;
+}
+
+.to-workspace-arrow() {
+    .font-awesome;
+    content: "\f6cf";
+    background: transparent;
+}
+
+.menuExpansion() {
+    .font-awesome;
+    content: "\f362";
+}
+
+.price() {
+    .glyphicon();
+    content: "\E228";
+}
+
+.dollar() {
+    .font-awesome;
+    content: "\f155";
+}
+
+.tag() {
+    .font-awesome;
+    content: "\f02b";
+}
+
+.info() {
+    .font-awesome;
+    content: "\f129";
+}
+
+.link() {
+    .font-awesome;
+    content: "\f0c1";
+}
+
+.unlink() {
+    .font-awesome;
+    content: "\f127";
+}
+
+.caret-right() {
+    .font-awesome;
+    content: "\f0da";
+}
+
+.connect-mode() {
+    .glyphicon;
+    content: "\E309";
+}
+
+.dimension-mode() {
+    .glyphicon;
+    content: "\E098";
+}
+
+.caret-top() {
+    .font-awesome;
+    content: "\f0d8";
+}
+
+.net() {
+    .font-awesome;
+    content: "\f6ff";
+}
+
+.location-arrow() {
+    .font-awesome;
+    content: "\f124";
+}
+
+.threed-render() {
+    .glyphicon;
+    content: "\E320";
+}
+
+.angle-down-arrow() {
+    .font-awesome;
+    content: "\F107";
+}
+
+.angle-up-arrow() {
+    .font-awesome;
+    content: "\F106";
+}
+
+.mouse-pointer() {
+    .font-awesome;
+    content: "\f245";
+}
+
+.ruler() {
+    .font-awesome;
+    content: "\f545";
+}
+
+.bezier-curve() {
+    .font-awesome;
+    content: "\f55b";
+}
+
+.palette() {
+    .font-awesome;
+    content: "\f53f";
+}
+
+.copy() {
+    .font-awesome;
+    content: "\f0c5"
+}
+
+.apply() {
+    .font-awesome;
+    content: "\f56f"
+}

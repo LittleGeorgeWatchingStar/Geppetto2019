@@ -1,0 +1,200 @@
+html .power-finder-dialog {
+    padding: 0;
+
+    .loader {
+        text-align: center;
+        padding: 2rem 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+    }
+
+    .heading {
+        padding: 1.5rem;
+        padding-bottom: 1rem;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+
+        > span {
+            font-size: 1.2rem;
+        }
+    }
+
+    .message {
+        text-align: center;
+        padding: 2rem 0;
+    }
+
+    h3 {
+        padding-bottom: 0.25rem;
+    }
+
+    .options-container {
+        display: flex;
+        background: @container-background-complementary;
+
+        > div {
+            padding: 1rem;
+            width: 50%;
+            max-height: 25rem;
+            overflow-y: auto;
+        }
+
+        .options {
+            margin-bottom: 1rem;
+        }
+    }
+
+    .connector-options {
+        margin-bottom: 1rem;
+
+        h3:before {
+            font: 1rem 'Glyphicons Regular';
+            content: '\e152';
+            margin-right: 0.5rem;
+        }
+    }
+
+    .connector-message {
+        border-radius: 2px;
+        padding: 0.75rem 0.5rem;
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+        background: @power-finder-connector-message-background;
+
+        b {
+            white-space: nowrap;
+        }
+    }
+
+    form, .connector-message {
+        box-shadow: 0 0 2px;
+    }
+
+    form {
+        padding: 0.75rem;
+        border-radius: 2px;
+        background: @container-background;
+
+        &:not(:first-child) {
+            margin: 1rem 0;
+        }
+
+        > div {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        > span {
+            margin-left: 1rem;
+        }
+
+        label {
+            display: block;
+            white-space: nowrap;
+            padding: 0.1rem 0;
+            cursor: pointer;
+
+            span {
+                max-width: 16rem;
+                overflow-x: hidden;
+                text-overflow: ellipsis;
+                display: inline-block;
+            }
+        }
+
+        [data-connector]:after {
+            font: 0.9rem 'Glyphicons Regular';
+            content: '\e152';
+            vertical-align: top;
+            margin-left: 0.3rem;
+        }
+
+        input {
+            margin-right: 0.25rem;
+            height: 1.2rem;
+        }
+
+        input:checked + span {
+            color: @theme-action-color;
+        }
+
+        input:disabled + span {
+            opacity: 0.5;
+            cursor: help;
+        }
+    }
+
+    .preview-container {
+        padding: 1.5rem;
+        border-top: 1px solid @container-border-dark-complementary-sdm;
+
+        > div {
+            max-width: 32rem;
+            text-align: center;
+            display: flex;
+            justify-content: space-around;
+            margin: 0 auto;
+        }
+
+        .preview-wrapper {
+            display: flex;
+        }
+
+        .preview {
+            text-align: left;
+            width: 20rem;
+            border-radius: 2px;
+            padding: 0.75rem 1rem;
+            background: @container-background;
+            border: 1px solid @container-border-dark-complementary-sdm;
+        }
+
+        .pointer {
+            border-top: 1rem solid transparent;
+            border-bottom: 1rem solid transparent;
+            margin: auto 0;
+            border-left: 1.25rem solid @container-border-dark-complementary-sdm;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 1rem;
+
+            .add-power {
+                text-align: center;
+                padding: 0.5rem 2rem;
+                white-space: nowrap;
+            }
+        }
+    }
+
+    .warning-button-container {
+        margin-top: 1rem;
+
+        > * {
+            margin: 0 0.5rem;
+        }
+
+        hr {
+            margin-bottom: 0.5rem;
+        }
+    }
+}
+
+.power-prompt {
+    p:first-child {
+        text-align: center;
+        font-size: 1rem;
+    }
+
+    .button-container {
+        text-align: center;
+        margin: 1rem 0;
+    }
+}

@@ -1,0 +1,457 @@
+.dashboard {
+
+    h3 {
+        margin-bottom: 0.9rem;
+        font-size: 1.2rem;
+        white-space: nowrap;
+    }
+
+    .heading {
+        padding: 0 2rem;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        a {
+            font-size: 1.2rem;
+            height: 1.5rem;
+            border-bottom: 2px solid;
+            white-space: nowrap;
+            cursor: pointer;
+            color: @regular-button-hover;
+        }
+    }
+}
+
+.dashboard-container {
+    display: flex;
+    height: 100%;
+    position: relative;
+}
+
+.dashboard-sidebar {
+    width: 4.2rem;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    background-color: @dashboard-menu-background;
+    color: @dashboard-menu-color;
+    overflow-y: auto;
+    z-index: @zindex-level-5;
+    box-shadow: @dashboard-menu-box-shadow;
+
+    > div:first-child {
+        background-color: @dashboard-workspace-button-background;
+
+        .dashboard-menu-item {
+            padding: 1.1rem 0;
+        }
+
+        &:hover {
+            #geppetto-icon, #seeed-icon, #rpi-icon, #adlink-icon, #arduino-icon {
+                &:before {
+                    .to-workspace-arrow();
+                    color: @dashboard-workspace-button-hover;
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+
+    .dashboard-menu-item {
+        margin: auto;
+        width: 100%;
+        cursor: pointer;
+        font-size: 1rem;
+        padding: 1.3em 0;
+        text-align: left;
+        min-height: 4rem;
+
+        a {
+            color: inherit;
+        }
+
+        .dashboard-menu-title-wrapper, a .dashboard-meu-title-wrapper {
+            display: block;
+            height: 29px;
+            max-height: 29px;
+            overflow: hidden;
+        }
+
+        .dashboard-menu-icon {
+            display: inline-block;
+            width: 4.2rem;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .dashboard-menu-title {
+            opacity: 0;
+            visibility: hidden;
+            display: inline-block;
+        }
+
+        #dashboard-home-icon:before {
+            .home();
+        }
+
+        #dashboard-latest-module-icon:before {
+            .fire();
+        }
+
+        #dashboard-my-designs-icon:before {
+            .user-edit();
+        }
+
+        #dashboard-gumstix-icon:before {
+            .partner-white('gumstix', 23px);
+        }
+
+        #dashboard-seeed-icon:before {
+            .partner-white('seeed', 28px);
+        }
+
+        #dashboard-rpi-icon:before {
+            .partner-white('rpi', 28px);
+        }
+
+        #dashboard-adlink-icon:before {
+            .partner-white('adlink', 27px);
+        }
+
+        #dashboard-arduino-icon:before {
+            .partner-white('arduino', 28px);
+        }
+
+        #dashboard-community-icon:before {
+            .community();
+        }
+
+        #dashboard-shared-icon:before {
+            .shared();
+        }
+
+        #dashboard-back-icon:before {
+            .back();
+        }
+
+        #dashboard-mailto-icon:before {
+            .apply();
+        }
+
+        &:hover {
+            .dashboard-menu-icon, .dashboard-menu-title {
+                color: @dashboard-menu-active;
+            }
+        }
+    }
+
+    .dashboard-menu-active {
+        color: @dashboard-menu-active;
+        position: relative;
+
+        &:before {
+            content: ' ';
+            width: 5px;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            background-color: @dashboard-menu-active;
+        }
+
+        .dashboard-menu-item {
+            .dashboard-menu-title {
+                font-weight: bold;
+            }
+        }
+    }
+
+    &:hover {
+        width: 30%;
+        max-width: 17rem;
+        transition: width 1s;
+
+        .dashboard-menu-item {
+            .dashboard-menu-title {
+                margin-left: 0.5rem;
+                opacity: 1;
+                visibility: visible;
+                transition: visibility 0.6s, opacity 0.6s 0.4s ease;
+            }
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        width: 4.2rem;
+
+        .dashboard-menu-item {
+            padding: 1.3em 0;
+
+            .dashboard-menu-icon {
+                width: 100%;
+                text-align: center;
+            }
+
+            .dashboard-menu-title {
+                display: none;
+            }
+        }
+
+        &:hover {
+            width: 4.2rem;
+        }
+    }
+}
+
+.dashboard-sidebar-force-collapsed {
+    &:hover {
+        width: 4.2rem;
+
+        .dashboard-menu-item {
+            padding: 1.3em 0;
+
+            .dashboard-menu-icon {
+                width: 100%;
+                text-align: center;
+            }
+
+            .dashboard-menu-title {
+                display: none;
+            }
+        }
+    }
+}
+
+.dashboard-content {
+    margin-left: 4.2rem;
+    width: 100% - 3.2rem;
+    height: 100%;
+    overflow-y: auto;
+    position: relative;
+}
+
+.dashboard-designs {
+    list-style-type: none;
+    height: 12.5rem;
+    display: flex;
+}
+
+.dashboard-top,
+.dashboard-body {
+    max-width: 85rem;
+}
+
+.dashboard-top-container {
+    min-height: 21rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    overflow-x: auto;
+    position: relative;
+    background: @container-background;
+}
+
+.dashboard-top {
+    height: 100%;
+
+    h2 {
+        white-space: nowrap;
+
+        img {
+            width: 2.5rem;
+            vertical-align: bottom;
+            margin-right: 0.5rem;
+            margin-bottom: -0.5rem;
+        }
+    }
+
+    .dashboard-header {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 2rem 2rem 2rem;
+    }
+
+    .promotion {
+        padding: 1rem 2rem;
+    }
+
+    .dashboard-row {
+        display: flex;
+        margin-top: 0.5rem;
+    }
+
+    .default-options-container {
+        width: 40%;
+        padding: 0 2rem;
+        min-width: 450px;
+        border-right: 1px solid @container-border;
+    }
+
+    .clone-designs-container {
+        width: 60%;
+    }
+
+    .default-options {
+        display: flex;
+        justify-content: space-between;
+
+        > :first-child {
+            margin-right: 1rem;
+        }
+    }
+
+    .option {
+        width: 225px;
+        font-size: 1rem;
+        text-align: center;
+        font-weight: bold;
+        color: @theme-action-color;
+
+        .option-content {
+            border: 2px solid;
+            border-bottom: 4px solid;
+            margin-bottom: 0.5rem;
+            height: 9rem;
+            box-shadow: @regular-button-box-shadow;
+            border-radius: 2px;
+        }
+
+        .option-content:after {
+            .transition-speed(0.2s);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+            background: @container-background-blur;
+        }
+    }
+
+    .option:hover {
+        color: @theme-action-color-light;
+
+        .new:after {
+            font-size: 3rem;
+        }
+
+        .board-builder:after {
+            opacity: 1;
+            transform: unset;
+        }
+    }
+
+    .new {
+        background: url(../../../image/geppetto-thumb.png) no-repeat center;
+
+        &:after {
+            .new-icon();
+            font-size: 2.5rem;
+        }
+    }
+
+    .board-builder {
+        background: url(../../../image/board-builder-thumb.png) no-repeat;
+
+        &:after {
+            .builder();
+            font-size: 3rem;
+            opacity: 0;
+            transform: translateY(5px);
+        }
+    }
+
+    .clone-designs {
+        height: 11rem;
+        padding: 0 2rem;
+        justify-content: space-between;
+    }
+}
+
+.dashboard-body-container {
+    position: relative;
+}
+
+.dashboard-body {
+
+    min-height: 25rem;
+
+    h3 {
+        padding-left: 1rem;
+        border-left: 7px solid @title-highlight;
+    }
+
+    .dashboard-row {
+        padding-top: 2rem;
+        position: relative;
+    }
+
+    .preview-container {
+        overflow-x: auto;
+    }
+
+    .dashboard-designs {
+        padding: 1rem 2rem;
+        padding-top: 0;
+    }
+
+    .design-preview-mini-container {
+        width: 14.9%;
+    }
+}
+
+.dashboard-message {
+    text-align: center;
+    font-size: 1.2rem;
+    margin: 2rem 0;
+    line-height: 1.75rem;
+
+    p {
+        font-style: italic;
+        margin-bottom: 1rem;
+    }
+
+    button {
+        padding: 0.5rem 3rem;
+    }
+}
+
+.dashboard-shutter {
+    position: absolute;
+    top: 0;
+    bottom: -5%;
+    width: 100%;
+    max-width: 85rem;
+    pointer-events: none; // Do not block user interactions
+}
+
+@media screen and (max-width: 950px) {
+
+    html .dashboard-top-container {
+        overflow-x: hidden;
+    }
+
+    html .dashboard-top {
+        .dashboard-row {
+            display: block;
+        }
+
+        .default-options-container {
+            border-right: none;
+            width: unset;
+
+            .default-options {
+                justify-content: unset;
+            }
+        }
+
+        .clone-designs-container {
+            width: unset;
+            overflow-x: auto;
+            padding: 1.5rem 0;
+        }
+    }
+}
+
+@media screen and (max-width: 700px) {
+    html .dashboard-header {
+        display: inherit;
+    }
+}

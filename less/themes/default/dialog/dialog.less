@@ -1,0 +1,208 @@
+.ui-dialog {
+    background: #ffffff;
+    box-shadow: 2px 2px 10px 2px rgba(20, 20, 20, 0.4);
+
+    .ui-dialog-titlebar {
+        background-color: @theme-action-color;
+        color: white;
+
+        button,
+        button:hover {
+            color: white;
+        }
+        button:hover {
+            opacity: 0.5;
+        }
+    }
+
+    .ui-dialog-content,
+    .ui-dialog-buttonset {
+        border: 1px solid #999999;
+        border-top: 0;
+    }
+}
+
+.link line {
+    stroke: #AAD9FA;
+}
+
+.disconnect-widget {
+
+    .list-item-label {
+        color: @theme-color;
+
+        &:hover {
+            color: @theme-color-light;
+        }
+    }
+
+    .action {
+        border: 1px solid #aaaaaa;
+        color: @theme-action-color;
+
+        &:hover {
+            background: #eaeaea;
+        }
+    }
+}
+
+.design-share-dialog {
+    background: #f3f3f3;
+
+    .tab-buttons {
+        background: #cccccc;
+        border-bottom: 1px solid #bbbbbb;
+
+        button {
+            border: 1px solid #bbbbbb;
+            background: #dfdfdf;
+
+            &.current-active {
+                background: #f3f3f3;
+                border-bottom: 1px solid #f3f3f3;
+            }
+        }
+    }
+
+    .design-share {
+
+        section {
+            border: 1px solid #bbbbbb;
+            background: #ffffff;
+        }
+
+        .add-collaboration {
+            border: 1px dashed #aaaaaa;
+            background: #efefef;
+            color: @theme-action-color;
+
+            &:hover {
+                border: 1px dashed #777777;
+                background: #e5e5e5;
+            }
+        }
+    }
+
+    .manage-collaborations {
+
+        .apply {
+            border: 1px solid #bbbbbb;
+            background: #ffffff;
+        }
+
+        .discard,
+        .reset {
+            background: #ffffff;
+            border: 1px solid #cccccc;
+        }
+
+        .discard,
+        .reset {
+            &:hover {
+                background: #f5f5f5;
+            }
+        }
+
+        .save-changes {
+            background: #dedede;
+            color: #666666;
+
+            &.available {
+                background: @theme-action-color;
+                color: #ffffff;
+
+                &:hover {
+                    background: @theme-action-color-light;
+                }
+            }
+        }
+
+        tbody tr:not(.inactive-js):hover {
+            background: rgba(200, 200, 200, 0.35);
+        }
+
+        // When the collaboration has been flagged for removal.
+        .inactive-js {
+            background: #f2f2f2;
+            color: #777777;
+        }
+
+        .navigation button {
+            border: 1px solid #aaaaaa;
+            background: #ffffff;
+        }
+    }
+
+    .remove-collaboration,
+    .undo,
+    .navigation button {
+        color: #555555;
+
+        &:hover {
+            color: @theme-action-color;
+        }
+    }
+}
+
+.reconnection-log {
+
+    .num-connections {
+        border: 1px solid #cccccc;
+    }
+
+    thead {
+        background: #eeeeee;
+    }
+
+    td {
+        border: 1px solid #aaaaaa;
+    }
+}
+
+.help-content-container {
+    .foot-nav {
+        border-top: 1px solid #cccccc;
+    }
+
+    .nav-box > div {
+        border: 1px solid #bbbbbb;
+
+        &:hover {
+            border: 1px solid #888888;
+        }
+    }
+}
+
+.module-list-item-content {
+    background: #ffffff;
+}
+
+.design-review {
+    .checkmark:before {
+        color: @theme-color-triad;
+    }
+}
+
+.design-review__warnings-container {
+    border: 1px solid #cccccc;
+}
+
+.design-review__cta {
+    color: @theme-color;
+
+    &:hover {
+        color: @theme-color-light;
+    }
+}
+
+.suggested-modules {
+
+    h4 {
+        color: @theme-color;
+    }
+
+    .suggestion-message {
+        border-bottom: 1px solid #bbbbbb;
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    }
+}

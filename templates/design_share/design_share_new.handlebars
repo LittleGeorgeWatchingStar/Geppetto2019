@@ -1,0 +1,41 @@
+<div class="design-share">
+    <form id="design-share-form">
+        <section class="share-options">
+            {{#if allowEdit}}
+                <label for="share-permission" class="heading">
+                    Share options:
+                </label>
+                <select id="share-permission">
+                    <option value="view">View</option>
+                    <option value="edit">Edit</option>
+                </select>
+            {{else}}
+                Sharing your design will allow your collaborators to <strong>clone</strong> it.<br/>
+                Please note that any changes they make will only affect their copy.
+            {{/if}}
+        </section>
+        <section class="invitees">
+            <div class="heading">Invitees*</div>
+            <span class="error"></span>
+            <table class="collaborations">
+            </table>
+            <input type="button" class="add-collaboration" value="+ Add Invitee"/>
+        </section>
+        <section class="share-message">
+            <label for="share-email-message" class="heading">
+                Message* <em>(Max 1000 characters)</em>
+            </label>
+            <textarea id="share-email-message" maxlength="1000" required rows="6"
+                      placeholder="Tell your collaborators about the design...">
+            </textarea>
+
+            <div class="submit">
+                <p class="invalid-field-message" hidden>
+                    <strong class="error">Invalid field(s).</strong>
+                    Please check that you have filled the form correctly and that there are no duplicate entries.
+                </p>
+                <input class="send-email cta" type="submit" value="Send Email">
+            </div>
+        </section>
+    </form>
+</div>

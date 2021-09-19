@@ -1,0 +1,90 @@
+.working-area-toolbar {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 95px;
+    left: 38%;
+    z-index: @zindex-level-2;
+
+    .working-area-toolbar-button {
+        background: @working-area-tool-button-background-color;
+        border-radius: 5px;
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        min-height: 25px;
+
+        .working-area-toolbar-icon {
+            padding: 0.1rem 0.4rem;
+            display: block;
+
+            &:before {
+                font-size: 0.9rem;
+            }
+        }
+
+        #refocus-icon:before {
+            .refocus();
+        }
+
+        #help-icon:before {
+            .help();
+        }
+
+        #zoom-in-icon:before {
+            .zoom-in();
+        }
+
+        #zoom-out-icon:before {
+            .zoom-out();
+        }
+
+        #undo-icon:before {
+            .undo();
+        }
+
+        #redo-icon:before {
+            .redo();
+        }
+
+        #action-log-icon:before {
+            .history();
+        }
+
+        #threed-render-icon:before {
+            .threed-render();
+        }
+    }
+
+    .left-working-area-button {
+        border-radius: 5px 0 0 5px;
+        border-right: 1px solid @default-border-color;
+    }
+
+    .center-working-area-button {
+        border-radius: 0;
+        border-right: 1px solid @default-border-color;
+        clip-path: inset(-5px -5px -5px 0);
+    }
+
+    .right-working-area-button {
+        border-radius: 0 5px 5px 0;
+        clip-path: inset(-5px -5px -5px 0px);
+    }
+
+    .working-area-toolbar-divider {
+        width: 7px;
+    }
+
+    [disabled] {
+        opacity: 1;
+        background-color: @working-area-tool-button-disabled-color;
+
+        span {
+            opacity: 0.5;
+        }
+    }
+
+    .working-area-button-active {
+        background-color: @working-area-tool-button-active-background;
+    }
+}
+

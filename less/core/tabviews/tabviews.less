@@ -1,0 +1,152 @@
+#alltabcontainer, .tabview {
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+#alltabcontainer {
+    top: 0;
+    bottom: 30px;
+}
+
+.tabview-header {
+    min-height: 4rem;
+    top: 0;
+    box-shadow: @container-box-shadow-light;
+    background-color: @container-background-complementary;
+    z-index: @zindex-level-4;
+}
+
+.tabview-header-new-ui {
+    background: @container-background !important;
+    z-index: @zindex-level-4;
+}
+
+.masthead {
+    padding: 1rem 2rem;
+    width: 60%;
+    min-width: 60rem;
+    white-space: nowrap;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    color: @title-defult;
+
+    img {
+        max-width: 28px;
+        vertical-align: bottom;
+    }
+
+    input {
+        height: 2rem;
+        padding: 0.3rem;
+    }
+}
+
+.tab-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.count {
+    font-size: 1rem;
+    padding-top: 0.5rem;
+}
+
+.search-container {
+    position: relative;
+}
+
+.reset-icon {
+    top: -1px;
+    right: 0;
+    position: absolute;
+    opacity: 0.5;
+    font-size: 1rem;
+
+    &:hover {
+        color: @regular-button-hover;
+        opacity: 1;
+    }
+
+    &:after {
+        .close();
+    }
+}
+
+.design-filter-button {
+    display: flex;
+
+    button {
+        font-size: 1rem;
+        padding: 0 0.4rem 0 0;
+        border-radius: @default-border-radius-large-content;
+        background-color: @filter-button-background;
+        box-shadow: @filter-button-box-shadow;
+
+        &:before {
+            .filter();
+            margin: 0 0.4rem;
+            font-size: 0.8rem;
+        }
+    }
+
+    .filter-active {
+        background-color: @filter-active-button-background;
+    }
+}
+
+.design-preview-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+        list-style: none;
+        width: 25%;
+    }
+}
+
+.design-container {
+    padding: 2.5rem 1.25rem 1.25rem 1.25rem;
+}
+
+.design-container,
+.tab-shutter {
+    position: absolute;
+    top: 65px;
+    bottom: 0;
+    width: 100%;
+    overflow-y: auto;
+    background-attachment: fixed;
+}
+
+.tabview {
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    background-color: @dashboard-tabview-background;
+
+    .message-container {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        text-align: center;
+
+        h3 {
+            padding: 0.25rem;
+            margin-bottom: 1rem;
+        }
+    }
+
+    .title-prefix {
+        margin-right: 0.5rem;
+    }
+}
+
+.my-designs, .shared {
+    .title-prefix {
+        display: none;
+    }
+}

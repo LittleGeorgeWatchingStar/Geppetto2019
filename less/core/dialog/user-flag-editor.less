@@ -1,0 +1,61 @@
+.user-flag-editor {
+    position: relative;
+    overflow: visible;
+    overflow-y: auto;
+
+    main {
+        height: 100%;
+    }
+
+    .sub-list {
+        margin: 0.7rem 0;
+
+        h4 {
+            margin-bottom: 0.4rem;
+            padding: 0.2rem;
+            border-left: 3px solid @theme-action-color-light;
+        }
+    }
+
+    ul.flags-list {
+        overflow-y: auto;
+        list-style: none;
+
+        li:last-child {
+            margin-bottom: 0.75rem;
+        }
+
+        .flag {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.15rem 0;
+            white-space: nowrap;
+            overflow-x: hidden;
+            text-overflow: ellipsis;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .enabled-icon {
+            display: inline-block;
+            color: #58d43a;
+
+            &:before {
+                font: 1.5rem 'Glyphicons Regular';
+                line-height: 1.5rem;
+                content: "\E153";
+            }
+        }
+
+        .disabled-icon {
+            display: inline-block;
+            color: #ff3737;
+
+            &:before {
+                font: 1.5rem 'Glyphicons Regular';
+                line-height: 1.5rem;
+                content: "\E154";
+            }
+        }
+    }
+}

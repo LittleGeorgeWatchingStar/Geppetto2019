@@ -1,0 +1,302 @@
+/* Styles for the design sharing dialog, including its tabs.*/
+
+.resend-email-dialog {
+    section {
+        margin: 1rem 0;
+    }
+
+    textarea {
+        margin-top: 0.5rem;
+    }
+
+    .submit {
+        margin-top: 1.5rem;
+
+        .send-email {
+            padding: 0.5rem 1.25rem;
+        }
+    }
+}
+
+.design-share-dialog {
+    padding: 0;
+
+    textarea:focus,
+    input[type=text]:focus,
+    input[type=email]:focus {
+        box-shadow: 0 0 3px 1px rgba(50, 125, 225, 0.6);
+    }
+
+    .tab-buttons {
+        padding-top: 0.5rem;
+
+        button {
+            padding: 0.75rem 1rem;
+            margin-bottom: -1px;
+
+            &:first-child {
+                border-left: 0;
+            }
+
+            &:before {
+                font: 0.9rem "Glyphicons Regular";
+                vertical-align: bottom;
+                padding-right: 0.5rem;
+            }
+        }
+
+        [data-nav="invite-new"]:before {
+            content: "\E007";
+        }
+
+        [data-nav="manage-existing"]:before {
+            content: "\E115";
+        }
+    }
+
+    .design-share {
+        max-height: 600px;
+        overflow-y: auto;
+        padding: 1.5rem;
+
+        td {
+            padding: 0.4rem 1rem 0.4rem 0;
+        }
+
+        input[type=button] {
+            padding: 0.5rem 1rem;
+        }
+
+        .share-email {
+            width: 55%;
+        }
+
+        .share-name {
+            width: 45%;
+        }
+
+        section {
+            margin-bottom: 1rem;
+            padding: 1.75rem;
+        }
+
+        .heading {
+            font-size: 1.1rem;
+        }
+
+        .add-collaboration,
+        textarea {
+            margin-top: 0.5rem;
+            width: 100%;
+        }
+
+        .add-collaboration,
+        .send-email {
+            cursor: pointer;
+        }
+
+        .remove-collab-container {
+            padding: 0;
+        }
+
+        .share-message .heading {
+            display: flex;
+            justify-content: space-between;
+            em {
+                font-size: 0.8rem;
+            }
+        }
+
+        table, td {
+            border: 0;
+        }
+
+        .submit {
+            margin-top: 1.5rem;
+
+            .send-email {
+                padding: 0.5rem 1.25rem;
+            }
+        }
+    }
+
+    .manage-collaborations {
+        padding: 1rem;
+        height: 25rem;
+
+        table {
+            width: 100%;
+            margin-bottom: 1rem;
+            overflow-y: auto;
+            display: block;
+            height: 425px;
+
+            thead {
+                font-size: 1.1rem;
+                display: block;
+                box-shadow: 0 1px 3px rgba(100, 100, 100, 0.3);
+
+                td {
+                    padding: 1rem;
+                    padding-bottom: 0.75rem;
+                }
+            }
+
+            tbody {
+                display: block;
+
+                td {
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    padding: 0.5rem 1rem;
+                    cursor: pointer;
+                    height: 2.75rem;
+                }
+
+                tr {
+                    display: block;
+
+                    button {
+                        padding: 0 0.75rem;
+                    }
+                }
+            }
+
+            .name {
+                min-width: 11rem;
+                max-width: 11rem;
+            }
+
+            .email {
+                min-width: 13rem;
+                max-width: 13rem;
+            }
+
+            .permission,
+            .removed-message {
+                min-width: 7rem;
+                max-width: 7rem;
+            }
+        }
+
+        .save-changes {
+            width: 12rem;
+            margin-bottom: 1rem;
+            padding: 0.5rem 2rem;
+            .transition-speed(0.2s);
+            float: right;
+
+            &.available {
+                cursor: pointer;
+
+                &:active {
+                    transform: translate(0.5px, 1px);
+                    .transition-speed(0.1s);
+                }
+            }
+        }
+
+        .reset {
+            float: left;
+            padding: 0.4rem 1rem;
+        }
+
+        .batch-actions {
+            margin-bottom: 1rem;
+
+            .widget {
+                display: flex;
+            }
+
+            .apply {
+                margin-left: 0.5rem;
+                padding: 0.25rem 1.25rem;
+            }
+
+            .error {
+                text-align: left;
+                margin-top: 0.5rem;
+                display: none;
+            }
+        }
+
+        .apply,
+        .discard,
+        .reset {
+            cursor: pointer;
+            .transition-speed(0.2s);
+            box-shadow: 1px 1px 1px 0 rgba(20, 20, 20, 0.1);
+
+            &:active {
+                box-shadow: none;
+                transform: translate(0.5px, 1px);
+                .transition-speed(0.1s);
+            }
+        }
+
+        .unsaved-changes {
+            float: left;
+            display: flex;
+
+            span,
+            .discard {
+                padding: 0.4rem 1rem;
+            }
+
+            &:before {
+                font: 1rem "Glyphicons Regular";
+                content: "\E197";
+                padding: 0.4rem 0;
+            }
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+
+            .navigation {
+                span {
+                    vertical-align: top;
+                    margin-right: 0.5rem;
+                }
+
+                button {
+                    font: 1rem "Glyphicons Regular";
+                    padding: 0.25rem 0.5rem;
+                }
+
+                .back:after {
+                    content: "\E225";
+                }
+
+                .next:after {
+                    content: "\E224";
+                }
+            }
+        }
+    }
+
+    // 'X' to remove collab in share view and collaboration manager
+    .remove-collaboration,
+    .undo {
+        padding: 0.3rem 0;
+        cursor: pointer;
+        .transition-speed(0.2s);
+
+        &:active {
+            transform: translate(0.5px, 1px);
+            .transition-speed(0.1s);
+        }
+
+        &:after {
+            font-family: "Glyphicons Regular";
+            content: "\E208";
+            vertical-align: bottom;
+        }
+    }
+
+    .undo:after {
+        content: "\E436";
+    }
+}

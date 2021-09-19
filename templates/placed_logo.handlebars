@@ -1,0 +1,44 @@
+<div class="resize left" data-direction="left">
+    <div class="ui-icon ui-icon-carat-2-e-w"></div>
+</div>
+<div class="resize top" data-direction="top">
+    <div class="ui-icon ui-icon-carat-2-n-s"></div>
+</div>
+<div class="resize right" data-direction="right">
+    <div class="ui-icon ui-icon-carat-2-e-w"></div>
+</div>
+<div class="resize bottom" data-direction="bottom">
+    <div class="ui-icon ui-icon-carat-2-n-s"></div>
+</div>
+
+<div class="resize top-left" data-direction="top-left">
+</div>
+<div class="resize top-right" data-direction="top-right">
+</div>
+<div class="resize bottom-left" data-direction="bottom-left">
+</div>
+<div class="resize bottom-right" data-direction="bottom-right">
+</div>
+
+<div title="{{ summary }}" class="logo-svg-container svg-container">
+
+
+    <div class="outline">
+        <svg xmlns="http://www.w3.org/2000/svg"
+            viewBox="{{ outline.xmin }} {{ outline.ymin }} {{ outline.width }} {{ outline.height }}"
+            preserveAspectRatio="xMinYMin meet">
+            <g transform="translate(0, {{ outline.mirror }}) scale(1, -1)">
+                <path class="footprint"/>
+                <g class="anchors"/>
+            </g>
+        </svg>
+    </div>
+
+    <div class="data">
+        {{{ svgData }}}
+    </div>
+
+    <div class="module-title">
+        {{ title }}
+    </div>
+</div>

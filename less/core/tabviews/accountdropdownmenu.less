@@ -1,0 +1,101 @@
+#account-menu-dropdown {
+    position: absolute;
+    background: @account-dropdown-menu-background;
+    right: 1rem;
+    top: 40px;
+    width: 220px;
+    box-shadow: @container-box-shadow;
+    border-radius: @default-border-radius-large-content;
+
+    ul {
+        li {
+            list-style: none;
+
+            div {
+                cursor: pointer;
+                font-size: 1rem;
+                padding: 0.5rem;
+                align-items: center;
+                display: flex;
+                position: relative;
+
+                .menu-item-icon {
+                    margin-right: 10px;
+                }
+
+                #edit-profile-menu-icon::before {
+                    .profile-tag();
+                }
+
+                #tutorial-menu-icon::before {
+                    .tutorial();
+                }
+
+                #dark-mode-menu-icon::before {
+                    .dark-mode();
+                }
+
+                #feature-flags-menu-icon::before {
+                    .feature-flag();
+                }
+
+                #theme-control-menu-icon::before {
+                    .palette();
+                }
+
+                #logout-menu-icon::before {
+                    .logout();
+                }
+
+                #menu-collapse-toggle-menu-icon::before {
+                    .menuExpansion();
+                }
+
+                .toggle-switch {
+                    position: absolute;
+                    display: inline-block;
+                    width: 30px;
+                    height: 16px;
+                    right: 10px;
+
+                    .slider {
+                        position: absolute;
+                        cursor: pointer;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background-color: @account-dropdown-menu-slider-background;
+                        -webkit-transition: .4s;
+                        transition: .4s;
+                        border-radius: 34px;
+
+                        &:before {
+                            position: absolute;
+                            content: "";
+                            height: 12px;
+                            width: 12px;
+                            left: 2px;
+                            bottom: 2px;
+                            background-color: @account-dropdown-menu-slider;
+                            -webkit-transition: .4s;
+                            transition: .4s;
+                            border-radius: 50%;
+                        }
+                    }
+
+                    .slider-on-mode {
+                        background-color: @account-dropdown-menu-slider-active-background;
+
+                        &:before {
+                            -webkit-transform: translateX(14px);
+                            -ms-transform: translateX(14px);
+                            transform: translateX(14px);
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}

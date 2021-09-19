@@ -1,0 +1,389 @@
+// Override browser defaults.
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background: 0;
+    border: 0;
+}
+
+*:not(input):not(textarea) {
+    outline: 0;
+}
+
+button:not([disabled]) {
+    cursor: pointer;
+
+    &:active {
+        box-shadow: none;
+        transform: translate(0.5px, 1px);
+        .transition-speed(0.1s);
+    }
+}
+
+[readonly] {
+    cursor: default;
+}
+
+a,
+button {
+    text-decoration: none;
+    .transition-speed(0.2s);
+
+    color: @link-font-color;
+
+    &:hover:not([disabled]) {
+        color: @link-hover-font-color;
+    }
+}
+
+.x {
+    padding: 0.5rem;
+    cursor: pointer;
+
+    &:before {
+        .x-icon();
+    }
+}
+
+#design a {
+    .transition-speed(0s);
+}
+
+input[type="checkbox"] {
+    vertical-align: middle;
+    position: relative;
+    display: inline-block;
+}
+
+input.ui-state-error,
+input.error,
+textarea.error {
+    box-shadow: 0 0 4px rgba(255, 0, 0, 0.8);
+}
+
+input[type=search] {
+    &:hover{
+        outline: none;
+    }
+
+    &:focus {
+        border-color: @theme-action-color;
+        outline: none;
+    }
+}
+
+/* clears the 'X' from Internet Explorer */
+input[type=search]::-ms-clear {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+input[type=search]::-ms-reveal {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+/* clears the 'X' from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+}
+
+// Error text, eg. when leaving form inputs blank.
+// JQuery tooltip has its own .error selector so we want to exclude it.
+.error:not(textarea):not(input):not(.qtip) {
+    color: rgba(250, 15, 15, 0.9);
+    padding: 0;
+    font-size: 0.9rem;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+img {
+    max-width: 100%;
+}
+
+body {
+    overflow: hidden;
+}
+
+body, input, textarea, button {
+    letter-spacing: 0.04rem;
+    font-size: 0.96rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+hr {
+    border-top: 0;
+}
+
+p {
+    padding: 0.3rem 0;
+}
+
+section {
+    margin-bottom: 1rem;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+
+    thead {
+        font-weight: bold;
+    }
+
+    th,
+    td {
+        padding: 0.2rem 0.4rem;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Visible while logged in/out. Increase selector specificity with html to ensure effect. */
+html {
+    .logged-out,
+    [loggedin] .logged-in {
+        display: block;
+    }
+
+    .logged-in,
+    [loggedin] .logged-out {
+        display: none;
+    }
+}
+
+input[type='text'],
+input[type='number'],
+input[type='email'],
+textarea {
+    box-sizing: border-box;
+    resize: none;
+    width: 100%;
+    border-radius: 2px;
+    padding: 0.4rem;
+}
+
+input[type='file'] {
+    margin: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 330px;
+}
+
+.tabview-header {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#footer {
+    position: fixed;
+    z-index: @zindex-level-15;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.toolbar-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+select {
+    padding: 0.2rem 0.5rem;
+}
+
+#footer {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 30px;
+
+    #branding,
+    #legal,
+    #user {
+        line-height: 30px;
+        font-size: 0.8rem;
+    }
+
+    .footer-logo {
+        height: 30px;
+        padding: 0.1rem 0.25rem;
+        display: none;
+    }
+
+    #legal > * {
+        margin: 0 2px;
+        color: inherit;
+    }
+
+    .footer-right {
+        display: flex;
+    }
+
+    #user {
+        min-width: 15%;
+    }
+}
+
+.loading {
+    background: url('../../image/loading.gif') no-repeat center;
+    height: 80px;
+}
+
+.center {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.splash {
+    position: absolute;
+    z-index: @zindex-level-top;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: #eeeeee;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    img {
+        margin: 0 auto;
+        width: 200px;
+    }
+}
+
+.cta {
+    padding: 0.5rem 1.5rem;
+    border-radius: 2px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+
+    background: @theme-color;
+    color: @cta-button-font-color;
+
+    &:hover:not([disabled]) {
+        background: @theme-color-light;
+        color: @cta-button-hover-font-color;
+    }
+}
+
+.cta-link {
+    cursor: pointer;
+    .transition-speed(0.1s);
+}
+
+.shutter {
+    opacity: 0.25;
+}
+
+.shutter-geppetto {
+    background: url("../../image/geppetto-shutter.png") no-repeat center;
+}
+
+#geppetto-icon:before {
+    .geppetto();
+}
+
+.shutter-seeed {
+    background: url("../../image/seeed_large.png") no-repeat center;
+}
+
+#seeed-icon:before {
+    .brand-toggle-icon('seeed');
+    width: 34px;
+    height: 34px;
+}
+
+.shutter-rpi {
+    background: url("../../image/RPi-Logo-SCREEN.png") no-repeat center;
+}
+
+#rpi-icon:before {
+    .brand-toggle-icon('rpi');
+    width: 21px;
+    height: 28px;
+}
+
+.shutter-adlink {
+    background: url("../../image/adlink_logo_full.png") no-repeat center;
+    background-size: contain;
+}
+
+#adlink-icon:before {
+    .brand-toggle-icon('adlink');
+    width: 36px;
+    height: 36px;
+}
+
+.shutter-arduino {
+    background: url("../../image/arduino_logo_full.png") no-repeat center;
+    background-size: contain;
+}
+
+#arduino-icon:before {
+    .brand-toggle-icon('arduino');
+    width: 27px;
+    height: 29px;
+}
+
+.blink {
+    animation: fade 1s ease-in-out;
+    -webkit-animation: fade 1s ease-in-out;
+    animation-iteration-count: infinite;
+    text-align: center;
+}
+
+.fast-blink {
+    animation: fade 0.5s ease-in-out;
+    -webkit-animation: fade 0.5s ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes fade {
+    0%, 100% {
+        opacity: 0.2
+    }
+    50% {
+        opacity: 1
+    }
+}
+
+.text-center {
+    text-align: center;
+}
+
+.font-italic {
+    font-style: italic;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+/* MUGR, DEV... labels */
+.warning-label {
+    color: @text-danger;
+}
+
+// Tabbar will be removed in the future
+#tabbuttons {
+    display: none;
+}

@@ -1,0 +1,35 @@
+/* Touch-supporting sessions gain these styles */
+
+.touch-mode-js {
+
+    .module {
+        .ui-menu .ui-menu-item a,
+        ol.bus li .submenu-option {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            font-size: 0.95rem;
+        }
+
+        .ui-menu .ui-icon {
+            top: 0.45em;
+        }
+
+        ol.bus li > .ui-icon {
+            margin-top: 0.5rem;
+        }
+    }
+
+    // Remove focus style on multi-option menu buses
+    .choice,
+    .exclusion {
+        &.ui-state-focus {
+            background: none;
+        }
+    }
+
+    // Disable distracting tap highlight on bus menus
+    .bus {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        -webkit-tap-highlight-color: transparent;
+    }
+}

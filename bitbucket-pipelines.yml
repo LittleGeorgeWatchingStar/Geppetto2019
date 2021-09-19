@@ -1,0 +1,70 @@
+# Check our guides at https://confluence.atlassian.com/x/14UWN for more examples.
+# Only use spaces to indent your .yml configuration.
+# -----
+# You can specify a custom docker image from Docker Hub as your build environment.
+pipelines:
+  default:
+    - step:
+        services:
+          - docker
+        caches:
+          - docker
+          - node
+        script:
+          - docker build -t g-web:dev .
+          - >
+            docker run -i --rm
+            -v $PWD:/app
+            -v /app/node_modules/
+            g-web:dev eslint src --ext js,.jsx,.ts,.tsx
+    - step:
+        services:
+          - docker
+        caches:
+          - docker
+          - node
+        script:
+          - docker build -t g-web:dev .
+          - >
+            docker run -i --rm
+            -v $PWD:/app
+            -v /app/node_modules/
+            g-web:dev karma start karma.conf.ci.js
+
+  branches:
+    master:
+      - step:
+          name: Run Tests
+          services:
+            - docker
+          caches:
+            - docker
+            - node
+          script:
+            - docker build -t g-web:dev .
+            - >
+              docker run -i --rm
+              -v $PWD:/app
+              -v /app/node_modules/
+              g-web:dev karma start karma.conf.ci.js
+      - step:
+          name: Deploy to Devstix
+          deployment: staging
+          services:
+            - docker
+          caches:
+            - docker
+            - node
+          script:
+            - docker build -t g-web:dev .
+            - >
+              docker run -i --rm
+              -e AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+              -e AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+              -v $PWD:/app
+              -v /app/node_modules/
+              g-web:dev fab godev
+definitions:
+  services:
+    docker:
+      memory: 3072

@@ -1,0 +1,956 @@
+.workspace {
+    background-color: @workspace-background;
+
+    .tabview-header {
+        z-index: @zindex-level-4;
+    }
+}
+
+#design {
+    position: fixed;
+
+    .threed-board {
+        #threed-canvas-board {
+            position: absolute;
+            z-index: @zindex-level-4;
+
+            canvas {
+                width: 100% !important;
+                height: 100% !important;
+            }
+        }
+    }
+}
+
+.grid {
+    position: fixed;
+    width: 300%;
+    height: 300%;
+    z-index: @zindex-child-0;
+    top: -100%;
+    left: -100%;
+    background-size: 15px 15px, 15px 15px;
+    background-image: @workspace-grid-background-image;
+    .workspace-grid();
+    // Allow mouse events to pass through the element.
+    pointer-events: none;
+}
+
+.workspace-container {
+    width: 0;
+    height: 0;
+}
+
+#scale {
+    position: fixed;
+    width: 98px;
+    height: 20px;
+    left: 55px;
+    bottom: 55px;
+    border: solid @workspace-font-color;
+    border-width: 0 1px;
+    line-height: 10px;
+    text-align: center;
+    font-size: 0.6rem;
+}
+
+#hotkey-message {
+    position: fixed;
+    top: 130px;
+    left: 40%;
+    width: 200px;
+    transform: translate(-50%, 0);
+    text-align: center;
+    background: @container-background;
+    border-radius: @default-border-radius-small-content;
+    box-shadow: @container-box-shadow;
+}
+
+/* Board and library modules */
+.module-svg-container,
+.logo-svg-container {
+    position: relative;
+    overflow: hidden;
+    /* Ensure that the SVG container fills the entire .module div. (IE, Safari) */
+    width: 100%;
+    height: 100%;
+    text-align: center;
+
+    svg,
+    .outline {
+        /* Ensure that the SVG fills the entire container div. (Safari) */
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.module,
+.logo {
+    position: absolute;
+}
+
+.module-title {
+    position: absolute;
+    font-size: 0.8rem;
+    line-height: 0.9rem;
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+    overflow: hidden;
+    z-index: @zindex-child-level--2;
+    cursor: pointer;
+    user-select: none;
+}
+
+.module {
+    .module-error-tooltip {
+        position: absolute;
+        visibility: hidden;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 5px;
+        border-radius: @default-border-radius-small-content;
+        text-align: center;
+        left: 50%;
+        top: 0;
+        margin-left: -100px;
+        margin-top: -70px;
+        opacity: 0.8;
+        width: 200px;
+        z-index: @zindex-level-12;
+
+        &:after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: rgba(0, 0, 0, 0.9) transparent transparent transparent;
+        }
+
+        p {
+            max-width: 200px;
+            max-height: 26px;
+            overflow-y: hidden;
+        }
+
+        span {
+            &:before {
+                content: "X ";
+                color: red;
+            }
+        }
+    }
+
+    .module-error-tooltip-hide {
+        display: none;
+    }
+
+    .module-orthographic-container {
+        position: absolute;
+
+        img {
+            max-width: unset;
+        }
+    }
+
+    .svg-container-with-ortho {
+        path {
+            fill-opacity: 0.1 !important;
+            stroke-width: 1.8 !important;
+        }
+
+        .shadow {
+            stroke-width: 0 !important;
+        }
+
+        .module-title {
+            display: none !important;
+        }
+    }
+
+    .svg-container-threed-active {
+        line,
+        path,
+        polygon {
+            stroke: #AAAAAA !important;
+        }
+
+        .module-title {
+            color: white !important;
+        }
+    }
+}
+
+.connected .svg-container-with-ortho {
+    path {
+        fill-opacity: 0 !important;
+    }
+}
+
+.connecting-require-js {
+    .module:not(.providing-options-js):not(.selected),
+    .logo {
+        .svg-container {
+            opacity: 0.6;
+        }
+
+        .module-title,
+        .warning-label {
+            display: none !important; // Override JS
+        }
+    }
+
+    .module:not(.providing-options-js):not(.selected):hover {
+        .module-error-tooltip {
+            visibility: visible;
+        }
+    }
+}
+
+
+.module.ui-draggable,
+.logo.ui-draggable {
+    cursor: move;
+}
+
+.buffer {
+    display: none;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: @zindex-child-level-top;
+    width: 1.5rem;
+}
+
+.connections-mode-js .buffer {
+    display: block;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.ui-menu .ui-menu-divider {
+    /* Remove space and line between bus menu categories */
+    margin: 0;
+    border: 0;
+}
+
+/* Help arrows */
+.arrow {
+
+    position: absolute;
+
+    .text {
+        position: absolute;
+        width: 300px;
+        font-size: 28px;
+    }
+
+    &.arrow1, &.arrow3 {
+        .text {
+            left: -149px;
+            top: 41px;
+        }
+    }
+
+    &.arrow4 .text {
+        left: 432px;
+        top: -19px;
+    }
+
+    &.arrow2, &.arrow5 {
+        .text {
+            left: 207px;
+            top: 2px;
+        }
+    }
+}
+
+.tutorial-arrow {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    z-index: @zindex-level-10;
+
+    path {
+        fill: @theme-action-color;
+        fill-opacity: 1;
+    }
+}
+
+/* Tutorial hint pop-up */
+.info-container .info,
+#tutorial-textbox,
+.disconnect-widget {
+    background-color: @container-background;
+    border: 1px solid @container-border-dark-sdm;
+    box-shadow: @container-box-shadow;
+}
+
+#tutorial-textbox {
+    position: absolute;
+    z-index: @zindex-level-10;
+    max-width: 275px;
+    padding: 0.75rem 0.5rem 0.25rem 0.5rem;
+    .noselect();
+    cursor: pointer;
+}
+
+#tutorial-textbox-content {
+    padding: 0 0.5rem;
+}
+
+#tutorial-textbox:hover .close:not(.all) {
+    color: @theme-action-color;
+}
+
+.tooltip-buttons {
+    display: flex;
+    justify-content: space-between;
+    opacity: 0.8;
+}
+
+.close {
+    font-size: 0.8rem;
+    padding: 0.5rem;
+    display: inline-block;
+}
+
+/* MUGR etc. labels on board/panel modules */
+
+#board .warning-label {
+    // Prevent the label from being draggable on the placed module
+    z-index: @zindex-child-level--2;
+    position: absolute;
+    left: 60%;
+    font-size: 0.8rem;
+}
+
+.warnings {
+    position: absolute;
+    left: 85px;
+    bottom: 1.5rem;
+    font-size: 0.8rem;
+}
+
+.dev-text {
+    top: 70%;
+}
+
+.mugr-text {
+    top: 60%;
+}
+
+.inactive-text {
+    top: 50%;
+}
+
+.logo .data {
+    overflow: hidden;
+}
+
+/* Resizing*/
+.logo:not(.selected) .resize {
+    display: none;
+}
+
+#board,
+.logo {
+    .resize {
+        @handle-size: 30px;
+        width: 33px;
+        height: 33px;
+        opacity: 0.5;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        &:hover,
+        &.ui-draggable-dragging {
+            opacity: 1;
+            .transition-speed(0.1s);
+        }
+
+        .ui-icon {
+            margin: auto;
+            font: 0.7rem "Glyphicons Regular";
+            text-align: center;
+            // Prevent the handle arrows from being draggable. They're there for looksies:
+            z-index: @zindex-child-level--1;
+
+            &:before {
+                content: "\E118";
+                display: block;
+            }
+        }
+
+        &.left {
+            border-right: 3px solid transparent;
+            left: -@handle-size;
+        }
+
+        &.right {
+            border-left: 3px solid transparent;
+            right: -@handle-size;
+        }
+
+        &.top {
+            border-bottom: 3px solid transparent;
+            top: -@handle-size;
+        }
+
+        &.bottom {
+            border-top: 3px solid transparent;
+            bottom: -@handle-size;
+        }
+
+        &.top-left {
+            top: -@handle-size;
+            left: -@handle-size;
+        }
+
+        &.top-right {
+            top: -@handle-size;
+            right: -@handle-size;
+        }
+
+        &.bottom-left {
+            bottom: -@handle-size;
+            left: -@handle-size;
+        }
+
+        &.bottom-right {
+            bottom: -@handle-size;
+            right: -@handle-size;
+        }
+    }
+
+    .left,
+    .right {
+        height: 100%;
+        cursor: ew-resize;
+
+        .ui-icon {
+            transform: scaleX(0.7);
+        }
+    }
+
+    .top,
+    .bottom {
+        width: 100%;
+        cursor: ns-resize;
+
+        .ui-icon {
+            transform: scaleY(0.7);
+
+            &:before {
+                transform: rotate(90deg);
+            }
+        }
+    }
+
+    .top-right,
+    .bottom-left {
+        cursor: nesw-resize;
+    }
+
+    .top-left,
+    .bottom-right {
+        cursor: nwse-resize;
+    }
+}
+
+.provider-options-container {
+    position: absolute;
+    top: 130px;
+    left: 38%;
+    transform: translate(-50%, 0);
+}
+
+.provider-options {
+    line-height: 1rem;
+    font-size: 0.85rem;
+    background: @container-background;
+    border-radius: @default-border-radius-large-content;
+    box-shadow: @container-box-shadow;
+
+    .provider-options-header-container {
+        padding: 0.4rem 1rem;
+
+        .provider-span-unready {
+            color: @text-unready;
+
+            &:after {
+                .right-arrow-no-border();
+                margin-left: 0.5rem;
+            }
+        }
+
+        .provider-span-ready {
+            color: @text-ready;
+
+            .provider-module-name {
+                color: @text-ready-hover;
+
+                &:hover {
+                    color: @text-ready-hover;
+                }
+            }
+        }
+
+        .provider-span-connected {
+            color: @text-connected;
+
+            .provider-module-name {
+                color: @text-connected-hover;
+
+                &:hover {
+                    color: @text-connected-hover;
+                }
+            }
+        }
+
+        .provider-span-suppression {
+            color: @text-default;
+        }
+    }
+
+    .toggle-suppression-btn {
+        font-weight: bold;
+        margin: 0.1rem 0.3rem;
+        font-size: 0.85rem;
+        color: @suppression-button;
+
+        &:hover {
+            color: @suppression-button-hover;
+        }
+    }
+
+    ul {
+        padding: 0 0.5rem 0.4rem 1.5rem;
+        overflow-y: auto;
+        max-height: 5rem;
+
+        li:last-child {
+            margin-bottom: 0.3rem;
+        }
+    }
+
+    .provider-list-ready {
+        .provider-module-name {
+            color: @text-ready-hover;
+
+            &:hover {
+                color: @text-ready-hover;
+            }
+        }
+    }
+
+    .provider-list-connected {
+        .provider-module-name {
+            color: @text-connected-hover;
+
+            &:hover {
+                color: @text-connected-hover;
+            }
+        }
+    }
+
+    .provider-module-name-container {
+        margin-right: 0.25rem;
+
+        &.selected-js {
+            font-weight: bold;
+
+            &:before {
+                .view-icon();
+                font-size: 0.8rem;
+                vertical-align: bottom;
+                margin-right: 0.25rem;
+                font-weight: normal;
+            }
+        }
+    }
+
+    .provider-module-name {
+        cursor: pointer;
+        user-select: none;
+
+        &.truncate {
+            max-width: 12rem;
+            display: inline-block;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            vertical-align: bottom;
+        }
+    }
+
+    .connected-message {
+        margin-left: 0.25rem;
+        font-style: italic;
+        font-weight: normal;
+
+        &:before {
+            .link();
+            font-size: 0.6rem;
+            font-weight: normal;
+            vertical-align: bottom;
+            margin-right: 0.25rem;
+        }
+    }
+}
+
+#multi-view-buttons {
+    position: fixed;
+    left: 55px;
+    bottom: 100px;
+    text-align: center;
+    font-size: 1rem;
+    z-index: @zindex-level-15;
+
+    .multi-view-button-content {
+        display: flex;
+        border-radius: @default-border-radius-large-content;
+
+        .multi-view-button-item {
+            cursor: pointer;
+            width: 75px;
+            height: 75px;
+            margin-right: 0.4rem;
+            border: 1px solid @workspace-multi-view-button-border;
+            box-shadow: @workspace-multi-view-button-box-shadow;
+            border-radius: @default-border-radius-large-content;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            position: relative;
+
+            h6 {
+                width: 100%;
+                height: 30px;
+                color: @workspace-multi-view-button-text;
+                text-shadow: @workspace-multi-view-button-text-shadow;
+                background-image: @workspace-multi-view-button-text-background;
+                border-bottom-right-radius: 8px;
+                border-bottom-left-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+            }
+
+            .multi-view-tooltip {
+                display: none;
+                background-color: @workspace-multi-view-button-tooltip-background;
+                color: @workspace-multi-view-button-tooltip-text;
+                text-align: center;
+                border-radius: @default-border-radius-small-content;
+                padding: 0.5rem 0.25rem;
+                position: absolute;
+                z-index: @zindex-child-level-2;
+                bottom: 120%;
+                left: 50%;
+                width: 160px;
+                margin-left: -80px;
+
+                &:after {
+                    content: " ";
+                    position: absolute;
+                    top: 100%;
+                    left: 50%;
+                    border-width: 5px;
+                    border-style: solid;
+                    border-color: @workspace-multi-view-button-tooltip-background transparent transparent transparent;
+                    margin-left: -5px;
+                }
+            }
+        }
+
+        .geppetto-button {
+            background: @workspace-multi-view-button-background-geppetto no-repeat center;
+            background-size: contain;
+
+            //This tag will be on for a short period of time to track if more users access the buttons
+            &:before {
+                content: 'New';
+                position: absolute;
+                background: @workspace-multi-view-button-new-tag;
+                top: 2px;
+                right: -1px;
+                color: @workspace-multi-view-button-text;
+                font-size: 0.8rem;
+                padding: 0.2rem 0.5rem;
+            }
+        }
+
+        .upverter-button {
+            background: @workspace-multi-view-button-background-upverter no-repeat center;
+            background-size: contain;
+
+            &:before {
+                content: 'New';
+                position: absolute;
+                background: @workspace-multi-view-button-new-tag;
+                top: 2px;
+                right: -1px;
+                color: @workspace-multi-view-button-text;
+                font-size: 0.8rem;
+                padding: 0.2rem 0.5rem;
+            }
+        }
+
+        .cad_viewer-button {
+            background: @workspace-multi-view-button-background-altium no-repeat center;
+            background-size: contain;
+
+            &:before {
+                content: 'New';
+                position: absolute;
+                background: @workspace-multi-view-button-new-tag;
+                top: 2px;
+                right: -1px;
+                color: @workspace-multi-view-button-text;
+                font-size: 0.8rem;
+                padding: 0.2rem 0.5rem;
+            }
+        }
+
+        //Collapse the button
+        .multi-view-button-0 {
+            z-index: @zindex-child-level-3;
+        }
+
+        .multi-view-button-1 {
+            z-index: @zindex-child-level-2;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: 1s;
+        }
+
+        .multi-view-button-2 {
+            z-index: @zindex-child-level-1;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: 1s;
+        }
+
+        //css for disabled button
+        .multi-view-button-disabled {
+
+            .disabled-bg-cover {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                border-radius: @default-border-radius-large-content;
+                background-color: @workspace-multi-view-button-disabled-overlay;
+                z-index: @zindex-child-level-1;
+            }
+
+            &:hover {
+                .multi-view-tooltip {
+                    display: inline-block;
+                }
+            }
+        }
+
+        &:hover {
+            width: 235px;
+
+            .multi-view-button-item {
+                &:hover {
+                    border-color: @workspace-multi-view-hover;
+                    border-width: 2px;
+                    transition: border 0s;
+                }
+            }
+
+            .multi-view-button-1 {
+                left: 80px;
+                transition: 1s;
+            }
+
+            .multi-view-button-2 {
+                left: 160px;
+                transition: 1s;
+            }
+        }
+    }
+
+    .multi-view-button-content-new {
+        background: @container-background-light;
+        display: flex;
+        flex-direction: row;
+        border-radius: @default-border-radius-large-content;
+        box-shadow: @container-box-shadow;
+        align-items: center;
+        position: relative;
+
+        h6 {
+            position: relative;
+            word-wrap: break-word;
+            max-width: 32px;
+            margin: 0 20px 0 7px;
+            cursor: pointer;
+
+            &:after {
+                position: absolute;
+                .help();
+                right: -13px;
+                top: 6px;
+            }
+
+            &:hover:after {
+                color: @theme-action-color;
+            }
+        }
+
+        .multi-view-button-item-new {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            padding: 5px;
+
+            .multi-view-tooltip {
+                display: none;
+                background-color: @workspace-multi-view-button-tooltip-background;
+                color: @workspace-multi-view-button-tooltip-text;
+                text-align: center;
+                border-radius: @default-border-radius-small-content;
+                padding: 0.5rem 0.25rem;
+                position: absolute;
+                z-index: @zindex-child-level-2;
+                bottom: 120%;
+                left: 50%;
+                width: 160px;
+                margin-left: -80px;
+
+                &:after {
+                    content: " ";
+                    position: absolute;
+                    top: 100%;
+                    left: 50%;
+                    border-width: 5px;
+                    border-style: solid;
+                    border-color: @workspace-multi-view-button-tooltip-background transparent transparent transparent;
+                    margin-left: -5px;
+                }
+            }
+
+            &:hover {
+                background-color: darken(@theme-color-light-bg, 20%);
+                border-radius: @default-border-radius-large-content;
+            }
+
+            &:not(:last-child) {
+                margin-right: 7px;
+
+                &:after {
+                    content: ' ';
+                    height: 20px;
+                    width: 1px;
+                    background-color: @workspace-multi-view-button-border;
+                    display: inline-block;
+                    position: absolute;
+                    top: 10px;
+                    right: -4px;
+
+                }
+            }
+        }
+
+        .multi-view-button-selected-new {
+            background-color: @theme-color-light-bg;
+            border-radius: @default-border-radius-large-content;
+        }
+
+        .geppetto-button-new {
+            &:before {
+                content: ' ';
+                display: inline-block;
+                width: 100%;
+                height: 100%;
+                background: @workspace-multi-view-button-geppetto no-repeat center;
+                background-size: contain;
+            }
+        }
+
+        .upverter-button-new {
+            &:before {
+                content: ' ';
+                display: inline-block;
+                width: 100%;
+                height: 100%;
+                background: @workspace-multi-view-button-upverter no-repeat center;
+                background-size: contain;
+            }
+        }
+
+        .cad_viewer-button-new {
+            &:before {
+                content: ' ';
+                display: inline-block;
+                width: 100%;
+                height: 100%;
+                background: @workspace-multi-view-button-altium no-repeat center;
+                background-size: contain;
+            }
+        }
+
+        .multi-view-button-disabled-new {
+            cursor: not-allowed;
+
+            &:hover {
+                .multi-view-tooltip {
+                    display: inline-block;
+                }
+            }
+        }
+
+        //for NEW promotion
+        &:before {
+            content: 'New';
+            position: absolute;
+            background: @workspace-multi-view-button-new-tag;
+            top: -17px;
+            left: -12px;
+            color: @workspace-multi-view-button-text;
+            font-size: 0.8rem;
+            padding: 0.2rem 0.5rem;
+        }
+    }
+}
+
+#upverter-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: @zindex-level-12;
+    background: @upverter-container-background;
+    padding: 25px;
+    display: none;
+}
+
+#cad-viewer-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: @zindex-level-12;
+    background: @cad-viewer-container-background;
+    padding: 25px;
+    display: none;
+}

@@ -1,0 +1,329 @@
+.module {
+    .bus-menu-container {
+        position: relative;
+        width: 100%;
+        height: 0;
+
+        ol.bus.require {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translateX(-100%);
+
+            &, li.sub-menu {
+                z-index: @zindex-level-10;
+            }
+        }
+
+        ol.bus.provide {
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translateX(100%);
+            z-index: @zindex-level-10 + 1;
+
+            &, li.sub-menu {
+                z-index: @zindex-level-10 + 1;
+            }
+        }
+    }
+
+    li.sub-menu {
+        position: relative;
+
+        ol.sub-options {
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translateX(100%);
+        }
+    }
+
+    ol.bus {
+        box-sizing: content-box;
+        box-shadow: 4px 4px 15px 0 rgba(0, 0, 0, 0.25);
+        .noselect;
+
+        &, ol {
+            min-width: 160px;
+            box-sizing: content-box;
+        }
+
+        &.sub-options {
+            max-width: 200px;
+        }
+
+        .ui-state-disabled {
+            opacity: 0.45;
+        }
+
+        &.require {
+            visibility: hidden;
+            border-radius: @default-border-radius-large-content;
+
+            &, ol {
+                min-width: 170px;
+            }
+
+            .menu {
+                display: flex;
+                flex-direction: column;
+                background: @container-background-complementary;
+
+                h5 {
+                    padding: 0.25rem 0.5rem;
+                    white-space: nowrap;
+                    overflow-x: hidden;
+                    max-width: 150px;
+                }
+
+                h6 {
+                    padding: 0.25rem 0.5rem;
+                    font-weight: normal;
+                }
+            }
+
+            .menu-page {
+                .selected {
+                    border: 1px solid @bus-menu-selected !important;
+                }
+            }
+
+            .bus-name:before {
+                font: 0.7rem "Glyphicons Regular";
+                margin-right: 0.25rem;
+            }
+
+            .optional > .submenu-option > span:after {
+                color: grey;
+                content: ' (Optional)'
+            }
+
+            .connected > .bus > .bus-name:before,
+            .connected > .submenu-option > .bus-name:before {
+                .checkmark-icon;
+            }
+
+            .ready > .bus > .bus-name:before,
+            .ready > .submenu-option > .bus-name:before {
+                .transfer;
+            }
+
+            .unready > .bus > .bus-name:before,
+            .unready > .submenu-option > .bus-name:before {
+                content: "\E191";
+            }
+        }
+
+        &.provide {
+
+            .menu {
+                display: flex;
+                flex-direction: column;
+                background: @container-background-complementary;
+
+                h5 {
+                    padding: 0.25rem 0.5rem;
+                    white-space: nowrap;
+                    overflow-x: hidden;
+                    max-width: 150px;
+                }
+
+                h6 {
+                    padding: 0.25rem 0.5rem;
+                    font-weight: normal;
+                }
+            }
+
+            .connected a:after {
+                font-size: 0.8rem;
+                .unlink();
+                vertical-align: bottom;
+            }
+        }
+
+        .multipage {
+            // Eg. a provide menu with multiple pages of options.
+            min-height: 305px;
+            min-width: 150px;
+        }
+
+        li {
+            list-style: none;
+            min-height: 1.3rem;
+            font-size: 0.9rem;
+            margin: 0;
+            border: 0;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+
+            &:hover {
+                .transition-speed(0.2s);
+            }
+
+            &:last-child {
+                border-bottom: 0;
+            }
+
+            .bus-name {
+                white-space: nowrap;
+            }
+
+            a, .submenu-option {
+                padding: 0.25rem 0.5rem;
+                display: flex;
+                justify-content: space-between;
+                line-height: 1.3rem;
+                position: relative;
+            }
+
+            .submenu-option {
+                &:after {
+                    font: 0.6rem "Glyphicons Regular";
+                    content: "\E224";
+                    vertical-align: bottom;
+                    padding-top: 3px;
+                }
+            }
+
+            .emblem {
+                max-height: 19px;
+            }
+        }
+
+        .ui-menu-divider {
+            min-height: unset;
+        }
+    }
+
+    .exclusion-menu {
+        .inclusions {
+            margin: -1px;
+            border: 1px solid transparent;
+
+            &:hover,
+            &.focus {
+                border: 1px solid;
+            }
+
+            &:not(:last-child) {
+                margin-bottom: 1px;
+            }
+        }
+
+        &.optional > .submenu-option > span:after {
+            color: grey;
+            content: ' (Optional)'
+        }
+    }
+
+    .current-page-label {
+        position: absolute;
+        bottom: -25px;
+        text-align: center;
+        width: 170px;
+        cursor: default;
+
+        &:after {
+            font-family: 'Glyphicons Regular';
+            content: "\E196";
+            padding-left: 0.5rem;
+            vertical-align: bottom;
+            font-size: 0.75rem;
+        }
+    }
+
+    .menu-control {
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+
+        .next, .prev {
+            font-family: 'Glyphicons Regular';
+            width: 100%;
+            min-height: 30px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            height: 100%;
+
+            &:hover {
+                .transition-speed(0.2s);
+            }
+
+            &.disabled-js {
+                cursor: default;
+            }
+        }
+
+        .next {
+            border: 0;
+            border-left: 1px solid @regular-button-border;
+
+            &:after {
+                .right-arrow();
+            }
+        }
+
+        .prev {
+            border: 0;
+
+            &:after {
+                .left-arrow();
+            }
+        }
+    }
+
+    .pointer {
+        width: 0;
+        position: absolute;
+
+        &.right {
+            border-right: 0.75rem solid transparent;
+            border-top: 0.75rem solid rgba(20, 20, 20, 0.35);
+            top: 1px;
+            right: -0.75rem;
+        }
+
+        &.left {
+            border-left: 0.75rem solid transparent;
+            border-top: 0.75rem solid rgba(59, 153, 252, 0.5);
+            left: -0.75rem;
+        }
+    }
+}
+
+.placed-module-warnings {
+    position: absolute;
+    right: 10%;
+    bottom: 10%;
+    font-size: 0.8rem;
+}
+
+.connections-mode-js:not(.suppress-requires-js) .module {
+
+    &:hover,
+    &.selected {
+        .require {
+            visibility: visible;
+        }
+    }
+
+    &.ui-draggable-dragging .bus {
+
+        // Override child visibility properties or else they linger briefly
+        &, & * {
+            visibility: hidden !important;
+        }
+    }
+}
+
+.connecting-require-js {
+    .module:not(.selected) .require {
+        visibility: hidden !important;
+    }
+}
+
+.provide .ui-state-disabled a {
+    cursor: help;
+}

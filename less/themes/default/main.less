@@ -1,0 +1,96 @@
+#footer {
+    background-color: #F7F7F7;
+}
+
+#footer #logo-black {
+    display: block;
+}
+
+body {
+    color: #444444;
+}
+
+input:not([type=submit]) {
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid #aaaaaa;
+}
+
+input[readonly] {
+    background-color: rgba(0, 0, 0, 0.1);
+    cursor: default;
+    color: #666666;
+}
+
+textarea {
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid #999999;
+    color: #222222;
+}
+
+button {
+    color: #555555;
+
+    &:hover:not([disabled]) {
+        color: @theme-action-color;
+    }
+}
+
+.cta-link {
+    color: @theme-action-color;
+
+    &:hover {
+        color: @theme-action-color-light;
+    }
+}
+
+[disabled] {
+    opacity: 0.5;
+}
+
+#design a {
+    color: #222222;
+}
+
+hr {
+    border-bottom: 1px solid #aaaaaa;
+}
+
+.toolbar-group-divider {
+    border-right: 1px solid #bbbbbb;
+}
+
+.order-link {
+    color: @theme-action-color;
+
+    &:hover {
+        color: @theme-action-color-light;
+    }
+}
+
+#save:not([disabled]) {
+    color: @toolbar-save;
+
+    &:hover {
+        color: @toolbar-save-hover;
+    }
+}
+
+#boardbuilder {
+    color: #ff4d8a;
+}
+
+::-webkit-scrollbar {
+    background: rgba(0, 0, 0, 0.07);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+@-moz-document url-prefix() {
+    * {
+        // Firefox scrollbar.
+        scrollbar-color: rgba(0, 0, 0, 0.3) rgba(0, 0, 0, 0.07);
+        letter-spacing: 0;
+    }
+}

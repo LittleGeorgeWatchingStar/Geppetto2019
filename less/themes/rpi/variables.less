@@ -1,0 +1,288 @@
+@theme-color: #bc1142;
+@theme-color-light: #ea225a;
+@theme-color-light-bg: #fddce7;
+@theme-action-color: #ff457a;
+@theme-action-color-light: #f85d89;
+@theme-color-triad: #00BFBB; //Triad colour scheme, chosen colors that are equidistant on the 12-point colour wheel
+@theme-color-triad-light: #17D2CE;
+
+@success-font-color: #4cbf22;
+@warn-font-color: #ff910a;
+@danger-font-color: #BB2525;
+
+@transparent-green: rgba(0, 255, 0, 0.2);
+@transparent-red: rgba(255, 0, 0, 0.2);
+@transparent-yellow: rgba(255, 255, 0, 0.3);
+@transparent-blue: rgba(51, 153, 204, 0.5);
+
+.workspace-grid(@colour: #DDDDDD) {
+    background: linear-gradient(@colour 1px, transparent 1px), linear-gradient(0deg, @colour 1px, transparent 1px);
+    background: -o-linear-gradient(@colour 1px, transparent 1px), -o-linear-gradient(0deg, @colour 1px, transparent 1px);
+    background: -moz-linear-gradient(@colour 1px, transparent 1px), -moz-linear-gradient(0deg, @colour 1px, transparent 1px);
+    background: -webkit-linear-gradient(@colour 1px, transparent 1px), -webkit-linear-gradient(0deg, @colour 1px, transparent 1px);
+    background: -ms-linear-gradient(@colour 1px, transparent 1px), -ms-linear-gradient(0deg, @colour 1px, transparent 1px);
+}
+@workspace-grid-background-image: url('../../../../image/grid.png');
+
+/**
+ *  The Geppetto common style
+ */
+
+// Sytle guide for buttons & input fields
+@regular-button-hover: @theme-action-color;
+@regular-button-background: white;
+@regular-button-background-complementary: #eeeeee;
+@regular-button-border: #aaaaaa;
+@regular-button-border-hover: #888888;
+@regular-button-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.35);
+@regular-button-box-shadow-light: 1px 1px 1px rgba(0, 0, 0, 0.1);
+@action-button-background: @theme-color;
+@action-button-background-hover: @theme-color-light;
+@action-button: white;
+
+@container-background-light: white;
+@container-background: white;
+@container-background-dark: #eeeeee;
+@container-background-complementary: #eeeeee; //dark in default, lighter in dark mode
+@container-background-complementary-light: #eeeeee; //dark in default, extra lighter in dark mode
+@container-background-complementary-dark: #dddddd; //extra dark in default, lighter in dark mode
+@container-background-blur: rgba(255, 255, 255, 0.5);
+@container-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+@container-box-shadow-hover: 1px 1px 5px rgba(0, 0, 0, 0.7);
+@container-box-shadow-light: 1px 1px 5px rgba(0, 0, 0, 0.3);
+@container-border: #aaaaaa;
+@container-border-sdm: #aaaaaa; //SDM - Show in Dark Mode
+@container-border-dark-sdm: #999999; //SDM - Show in Dark Mode
+@container-border-dark-complementary-sdm: #999999; //SDM - Show in Dark Mode, darker in default and lighter in black
+@container-border-complementary-sdm: #cccccc; //SDM - Show in Dark Mode, lighter in default and darker in black
+
+@title-defult: #444444;
+@title-complementary: #444444; //dark in default, lighter in dark mode
+@title-highlight: #999999;
+
+@text-default: #444444;
+@text-paragraph-highlight: @theme-color;
+@text-paragraph-highlight-hover: @theme-color-light;
+@text-unready: #e81616;
+@text-ready: #8a7c00;
+@text-ready-hover: #b58801;
+@text-connected: #006f07;
+@text-connected-hover: #418700;
+@text-success: @success-font-color;
+@text-warn: @warn-font-color;
+@text-danger: @danger-font-color;
+
+@svg-stroke: #555555;
+@svg-fill: rgba(150, 150, 150, 0.25);
+@bus-menu-selected: @theme-color;
+@item-selection-background-hover: fade(@theme-color-light-bg, 15%);
+
+@loader-background: rgba(255, 255, 255, 0.5);
+@modal-background: rgba(50, 50, 50, 0.3);
+
+// General
+@default-font-color: #555555;
+@inverted-font-color: #FFFFFF;
+
+@link-font-color: @theme-action-color;
+@link-hover-font-color: darken(@link-font-color, 10%);
+
+@default-border-color: #AAAAAA;
+
+@default-separator-color: lighten(@default-border-color, 10%);
+
+@default-box-shadow: 1px 1px 3px rgba(30, 30, 100, 0.2);
+
+// Border Radius (Global)
+@default-border-radius: 2px;
+@default-border-radius-child-content: 2px;
+@default-border-radius-banner-content: 14px;
+@default-border-radius-large-content: 8px;
+@default-border-radius-small-content: 5px;
+
+
+// Default button
+@default-button-background-color: white;
+@default-button-hover-background-color: white;
+
+// Call to action (CTA) button
+@cta-button-background-color: @theme-color;
+@cta-button-hover-background-color: @theme-color-light;
+@cta-button-font-color: @inverted-font-color;
+@cta-button-hover-font-color: @inverted-font-color;
+
+// Toolbar + toolbar buttons
+@toolbutton-default-theme-icon-color: #DDDDDD;
+@toolbutton-blue-theme-icon-color: #419FD9;
+@toolbutton-black-theme-icon-color: #111111;
+@toolbutton-hover-color: #888888;
+@toolbutton-active-color: @theme-action-color;
+@toolbutton-icon-color: @default-font-color;
+@toolbar-divider-color: lighten(@default-border-color, 10%);
+
+@toolbar-save: #4cbf22;
+@toolbar-save-hover: #58d43a;
+
+// Workspace
+@workspace-background: #EFEFEF;
+@workspace-font-color: @default-font-color;
+@workspace-placed-item-outline-color: #444444;
+@workspace-placed-item-outline-hover-color: #111111;
+@workspace-multi-view-button-background-altium: url('../../../image/altium-button-background-light.png');
+@workspace-multi-view-button-background-upverter: url('../../../image/upverter-button-background-light.png');
+@workspace-multi-view-button-background-geppetto: url('../../../image/geppetto-button-background-light.png');
+@workspace-multi-view-button-geppetto: url('../../../image/geppetto-button-mini-icon.png');
+@workspace-multi-view-button-upverter: url('../../../image/upverter-button-mini-icon.png');
+@workspace-multi-view-button-altium: url('../../../image/altium-button-mini-icon.png');
+@workspace-multi-view-button-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+@workspace-multi-view-button-border: #aaaaaa;
+@workspace-multi-view-hover: @theme-color;
+@workspace-multi-view-button-tooltip-text: white;
+@workspace-multi-view-button-tooltip-background: rgba(0, 0, 0, 0.9);
+@workspace-multi-view-button-disabled-overlay: rgba(0, 0, 0, 0.5);
+@workspace-multi-view-button-text-shadow: rgba(0, 0, 0, 0.7) 0px 1px 8px;
+@workspace-multi-view-button-text: white;
+@workspace-multi-view-button-text-background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7));
+@workspace-multi-view-button-beta-tag: @theme-color;
+@workspace-multi-view-button-new-tag: @theme-color-triad;
+
+
+// Alerts
+@alert-border-radius: @default-border-radius;
+@alert-border-width: 1px;
+@alert-padding: 0.5rem 1rem;
+@alert-box-shadow: @default-box-shadow;
+
+@alert-success-font-color: darken(@text-success, 10%);
+@alert-success-background-color: fade(@text-success, 20%);
+@alert-success-border-color: fade(@text-success, 40%);
+
+// Downloads dialog
+@downloads-dialog-button-border-color: @default-border-color;
+@downloads-dialog-button-border-radius: @default-border-radius;
+@downloads-dialog-button-background: white;
+@downloads-dialog-button-background-disabled: fade(white, 50%);
+@downloads-dialog-button-box-shadow: @default-box-shadow;
+@downloads-dialog-button-warning-font-color: @text-warn;
+@downloads-dialog-error-background: #ffecec;
+@downloads-dialog-error-border: #ffbdbd;
+
+// Upverter editor
+@upverter-editor-tab-button-background-active-color: white;
+@upverter-editor-tab-button-background-hover-color: white;
+@upverter-editor-tab-button-active-color: @theme-action-color;
+@upverter-editor-tab-button-hover-color: @theme-action-color;
+@upverter-editor-tab-button-active-border-color: @default-border-color;
+@upverter-editor-tab-button-hover-border-color: @default-border-color;
+
+
+// Working area tool button
+@working-area-tool-button-background-color: white;
+@working-area-tool-button-disabled-color: #e8e8e8;
+@working-area-tool-button-active-background: @theme-color-light-bg;
+
+
+// Account drop down menu
+@account-dropdown-menu-background: white;
+@account-dropdown-menu-slider: white;
+@account-dropdown-menu-slider-background: #BBBBBB;
+@account-dropdown-menu-slider-active-background: @theme-action-color;
+
+// Dashboard
+@dashboard-tabview-background: #EFEFEF;
+
+// Dashboard menu bar
+@dashboard-menu-background: darken(@container-background-light, 5%);
+@dashboard-menu-color: @default-font-color;
+@dashboard-menu-active: @theme-color;
+@dashboard-menu-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+
+// Design preview tile
+@design-preview-tile-separator-color: @default-separator-color;
+@filter-button-background: white;
+@filter-button-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+@filter-active-button-background: @theme-color-light-bg;
+
+// Expanded design dialog
+@expanded-design-dialog-info-background-color: @container-background;
+@expanded-design-dialog-options-background-color: darken(@container-background, 5%);
+
+// Open Dialog Box (open design tool button)
+@open-dialog-tab-selected: @theme-action-color;
+@open-dialog-item-selected: @item-selection-background-hover;
+@open-dialog-tab-border: #808080;
+@open-dialog-item-border: @regular-button-border;
+
+// Module library (workspace)
+@module-library-handle: #888888;
+@module-library-handle-background: #D7D7D7;
+@module-library-handle-border: #AAAAAA;
+@module-library-handle-hover: @theme-color-light;
+@module-library-handle-background-hover: #EEEEEE;
+@module-library-handle-border-hover: #9B9B9B;
+@module-library-category-background: #d6d6d9;
+@module-library-hide-background: @regular-button-background-complementary;
+@module-library-hide-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.35);
+
+
+// Design Helper & Module List (workspace)
+@design-helper-background: white;
+@design-helper-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+@design-helper-border: #808080;
+@design-helper-button-success: @text-success;
+@design-helper-button-warning: @text-warn;
+@design-helper-button-warning-text: white;
+@design-helper-content-border: #dddddd;
+
+// Upverter & Cad Viewer
+@upverter-container-background: @container-background-complementary-light;
+@cad-viewer-container-background: @container-background-complementary-light;
+
+// For toggle buttons that switch between dashboard and workspace
+@dashboard-workspace-button-background: @theme-color-light-bg;
+@dashboard-workspace-button-hover: @theme-color;
+@dashboard-workspace-button-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.35);
+
+// My account & Login Button
+@my-account-button-background: @theme-color-light-bg;
+@my-account-button-text: #555555;
+@my-account-button-text-hover: @theme-color;
+@my-account-button-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.35);
+@my-account-wrapper-background: #efefef;
+
+// Order button
+@order-button-text: white;
+@order-button-inactive-text: white;
+@order-button-inactive-background: #BBBBBB;
+@order-button-background: rgba(222, 30, 84, 0.85);
+@order-button-hover-background: @theme-color;
+
+// Provider suppression button
+@suppression-button: @theme-action-color;
+@suppression-button-hover: @theme-action-color-light;
+
+// Special color for board builder
+@board-builder-preview-background: linear-gradient(#dddddd, #ffffff);
+@board-builder-helper: #edf8ff;
+@board-builder-helper-hover: white;
+@board-builder-helper-text-shadow: @theme-color;
+@board-builder-search-border: @regular-button-border;
+@board-builder-selected-list-background: white;
+
+// Special colour use for Power Finder
+@power-finder-connector-message-background: rgba(200, 255, 200, 0.9);
+
+// Special colour use for board
+@board-background: rgba(255, 255, 255, 0.7);
+@board-border: none;
+@board-pcb: rgba(1, 50, 8, 1.0);
+@board-ready: 5px 5px 5px rgba(0, 0, 0, 0.5), 0 0 10px 5px @transparent-yellow;
+@board-unready: 5px 5px 5px rgba(0, 0, 0, 0.5), 0 0 10px 5px @transparent-red;
+@board-connected: 5px 5px 5px rgba(0, 0, 0, 0.5), 0 0 10px 5px @transparent-green;
+@board-resize-background: rgba(100,220,240,0.15);
+@board-resize-border: @transparent-blue;
+@board-radius-color: #888888;
+@board-radius-color-locked: #666666;
+
+// Special colour for context menu
+@context-menu-border: rgba(130, 130, 130, 0.8);

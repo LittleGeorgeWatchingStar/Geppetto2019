@@ -1,0 +1,341 @@
+.ui-dialog,
+.dialog {
+    min-width: 400px;
+    z-index: @zindex-level-20;
+}
+
+/* JQuery UI dialog styles */
+.ui-dialog {
+    position: absolute;
+    // Workaround for known resize bug in JQuery UI:
+    height: auto !important;
+}
+
+.ui-dialog-titlebar {
+    font-weight: bold;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
+    cursor: grab;
+
+    .ui-dialog-title {
+        padding: 0.5rem 0.5rem 0.5rem 0.75rem;
+        font-size: 1.15rem;
+    }
+
+    button {
+        padding: 0.5rem;
+
+        .ui-icon:before {
+            font-family: "Glyphicons Regular";
+            content: "\E208";
+        }
+
+        // Hide dialog 'close' button text
+        .ui-button-text {
+            display: none;
+        }
+    }
+}
+
+.ui-dialog-content {
+    font-size: 0.96rem;
+    padding: 1.5rem 1.75rem;
+    overflow-y: auto;
+    // Workaround for known resize bug in JQuery UI:
+    width: 100% !important;
+
+    .open-dialog-content {
+        max-height: 260px;
+        position: relative;
+
+        .open-dialog-menu {
+            border-bottom: 2px solid @open-dialog-tab-border;
+            padding-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+
+            .open-dialog-menu-title {
+                font-size: 1.05rem;
+
+                &:before {
+                    content: " ";
+                    width: 85px;
+                    height: 4px;
+                    background-color: @open-dialog-tab-selected;
+                    position: absolute;
+                    top: 33px;
+                }
+            }
+
+            .open-dialog-search {
+                position: relative;
+
+                input {
+                    padding: 0.25rem;
+                }
+
+                .search-reset {
+                    position: absolute;
+                    right: 0;
+                    top: -3px;
+
+                    &:after {
+                        .close();
+                    }
+
+                    &:hover:after {
+                        color: @theme-action-color;
+                    }
+                }
+            }
+        }
+
+        ol {
+            height: 230px;
+            overflow-y: auto;
+        }
+
+        .open-dialog-item {
+            list-style-type: none;
+            text-decoration: none;
+            padding: 0.75rem 0.25rem;
+            cursor: pointer;
+            .transition-speed(0.1s);
+            border-bottom: 1px solid @open-dialog-item-border;
+            display: flex;
+            justify-content: space-between;
+
+            .open-dialog-design-title {
+                max-height: 18px;
+                overflow-y: hidden;
+                padding-right: 0.5rem;
+            }
+
+            .open-dialog-design-time {
+                min-width: 10rem;
+            }
+
+            &:last-child {
+                border: none;
+                margin-bottom: 1rem;
+            }
+
+            &:hover,
+            &.ui-state-highlight {
+                background-color: @open-dialog-item-selected;
+
+                .open-dialog-design-title {
+                    max-height: unset;
+                    overflow-y: visible;
+                }
+            }
+        }
+
+        .open-dialog-buttons {
+            display: flex;
+            justify-content: flex-end;
+            position: relative;
+
+            button {
+                padding: 0.8rem 1.2rem;
+                font-size: 1.05rem;
+                color: @default-font-color;
+
+                &:hover {
+                    color: @theme-action-color;
+                }
+            }
+
+            .open-button-disabled {
+                cursor: not-allowed;
+                opacity: 0.7;
+            }
+        }
+    }
+
+    .upload-warning {
+        font-size: 12px;
+        padding-left: 10px;
+    }
+}
+
+.ui-dialog-buttonset {
+    text-align: right;
+
+    button {
+        padding: 0.8rem 1.2rem;
+        font-size: 1.05rem;
+    }
+}
+
+// Holds a message when options are unavailable in the share dialog or the connection transfer dialog.
+.unavailable-container {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 100%;
+    text-align: center;
+    font-size: 1rem;
+}
+
+#connection-file-transfer {
+    td {
+        white-space: nowrap;
+        overflow-x: hidden;
+        max-width: 11rem;
+        text-overflow: ellipsis;
+    }
+
+    table {
+        box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .providing tbody tr td:first-child:after {
+        font: 0.9rem 'Glyphicons Regular';
+        float: right;
+        content: "\E212";
+    }
+
+    .receiving tbody tr td:first-child:after {
+        font: 0.9rem 'Glyphicons Regular';
+        float: right;
+        content: "\E211";
+    }
+}
+
+#container-3d {
+    overflow: hidden;
+    position: relative;
+
+    #viewport-3d {
+        min-height: 200px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    #display-msg {
+        position: absolute;
+        right: 0;
+        top: 0;
+        left: 0;
+        font-size: 12px;
+        text-align: center;
+    }
+}
+
+/* Visualize window node and links */
+.diagram {
+    .noselect;
+    min-width: 400px;
+
+    .node, .link {
+        cursor: pointer;
+    }
+
+    .link line {
+        fill: none;
+        stroke-width: 1.5px;
+    }
+}
+
+/* Carousel on design submission */
+.carousel .slide {
+    box-sizing: border-box;
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+
+    p {
+        margin: 0.5rem 0;
+        text-align: center;
+    }
+}
+
+.save-as-dialog {
+    padding: 0.25rem;
+
+    .creative-commons {
+        vertical-align: bottom;
+    }
+
+    .save-button-container {
+        padding-top: 1.5rem;
+        text-align: right;
+    }
+
+    .custom-message-container {
+        margin-bottom: 1rem;
+        font-style: italic;
+    }
+}
+
+.save-as-description-container,
+.save-as-title-container {
+    padding-bottom: 1rem;
+}
+
+.validation-design-container {
+    text-align: center;
+    padding-bottom: 2rem;
+}
+
+.validation-preview-image {
+    position: relative;
+}
+
+.validation-board-link-container {
+    position: relative;
+}
+
+.login-prompt-dialog {
+    text-align: center;
+    padding-bottom: 1rem;
+
+    p {
+        padding: 1rem 0;
+    }
+}
+
+.suggested-modules {
+    padding: 0;
+
+    h4 {
+        padding-left: 0.25rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .loading-message {
+        text-align: center;
+        font-size: 1rem;
+        padding: 0.5rem;
+        margin-right: 1rem;
+    }
+
+    .recommended-modules,
+    .compatible-modules {
+        user-select: none;
+        margin-left: 0.75rem;
+
+        h3 {
+            padding-left: 0.2rem;
+            margin-bottom: 0.4rem;
+        }
+    }
+
+    .compatible-modules {
+        padding-top: 0.75rem;
+    }
+
+    .suggestion-message {
+        padding: 0.4rem 1rem;
+    }
+
+    .category-section {
+        margin-bottom: 1.5rem;
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "outDir": "./compiled",
+        "baseUrl": "src",
+        "sourceMap": true,
+        "target": "es5",
+        "lib": ["DOM", "ES5", "ScriptHost", "ES6", "DOM.Iterable", "webworker"],
+        "allowJs": true,
+        "allowUnreachableCode": true,
+        "jsx": "react"
+    }
+}

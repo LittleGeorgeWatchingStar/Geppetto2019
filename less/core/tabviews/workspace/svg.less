@@ -1,0 +1,184 @@
+.module-svg-container,
+.logo-svg-container .outline,
+#board .anchor {
+    line,
+    path,
+    polygon {
+        stroke-width: 1;
+        stroke-linecap: square;
+        shape-rendering: geometricPrecision;
+        .transition-speed(0.2s);
+        stroke: @workspace-placed-item-outline-color;
+    }
+
+    path {
+        fill: none;
+    }
+
+    path.path-wall {
+        fill: black;
+        fill-opacity: .33;
+    }
+}
+
+.module.extend,
+.module:hover,
+.logo.extend .outline,
+.logo:hover .outline {
+    polygon, path, line {
+        stroke: @workspace-placed-item-outline-hover-color;
+    }
+}
+
+line.edge,
+line.footprint,
+line.feature {
+    stroke-opacity: 0;
+    stroke-width: 7;
+    .transition-speed(0.07s);
+}
+
+#design {
+    .edge {
+        stroke-opacity: 0.6;
+        stroke-width: 4;
+        stroke-linecap: butt;
+    }
+
+    .ui-draggable-dragging .edge {
+        stroke-opacity: 0.8;
+        stroke-width: 5.5;
+    }
+}
+
+line.extend {
+    stroke-opacity: 1;
+}
+
+.module-container {
+    line, path, polygon {
+        vector-effect: non-scaling-stroke;
+    }
+}
+
+.module.extend path.footprint,
+.module:hover path.footprint,
+.module:hover .path-wall,
+.logo:hover path.footprint {
+    stroke-width: 2.5;
+}
+
+.module-tile:hover path.footprint,
+.module-tile:hover line {
+    stroke-width: 1.5;
+}
+
+.providing-options-js {
+    path.footprint {
+        stroke-width: 2.75;
+    }
+
+    &:hover path.footprint {
+        stroke-width: 3.5;
+    }
+}
+
+.providing-options-js.module {
+    path.footprint, .edge {
+        stroke: @text-connected-hover;
+        fill-opacity: 0.25;
+    }
+
+    .pointer.left {
+        border-top-color: @text-connected-hover;
+    }
+}
+
+.providing-options-js-ready.module {
+    path.footprint, .edge {
+        stroke: @text-ready-hover !important;
+        fill-opacity: 0.25;
+    }
+
+    .pointer.left {
+        border-top-color: @text-ready-hover;
+    }
+}
+
+path.footprint {
+    fill: transparent;
+}
+
+.module.extend {
+    /* Extension lines are added dynamically at the same level, but later than
+    the modules. They hence naturally overlay the modules. This module, whose
+    feature is being extended, should however not b
+
+    /* Modules should be above the extension line, otherwise the extension line
+    occludes the extendable feature lines, causing the extension line to flicker
+    when moving the mouse over it. This z-index doesn't have to be high, just
+    above that of extension lines. */
+    z-index: 1;
+}
+
+.module path.footprint,
+.logo path.footprint {
+    fill-opacity: 0.15;
+}
+
+.module.selected path.footprint,
+.logo.selected path.footprint {
+    fill-opacity: 0.25;
+    stroke-width: 3.5;
+}
+
+.module.overlaps path.footprint,
+.logo.overlaps path.footprint {
+    stroke: rgba(255, 50, 50, 0.8);
+}
+
+.module.unready path.footprint {
+    fill: red;
+}
+
+.module.ready path.footprint {
+    fill: yellow;
+}
+
+.module.connected path.footprint {
+    fill: green;
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    /* Internet Explorer and Edge do not support vector-effect. Rather poor workaround. */
+    line,
+    path.footprint {
+        stroke-width: 2;
+    }
+
+    .module.extend path.footprint,
+    .module:hover path.footprint,
+    .module-container:hover path.footprint,
+    .module-container:hover line,
+    .logo-container:hover path.footprint {
+        stroke-width: 4;
+    }
+}
+
+/* Anchors */
+#design .anchor {
+    .line {
+        stroke-width: 7;
+        stroke-opacity: 0;
+        .transition-speed(0.07s);
+    }
+
+    .click-helper {
+        stroke-width: 25;
+        stroke-opacity: 0;
+    }
+
+    &:hover .line {
+        stroke-opacity: 1;
+    }
+}

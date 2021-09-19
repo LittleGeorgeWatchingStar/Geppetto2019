@@ -1,0 +1,117 @@
+.images-viewer {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+
+    .contents-panel {
+        position: relative;
+        height: 100%;
+        border-right: 1px solid @container-border;
+        box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
+
+        .contents-container {
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            padding: 0.5rem 0.75rem;
+
+            .content {
+                list-style-type: none;
+                text-decoration: none;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                padding: 0.25rem 0;
+                cursor: pointer;
+                .transition-speed(0.1s);
+
+                &:hover,
+                &.selected {
+                    color: @theme-action-color;
+                }
+            }
+        }
+    }
+
+    .image-panel {
+        position: absolute;
+        right: 0;
+        height: 100%;
+
+        .image-container {
+            width: 100%;
+            height: 100%;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background: url('../../image/loading.gif') no-repeat center white;
+
+            cursor: move;
+            cursor: -webkit-grab;
+            cursor: grab;
+
+            .image-position-helper {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+
+                img {
+                    max-width: none;
+                    max-height: none;
+                }
+            }
+
+            .error {
+                display: flex;
+                width: 100%;
+                height: 100%;
+                color: #000;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .page-indicator {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                text-align: center;
+            }
+
+            .prev-wrapper,
+            .next-wrapper {
+                position: absolute;
+                top: 0;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                .prev,
+                .next {
+                    color: #b4b4b4;
+                    font-size: 3rem;
+                    opacity: 0.5;
+                    cursor: pointer;
+                    &:hover {
+                        opacity: 85;
+                    }
+                }
+            }
+
+            .prev-wrapper {
+                left: 0;
+                .prev:before {
+                    .left-chevron;
+                }
+            }
+
+            .next-wrapper {
+                right: 0;
+                .next:before {
+                    .right-chevron;
+                }
+            }
+        }
+    }
+}

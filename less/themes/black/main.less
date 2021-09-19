@@ -1,0 +1,118 @@
+#footer {
+    color: #888888;
+    background-color: @dark;
+
+    #logo-white {
+        display: block;
+    }
+}
+
+input {
+    color: #cccccc;
+}
+
+input:not([type=submit]),
+textarea {
+    background: #555555;
+    color: #cccccc;
+}
+
+input[readonly] {
+    background-color: rgba(100, 100, 100, 0.6);
+    color: #666666;
+}
+
+/* Override the modal background to make it darker. */
+html .ui-widget-overlay {
+    background: rgba(15, 15, 15, 0.7);
+}
+
+hr {
+    border-bottom: 1px solid #777777;
+}
+
+table {
+    background: #333333;
+    border: 1px solid #555555;
+
+    thead {
+        background: #444444;
+    }
+
+    td, th {
+        border: 1px solid #555555;
+    }
+}
+
+#alltabcontainer {
+    background-color: @main-black;
+}
+
+body {
+    background-color: @main-black;
+    color: @dim-grey;
+}
+
+select {
+    color: @dim-grey;
+}
+
+[disabled] {
+    opacity: 0.4;
+}
+
+a,
+.active-js {
+    color: @green;
+}
+
+a,
+button {
+    &:hover:not([disabled]) {
+        color: @green;
+    }
+}
+
+button {
+    color: #bbbbbb;
+}
+
+.toolbar-group-divider {
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.order-link {
+    color: @orange;
+
+    &:hover {
+        color: @lighter-orange;
+    }
+}
+
+#boardbuilder {
+    color: #ff4d8a;
+}
+
+#save:not([disabled]),
+.cta-link {
+    color: @blue;
+
+    &:hover {
+        color: @lighter-blue;
+    }
+}
+
+#design a {
+    color: #aaaaaa;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/**
+ * html selector to override the core style.
+ */
+html .shutter {
+    opacity: 0.15;
+}

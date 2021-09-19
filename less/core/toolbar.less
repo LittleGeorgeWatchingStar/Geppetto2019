@@ -1,0 +1,315 @@
+.toolbar {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    min-height: 4rem;
+
+    .toolbar-button {
+        min-width: 50px;
+        padding: 0.5rem;
+        color: @toolbutton-icon-color;
+
+        /* Skin options */
+
+        #default-icon:before {
+            content: "\E325";
+            color: @toolbutton-default-theme-icon-color;
+        }
+
+        #blue-icon:before {
+            content: "\E325";
+            color: @toolbutton-blue-theme-icon-color;
+        }
+
+        #black-icon:before {
+            content: "\E325";
+            color: @toolbutton-black-theme-icon-color;
+        }
+
+        &:hover {
+            color: @toolbutton-hover-color;
+        }
+
+        &.active-js,
+        &.active-js:hover {
+            color: @toolbutton-active-color;
+        }
+
+        .toolbar-text {
+            letter-spacing: 0.03rem;
+            font-size: 11px;
+            margin-top: 4px;
+            // height under icon: 4 + 11 = 15;
+            display: block;
+        }
+
+        .progress {
+            width: 50px;
+            height: 10px;
+            margin-top: 5px;
+            // height under icon: 5 + 10 = 15;
+            border: 1px solid @toolbutton-active-color;
+
+            .bar {
+                height: 100%;
+                background-color: @toolbutton-active-color;
+            }
+        }
+    }
+
+    .toolbar-group-divider {
+        border-right: 1px solid @toolbar-divider-color;
+    }
+}
+
+.workspace .toolbar {
+    min-width: 1050px;
+}
+
+.account .toolbar {
+    position: absolute;
+}
+
+
+.toolbar-icon {
+    padding: 0 0.45rem;
+    display: block;
+
+    &:before {
+        /* The toolbar icons are rendered using the Glyphicons font. See
+        * http://glyphicons.com for \Exxx character code references. */
+        font: 1.5rem 'Glyphicons Regular';
+    }
+}
+
+.toolbar-text {
+    margin-top: 4px;
+    letter-spacing: 0.03rem;
+    font-size: 0.7rem;
+    display: block;
+}
+
+.toolbar-group-divider {
+    width: 1px;
+    margin: 0 0.5rem;
+}
+
+#home-icon:before {
+    content: "\E021";
+}
+
+#new-icon:before {
+    content: "\E037";
+}
+
+#load-icon:before {
+    content: "\E145";
+}
+
+#save-icon:before {
+    content: "\E444";
+}
+
+#save_as-icon:before {
+    content: "\E424";
+}
+
+#design-share-icon:before {
+    content: "\E223";
+}
+
+#connect-icon:before {
+    content: "\E309";
+}
+
+#dimension-icon:before {
+    content: "\E098";
+}
+
+#dimension {
+    .lock-icon {
+        margin-left: 2px;
+        vertical-align: text-bottom;
+        color: @toolbutton-active-color;
+
+        &:before {
+            font-size: 0.55rem;
+            .lock-icon();
+        }
+    }
+
+    .dimension-tooltip {
+        position: absolute;
+        font-size: 1rem;
+        background-color: rgba(0, 0, 0, 0.9);
+        color: white;
+        border-radius: 5px;
+        max-width: 260px;
+        top: 80px;
+        padding: 2px 4px;
+
+        &:after {
+            content: " ";
+            position: absolute;
+            bottom: 100%;
+            left: 10%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent black transparent;
+        }
+    }
+}
+
+#view3D-icon:before {
+    content: "\E139";
+}
+
+#visualize-icon:before {
+    content: '\E052';
+}
+
+#showpower-icon:before {
+    content: "\E206";
+}
+
+#showinfobox-icon:before {
+    content: "\E065";
+}
+
+#compiled-cad-icon:before {
+    .compile();
+}
+
+#download-cad-icon:before {
+    content: "\E135";
+}
+
+#order-icon:before {
+    .cart;
+}
+
+#shop-icon:before {
+    .cart;
+}
+
+#uprev-icon:before {
+    content: '\E219';
+}
+
+#autodoc-icon:before {
+    content: '\E352';
+}
+
+#autobsp-icon:before {
+    content: '\E326';
+}
+
+#tutorial-icon:before {
+    .tutorial();
+}
+
+#boardbuilder-icon:before {
+    content: "\e281";
+}
+
+#powerfinder-icon:before {
+    content: "\e324";
+}
+
+#dashboard {
+    background-color: @dashboard-workspace-button-background;
+
+    #geppetto-icon, #rpi-icon, #seeed-icon, #adlink-icon, #arduino-icon {
+        padding-top: 0.3rem;
+    }
+
+    #seeed-icon:before {
+        width: 34px;
+        height: 29px;
+    }
+
+    #rpi-icon:before {
+        width: 26px;
+        height: 29px;
+    }
+
+    #adlink-icon:before {
+        width: 30px;
+        height: 29px;
+    }
+
+    &:hover {
+        #geppetto-icon, #seeed-icon, #rpi-icon, #adlink-icon, #arduino-icon {
+            &:before {
+                .to-dashboard-arrow();
+                color: @dashboard-workspace-button-hover;
+            }
+        }
+
+        span {
+            color: @dashboard-workspace-button-hover;
+        }
+    }
+}
+
+#order, #shop {
+    display: flex;
+    color: @order-button-text;
+    background-color: @order-button-background;
+    border-radius: 5px;
+    margin-top: 6%;
+    height: 76%;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+
+    .toolbar-text {
+        font-size: 1.25em;
+        margin: auto 1.45rem auto 0.15rem;
+        position: relative;
+    }
+
+    #order-icon, #shop-icon {
+        margin-left: 1rem;
+
+        @media screen and (max-width: 1150px) {
+            margin-left: 1.45rem;
+        }
+    }
+
+    &:hover {
+        background-color: @order-button-hover-background;
+    }
+}
+
+.order-inactive {
+    color: @order-button-inactive-text !important;
+    background-color: @order-button-inactive-background !important;
+}
+
+.order-direction {
+
+    &:before {
+        font: 3rem 'Glyphicons Regular';
+        content: "\E348";
+        color: @order-button-background;
+        position: absolute;
+        top: 3.5rem;
+        animation: blink 1.5s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+        0% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+}

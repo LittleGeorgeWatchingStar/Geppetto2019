@@ -1,0 +1,157 @@
+#board,
+#board svg,
+.resize {
+    position: absolute;
+}
+
+
+// For resize handles, see workspace.less.
+#board {
+    box-sizing: content-box;
+
+    // Allow dragging through the board so that it behaves like workspace drag:
+    pointer-events: none;
+
+    background: @board-background;
+    border: @board-border;
+
+    &.color-pcb {
+        background: @board-pcb;
+    }
+
+    &.ready {
+        box-shadow: @board-ready;
+    }
+
+    &.unready {
+        box-shadow: @board-unready;
+    }
+
+    &.connected {
+        box-shadow: @board-connected;
+    }
+
+    .resize.ui-draggable-dragging {
+
+        background-color: @board-resize-background;
+
+        &.top {
+            border-bottom-color: @board-resize-border;
+        }
+
+        &.left {
+            border-right-color: @board-resize-border;
+        }
+
+        &.right {
+            border-left-color: @board-resize-border;
+        }
+
+        &.bottom {
+            border-top-color: @board-resize-border;
+        }
+    }
+
+    // But don't cancel interactive elements.
+    .resize, g, .radius {
+        pointer-events: initial;
+    }
+
+    &.ui-draggable-dragging {
+        .resize {
+            opacity: 0.3;
+        }
+    }
+
+    .module-title,
+    .bus {
+        .noselect();
+    }
+
+    .radius {
+        position: absolute;
+
+        &:hover .radius-handle {
+            .transition-speed(0.1s);
+        }
+
+        .radius-handle {
+            width: 20px;
+            height: 20px;
+            border-bottom-left-radius: 15px;
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            cursor: nesw-resize;
+            border-left: 2px solid @board-radius-color;
+            border-bottom: 2px solid @board-radius-color;
+
+            &:hover {
+                border-color: @theme-action-color;
+            }
+        }
+
+        .radius-handle.corner {
+            border-bottom-left-radius: 0;
+            border-color: @board-radius-color;
+
+            &:hover {
+                border-color: @theme-action-color;
+            }
+        }
+
+        .radius-display {
+            width: 108px;
+            position: absolute;
+            bottom: -15px;
+            left: -46px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+
+            input {
+                width: 55px;
+                margin-right: 2px;
+                padding: 1px;
+
+                &:focus {
+                    border-color: @theme-action-color;
+                    outline: none;
+                }
+            }
+        }
+
+        .radius-locked {
+            &:before {
+                .lock-icon();
+                position: absolute;
+                font-size: 0.8rem;
+                left: -15px;
+                top: 20%;
+            }
+        }
+    }
+
+    .locked-js {
+        cursor: context-menu;
+        color: @board-radius-color-locked !important;
+
+        .radius-handle {
+            border-left: 2px solid @container-border-complementary-sdm;
+            border-bottom: 2px solid @container-border-complementary-sdm;
+
+            &:hover {
+                border-color: @container-border-complementary-sdm;
+            }
+        }
+
+        .radius-handle.corner {
+            border-bottom-left-radius: 0;
+            border-color: @container-border-complementary-sdm;
+
+            &:hover {
+                border-color: @container-border-complementary-sdm;
+            }
+        }
+    }
+}

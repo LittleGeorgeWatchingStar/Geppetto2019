@@ -1,0 +1,439 @@
+.board-builder-dialog {
+    padding: 0;
+    height: 100%;
+
+    .remove-btn:after {
+        .x-icon();
+        font-size: 0.7rem;
+        padding: 0.25rem;
+        vertical-align: bottom;
+    }
+
+    .heading {
+        display: inline-block;
+        font-weight: bold;
+        margin-bottom: 0.75rem;
+    }
+
+    .suggestions-message {
+        text-align: center;
+        padding: 0 1rem;
+    }
+
+    .board-builder-heading {
+        background: url('../../../image/chatterbox-pi.png') no-repeat center center;
+        font-size: 1.1rem;
+        font-weight: bold;
+        letter-spacing: 0.05rem;
+        color: white;
+        text-shadow: 0 0 5px black;
+        position: relative;
+        z-index: @zindex-child-0;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+        padding: 1rem 1rem 0.5rem 2rem;
+
+        .help {
+            position: absolute;
+            right: 1rem;
+            top: 0.5rem;
+            cursor: pointer;
+
+            &:before {
+                content: "\e195";
+                font: 1.4rem 'Glyphicons Regular';
+                color: @board-builder-helper;
+                text-shadow: 1px 1px 13px @board-builder-helper-text-shadow;
+                .transition-speed(0.2s);
+            }
+
+            &:hover:before,
+            &.active:before {
+                color: @board-builder-helper-hover;
+                text-shadow: 1px 1px 20px @board-builder-helper-text-shadow;
+            }
+        }
+    }
+
+    .board-img {
+        background: linear-gradient(rgba(100, 100, 100, 0.2), rgba(80, 80, 100, 0.6));
+        z-index: @zindex-bg-images;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    > div {
+        display: flex;
+        height: 100%;
+    }
+
+    .module-options {
+        overflow-y: auto;
+        max-height: 100%;
+        width: 55%;
+        box-shadow: @container-box-shadow-light;
+        background: @container-background;
+
+        .categories {
+            padding: 1rem 1.5rem 3rem 1.5rem;
+
+            > * {
+                display: block;
+                margin-bottom: 0.5rem;
+            }
+        }
+    }
+
+    form {
+        padding: 0.5rem 0;
+    }
+
+    .board-size .inputs {
+        display: flex;
+        margin-top: 0.25rem;
+
+        label {
+            display: flex;
+            margin-right: 2rem;
+        }
+
+        span {
+            padding-top: 0.3rem;
+        }
+
+        input {
+            margin-left: 0.5rem;
+            max-width: 7rem;
+        }
+    }
+
+    .category-container {
+
+        > div {
+            margin-bottom: 0.8rem;
+        }
+
+        .category-name {
+            display: flex;
+            justify-content: space-between;
+
+            b {
+                position: relative;
+            }
+
+            span {
+
+                &:hover {
+                    color: @regular-button-hover;
+                }
+            }
+        }
+
+        ul {
+            height: 2.5rem;
+            border-radius: @default-border-radius-child-content;
+            overflow-y: hidden;
+            margin-top: 0.2rem;
+            border: 1px solid @regular-button-border;
+            background: @board-builder-selected-list-background;
+        }
+
+        .selected-js {
+            b {
+                color: @text-paragraph-highlight;
+
+                &:before {
+                    .caret-right();
+                    position: absolute;
+                    left: -10px;
+                }
+            }
+
+            ul {
+                height: 6rem;
+                overflow-y: auto;
+                border-color: @text-paragraph-highlight;
+            }
+        }
+
+        [data-disabled='true'] {
+            opacity: 0.8;
+        }
+
+        li {
+            list-style-type: none;
+            padding-left: 0.5rem;
+            padding-top: 0.1rem;
+        }
+    }
+
+    .suggestions-box {
+        width: 325px;
+        display: flex;
+        height: 100%;
+        position: relative;
+    }
+
+    .suggestions-container {
+        box-shadow: @container-box-shadow;
+        width: 350px;
+        overflow-y: hidden;
+        z-index: @zindex-child-level-1;
+        background: @container-background-light;
+
+        .search-container {
+            position: relative;
+            padding: 0.25rem 1rem 0.75rem 1rem;
+            box-shadow: @container-box-shadow;
+            clip-path: inset(-0 -0 -5px 0px);
+
+            input[type=search] {
+                border-width: 0 0 2px;
+                border-bottom-style: solid;
+                padding: 0.3rem;
+                width: 100%;
+                position: relative;
+                border-color: @board-builder-search-border;
+                background: @container-background-light;
+
+                &:focus {
+                    border-color: @regular-button-hover;
+                    outline: none;
+                }
+
+                &:focus + .search-icon {
+                    display: none;
+                }
+            }
+
+            span {
+                right: 1.5rem;
+                position: absolute;
+                top: 0.5rem;
+                opacity: 0.5;
+                font-size: 1rem;
+            }
+
+            .search-icon:after {
+                .search();
+            }
+
+            .reset-icon {
+                top: 0.2rem;
+                right: 1rem;
+
+                &:hover {
+                    color: @regular-button-hover;
+                    opacity: 1;
+                }
+
+                &:after {
+                    .close();
+                }
+            }
+        }
+
+        .suggestions-heading {
+            padding: 1rem 0 0.5rem 1rem;
+            font-size: 1rem;
+            display: block;
+            background: @container-background-complementary;
+        }
+    }
+
+    .suggestions {
+        width: 100%;
+        padding: 0.5rem 0;
+        list-style: none;
+        overflow-y: auto;
+        height: 88%;
+
+        li:last-child {
+            margin-bottom: 1rem;
+        }
+
+        img {
+            max-width: 20px;
+            max-height: 20px;
+            vertical-align: bottom;
+        }
+
+        button {
+            overflow-x: hidden;
+            padding: 0.25rem;
+            font-size: 0.9rem;
+            width: 100%;
+            text-align: left;
+            margin-bottom: 0.2rem;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            &:before {
+                font: 0.8rem 'Glyphicons Regular';
+                content: '\e191';
+                margin: 0 0.25rem 0 0.5rem;
+                color: @regular-button-hover;
+            }
+
+            &:hover {
+                white-space: normal;
+            }
+        }
+    }
+
+    .mounting-holes {
+        label {
+            display: inline-block;
+            margin-right: 1rem;
+            margin-bottom: 0.25rem;
+            padding: 0.5rem;
+            box-shadow: @regular-button-box-shadow-light;
+            border-radius: @default-border-radius-child-content;
+            cursor: pointer;
+            white-space: nowrap;
+            border: 1px solid @regular-button-border;
+            background: @regular-button-background;
+
+            input {
+                margin-right: 0.25rem;
+            }
+        }
+    }
+
+    .preview {
+        padding: 2rem;
+        width: 45%;
+        max-height: 100%;
+        overflow-y: auto;
+        position: relative;
+        z-index: @zindex-child-level-1;
+        background: @board-builder-preview-background;
+
+        ul {
+            list-style: none;
+            text-align: left;
+            border-radius: @default-border-radius-child-content;
+            padding: 0.5rem;
+            border: 1px solid @regular-button-border;
+            background: @container-background-light;
+
+            li {
+                padding-bottom: 0.25rem;
+            }
+
+            .incompatible {
+                opacity: 0.8;
+
+                &:before {
+                    .warning-sign;
+                    font-size: 1rem;
+                    margin-right: 0.5rem;
+                    color: rgb(200, 70, 50);
+                }
+            }
+
+            small {
+                line-height: 1rem;
+                display: inline-block;
+            }
+        }
+
+        input {
+            margin-right: 0.25rem;
+        }
+
+        .pointer {
+            border-right: 1rem solid transparent;
+            border-left: 1rem solid transparent;
+            border-top: 0.75rem solid @text-paragraph-highlight;
+            width: 0;
+            margin: -1px auto 1rem auto;
+        }
+
+        .preview-board-img {
+            background: url(../../../image/aerocore-transparent.png) no-repeat 26% center;
+            width: 100%;
+            height: 17rem;
+            position: absolute;
+            left: 0;
+            opacity: 0.4;
+            bottom: 0;
+            z-index: @zindex-bg-images;
+            -webkit-filter: grayscale(25%);
+        }
+
+        p {
+            margin-top: 1rem;
+            padding: 0.5rem;
+            border-radius: @default-border-radius-child-content;
+            background: @container-background-light;
+            text-align: left;
+        }
+    }
+
+    .selected-items li {
+        display: flex;
+
+        // Remove icon for module preview list nodes.
+        [data-value] {
+            padding: 0.2rem;
+            opacity: 0.4;
+            cursor: pointer;
+
+            &:after {
+                font: 0.7rem 'Glyphicons Regular';
+                content: '\e208';
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+
+    .build-board-container {
+        text-align: center;
+    }
+
+    .build-board {
+        padding: 0.5rem 2rem;
+        border-radius: @default-border-radius-small-content;
+        box-shadow: @regular-button-box-shadow;
+    }
+
+    .info:after {
+        font: 0.8rem "Glyphicons Regular";
+        content: "\e196";
+        margin-left: 0.5rem;
+    }
+
+    .help-box {
+        padding: 1rem;
+        max-width: 37rem;
+        max-height: 35rem;
+        overflow-y: scroll;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+        border: 1px solid #888888;
+
+        .remove-btn:after {
+            font-size: 1rem;
+        }
+    }
+
+    .help-heading {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    }
+
+    .video {
+        margin: 1rem 0;
+    }
+}

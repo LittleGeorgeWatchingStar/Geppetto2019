@@ -1,0 +1,195 @@
+.custom-module-dialog {
+
+    .required::after {
+        color: #BB2525;
+    }
+
+    .current-active {
+        color: @theme-action-color;
+    }
+
+    .tab-header {
+        background: #ffffff;
+    }
+
+    .header-container,
+    .body-container {
+        background: #ffffff;
+    }
+
+    .bus-templates {
+
+        .pointer {
+            border-top: 1.5rem solid @theme-color;
+        }
+    }
+
+    select {
+        background: white;
+        border: 1px solid #aaaaaa;
+    }
+
+    .bus-signal {
+        border: 1px solid #999999;
+        border-left: 3px solid #999999;
+        background: white;
+    }
+
+    .nav {
+        background: #dddddd;
+        border-bottom: 1px solid #aaaaaa;
+
+        button {
+            background: #f2f2f2;
+            color: @theme-action-color;
+            border: 1px solid #aaaaaa;
+            border-bottom: 1px solid #aaaaaa;
+
+            &.active-js {
+                background: #ffffff;
+                color: #777777;
+                border-bottom: 1px solid #ffffff;
+            }
+        }
+    }
+
+    .allowed-level.active-js {
+        color: @theme-color;
+        border: 1px solid @theme-color;
+    }
+
+    .add-all, .add-bus-btn {
+        color: @theme-action-color;
+    }
+
+    .selected-js .net-label,
+    .highlight .net-label {
+        color: @theme-color;
+    }
+
+    .pin {
+        background: white;
+        border: 1px solid #999999;
+        border-left: 3px solid #999999;
+    }
+
+    .selected-js .pin {
+        border: 1px solid #336ccc;
+        border-left: 3px solid #336ccc;
+    }
+
+    .highlight .pin {
+        border: 1px solid #555555;
+        border-left: 4px solid #555555;
+    }
+
+    .module-svg {
+         path.footprint, .edge {
+            stroke: black;
+        }
+    }
+
+    .progress-message {
+        border: 1px solid #aaaaaa;
+
+        &.complete {
+            background: rgba(0, 255, 0, 0.1);
+        }
+
+        &.invalid {
+            background: #ffffea;
+        }
+    }
+
+    .signal-error {
+        background: rgba(255, 254, 227, 0.9);
+        border: 1px solid #aaaaaa;
+    }
+}
+
+.assignable-nets-module-svg-column {
+
+    .pin-point {
+        stroke: black;
+    }
+
+    .pin-point-background {
+        fill: rgba(255, 255, 255, 0.8);
+    }
+
+    .highlight,
+    .module-svg-pin:hover {
+        fill: @theme-color;
+
+        circle {
+            stroke: @theme-color;
+        }
+    }
+}
+
+.custom-module__nets-container {
+    background: #eeeeee;
+}
+
+.custom-module__signals-container {
+    border: 1px solid #bbbbbb;
+    border-top: 4px solid #888888;
+
+    .options {
+        background: #ffffff;
+    }
+}
+
+.voltage-domain-controls {
+    border-bottom: 1px solid #bbbbbb;
+    background: #ffffff;
+
+    label {
+        border: 1px solid #cccccc;
+    }
+}
+
+.custom-module__buses-container {
+    background: #ffffff;
+    border: 1px solid #cccccc;
+
+    .board-signals-container {
+        border-right: 1px solid #bbbbbb;
+    }
+
+    .bus-list-item {
+        border: 1px solid #aaaaaa;
+
+        &.selected-js {
+            color: @theme-color;
+            border: 1px solid @theme-color;
+        }
+
+        &.invalid-js {
+            box-shadow: 0 0 3px #980900;
+            border: 1px solid #980900;
+        }
+    }
+
+    .colour-icon {
+        border: 1px solid rgba(0, 0, 0, 0.5);
+    }
+}
+
+.describe-module .preview {
+    background: #eeeeee;
+    margin: 0;
+
+    .buses {
+        border: 1px solid #bbbbbb;
+        background: #ffffff;
+    }
+
+    path.footprint {
+        fill: #ffffff;
+    }
+
+    line {
+        stroke: black;
+    }
+}

@@ -1,0 +1,105 @@
+{{#with htmlWebpackPlugin.options.Config}}
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta name="description" content="Intuitive Platform To Design And Build Custom Embedded Computers">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        {{#if NOINDEX }}
+        <meta name="robots" content="noindex, follow"/>
+        {{/if}}
+        <title>Geppetto Modular Designer | Design Tools for AI and Edge Electronics</title>
+        <link rel="icon" type="image/x-icon" href="{{ STATIC_URL }}/image/icons/favicon.ico">
+        <link name="initial" rel="stylesheet" href="{{ CSS_URL }}/themes/default.css"/>
+        <link name="theme" rel="stylesheet" href=""/>
+
+        {{#if EXPERIMENT_ID }}{{! Google Analytics Content Experiment }}
+        {{!
+        Variation must be chosen before 'pageview' is sent to GA.
+        See https://developers.google.com/analytics/devguides/collection/analyticsjs/experiments#pro-client
+        }}
+            <script src="//www.google-analytics.com/cx/api.js?experiment={{ EXPERIMENT_ID }}"></script>
+            <script>
+                try {
+                    window.chosenVariation = cxApi.chooseVariation();
+                } catch (e) {
+                }
+            </script>
+        {{/if}}
+
+        {{#if TRACKING_ID }}{{! Google Analytics }}
+        {{!
+        This tracking snippet gives better performance on modern browsers
+        than the "standard" one.
+        See https://developers.google.com/analytics/devguides/collection/analyticsjs/#the_javascript_tracking_snippet
+        }}
+            <script>
+                window.ga = window.ga || function () {
+                    (ga.q = ga.q || []).push(arguments)
+                };
+                ga.l = +new Date;
+                ga('create', '{{ TRACKING_ID }}', 'auto');
+                ga('send', 'pageview');
+            </script>
+            <script async src="https://www.google-analytics.com/analytics.js"></script>
+        {{/if}}
+        {{#if HOTJAR_ID }}
+            <!-- Hotjar Tracking Code for https://www.geppetto.gumstix.com/ -->
+            <script>
+                (function(h,o,t,j,a,r){
+                    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                    h._hjSettings={hjid:{{ HOTJAR_ID }},hjsv:6};
+                    a=o.getElementsByTagName('head')[0];
+                    r=o.createElement('script');r.async=1;
+                    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                    a.appendChild(r);
+                })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+            </script>
+        {{/if}}
+        {{#if ORIBI_ID }}
+            <script type="application/javascript">
+                (function(b,o,n,g,s,r,c){
+                    if(b[s])return;b[s]={};
+                    b[s].scriptToken="{{ ORIBI_ID }}";
+                    b[s].callsQueue=[];
+                    b[s].api=function(){
+                        b[s].callsQueue.push(arguments);
+                    };
+                    r=o.createElement(n);
+                    c=o.getElementsByTagName(n)[0];
+                    r.async=1;
+                    r.src=g;
+                    r.id=s+n;
+                    c.parentNode.insertBefore(r,c);
+                })(window,document,"script","https://cdn.oribi.io/{{ ORIBI_ID }}/oribi.js","ORIBI");
+            </script>
+        {{/if}}
+
+        <script src="{{ STATIC_URL }}/bundle.js" crossorigin="anonymous"></script>
+        <script src="{{ STATIC_URL }}/vendors.js" crossorigin="anonymous"></script>
+        {{#if AFFILIATE_SCRIPT }}
+            <script src="{{ AFFILIATE_SCRIPT }}"></script>
+        {{/if}}
+        {{#if CHAT }}
+            {{> templates/chat }}
+        {{/if}}
+    </head>
+
+    <body>
+        <div id="body"></div>
+        <div id="loading">
+            <div class="loader-promo">
+            </div>
+            <div class="load-wrapper">
+                <div class="geppetto-loader">
+                    {{> templates/geppetto_logo }}
+                </div>
+                <div id="load-msg">
+                LOADING
+                </div>
+                <hr>
+                <p><i>Get ready to drag and drop modules onto the board</i></p>
+            </div>
+        </div>
+    </body>
+    </html>
+{{/with}}

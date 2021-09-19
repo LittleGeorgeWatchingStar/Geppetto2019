@@ -1,0 +1,374 @@
+.design-preview-container {
+    margin: 0.75rem;
+    border-radius: @default-border-radius-small-content;
+    box-shadow: @container-box-shadow;
+    background: @container-background-light;
+    border: 1px solid @regular-button-border;
+
+    .actions {
+        padding: 0.5rem;
+        display: flex;
+        position: relative;
+        justify-content: space-between;
+
+        button {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            z-index: @zindex-level-1;
+            position: relative;
+            background: @action-button-background;
+            color: @action-button;
+
+            &:last-child {
+                margin-left: 0.5rem;
+            }
+
+            &:only-child {
+                margin-left: auto;
+            }
+        }
+    }
+
+    > p {
+        padding: 0.3rem 0.5rem;
+    }
+
+    &:hover {
+        border-color: @regular-button-border-hover;
+
+        .design-preview .name {
+            color: @text-paragraph-highlight;
+        }
+    }
+}
+
+.design-preview {
+    display: block;
+    overflow: hidden;
+    font-size: 0.9rem;
+    cursor: pointer;
+    position: relative;
+
+    > * {
+        width: 100%;
+    }
+
+    .name {
+        text-align: center;
+        width: 100%;
+        padding: 0.5rem;
+        padding-bottom: 0;
+        font-size: 1.1rem;
+        border: 0;
+        height: 3.3rem;
+    }
+
+    .owner, .public {
+        white-space: nowrap;
+    }
+
+    .public-engineer {
+        position: absolute;
+        top: -12rem;
+        right: 0.5rem;
+    }
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        z-index: @zindex-level-2;
+        position: relative;
+        border-bottom: 1px solid @design-preview-tile-separator-color;
+
+        .name {
+            padding: 0.5rem;
+            padding-bottom: 0;
+            text-align: center;
+            width: 100%;
+            font-size: 1.1rem;
+            border: 0;
+            height: 4rem;
+            margin-bottom: 0.5rem;
+            overflow-y: hidden;
+        }
+
+        .info {
+            padding: 0 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            height: 1rem;
+            min-height: 16px;
+            margin-bottom: 0.5rem;
+
+            .product {
+                text-align: right;
+            }
+        }
+    }
+
+    .preview {
+        text-align: center;
+        position: relative;
+        background-color: white;
+    }
+
+    .preview-image {
+        max-width: 100%;
+        height: 7rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .icons {
+        position: absolute;
+        bottom: 0;
+        right: 0.5rem;
+    }
+
+    .icon {
+        max-width: 27px;
+        max-height: 25px;
+    }
+
+    .description-text {
+        padding: 0.5rem;
+        overflow-y: auto;
+        font-size: 0.9rem;
+        line-height: 1.2rem;
+        word-break: break-word;
+        height: 4.5rem;
+        border-top: 1px solid @design-preview-tile-separator-color;
+        border-bottom: 1px solid @design-preview-tile-separator-color;
+    }
+}
+
+.design-preview-expanded {
+    padding: 0;
+    overflow-y: hidden;
+
+    .loading {
+        height: 100%;
+    }
+
+    .wrapper {
+        display: flex;
+        height: 100%;
+    }
+
+    .icons {
+        text-align: right;
+        padding: 10px;
+
+        .icon {
+            max-width: 30px;
+        }
+    }
+
+    .save-button-container {
+        text-align: right;
+    }
+
+    .info {
+        padding: 1.5rem;
+        width: 65%;
+        overflow-y: auto;
+        background: @expanded-design-dialog-info-background-color;
+    }
+
+    .modules-header {
+        margin-bottom: 0.5rem;
+    }
+
+    .module-list {
+        padding: 0.25rem 0 1rem 0;
+        list-style: none;
+    }
+
+    .options {
+        padding: 1.5rem 1rem 1rem 1rem;
+        width: 35%;
+        background: @expanded-design-dialog-options-background-color;
+    }
+
+    hr {
+        margin: 1.5rem 0;
+    }
+
+    .name {
+        height: 2.25rem;
+        overflow: hidden;
+        white-space: nowrap;
+        position: relative;
+        border-color: @regular-button-border;
+
+        &:focus {
+            border-color: @regular-button-hover;
+        }
+    }
+
+    .name-container,
+    .name {
+        font-size: 1.2rem;
+    }
+
+    .preview-icon-wrapper {
+        background-color: white;
+        margin: 1rem 0;
+    }
+
+    .preview {
+        text-align: center;
+    }
+
+    .heading-container {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 0.25rem;
+    }
+
+    .heading, h3 {
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
+
+    .description-text {
+        height: 8rem;
+        border-color: @regular-button-border;
+
+        &:focus {
+            border-color: @regular-button-hover;
+        }
+    }
+
+    .description-container {
+        padding-bottom: 1.5rem;
+    }
+
+    .publish-details {
+        padding: 1rem 0;
+    }
+
+    .menu button {
+        display: block;
+        width: 100%;
+        height: 2.2rem;
+        border-radius: 2px;
+    }
+
+    button {
+        padding: 0.4rem 1rem;
+        font-size: 1rem;
+        vertical-align: top;
+        text-align: left;
+        margin: 0.5rem 0;
+        white-space: nowrap;
+        box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.2);
+
+        &:before {
+            font: 0.9rem 'Glyphicons Regular';
+            margin-right: 0.5rem;
+        }
+
+        &:hover {
+            .transition-speed(0.2s);
+        }
+
+        &.cta {
+            &:extend(.cta);
+        }
+
+        &.product:before {
+            .shop();
+        }
+
+        &.public:before {
+            .public();
+        }
+
+        &.share:before {
+            .share();
+        }
+
+        &.delete {
+            background: none;
+            box-shadow: none;
+
+            &:before {
+                .delete-icon();
+            }
+        }
+    }
+
+    .downloads button:before {
+        .download();
+    }
+}
+
+.design-preview-mini-container {
+    min-width: 200px;
+    height: 100%;
+    width: 31%;
+
+    &:not(:last-child) {
+        margin-right: 1.25rem;
+    }
+
+    &:hover .preview-image {
+        width: 100%;
+    }
+}
+
+.design-preview-mini {
+    background: @container-background-light;
+    box-shadow: @container-box-shadow;
+    color: @title-complementary;
+    height: 100%;
+    overflow-y: hidden;
+    cursor: pointer;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 0.5rem;
+    border: 1px solid @regular-button-border;
+
+    .header {
+        text-align: center;
+        font-size: 1rem;
+        min-height: 2.75rem;
+        height: 2.75rem;
+        overflow-y: hidden;
+
+        .name {
+            padding: 0.5rem;
+        }
+    }
+
+    .preview {
+        position: relative;
+        height: 100%;
+        margin-top: 0.5rem;
+    }
+
+    .preview-image {
+        margin: 0 auto;
+        width: 95%;
+        .transition-ease(0.2s);
+        display: block;
+    }
+
+    .icons {
+        position: absolute;
+        top: 0.25rem;
+        right: 0.5rem;
+    }
+
+    .icon {
+        max-width: 23px;
+        max-height: 25px;
+    }
+
+    &:hover {
+        color: @text-paragraph-highlight;
+        border-color: @regular-button-border-hover;
+    }
+}

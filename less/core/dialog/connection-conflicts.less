@@ -1,0 +1,75 @@
+/* Styles for the widget that displays conflicting connections. */
+
+.disconnect-widget {
+    position: absolute;
+    max-width: 350px;
+    max-height: 300px;
+    padding: 0.75rem;
+    font-size: 0.8rem;
+    line-height: 1rem;
+    z-index: @zindex-level-10;
+    text-align: left;
+    overflow-x: hidden;
+    .grab-cursor;
+
+    .x {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .connection-info {
+        width: 90%;
+    }
+
+    .header-container {
+        padding-top: 0.25rem;
+        font-weight: bold;
+    }
+
+    li {
+        display: flex;
+        padding: 0.2rem 0;
+    }
+
+    .list-item-label {
+        margin-right: 0.3rem;
+        font-weight: bold;
+        .transition-speed(0.2s);
+        cursor: pointer;
+    }
+
+    .module-name,
+    .bus-name {
+        white-space: nowrap;
+        vertical-align: bottom;
+    }
+
+    .module-name {
+        max-width: 11rem;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+        display: inline-block;
+        margin-right: 0.25rem;
+    }
+
+    .action {
+        box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.15);
+        padding: 0.25rem 0.5rem;
+        cursor: pointer;
+        font-size: 0.8rem;
+
+        &:active {
+            box-shadow: none;
+            transform: translate(0.5px, 1px);
+            .transition-speed(0.1s);
+        }
+    }
+
+    .list-item-label,
+    .action {
+        flex-direction: column;
+        justify-content: center;
+        display: flex;
+    }
+}

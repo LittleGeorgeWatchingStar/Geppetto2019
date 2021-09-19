@@ -1,0 +1,173 @@
+.custom-module-dialog {
+
+    .current-active {
+        color: @green;
+    }
+
+    .pin {
+        border: 1px solid transparent; // This is to keep in line with the core PIN label sizing.
+        border-left: 3px solid #777777;
+        background-color: #555555;
+        color: #333333;
+
+        .remove:after {
+            color: #333333;
+        }
+
+        .unassigned, .ground {
+            color: #bbbbbb;
+        }
+    }
+
+    .pin:hover,
+    .highlight .pin {
+        border-left: 4px solid #999999;
+    }
+
+    .selected-js .pin {
+        border: 1px solid @blue;
+        border-left: 3px solid @blue;
+    }
+
+    .header-container,
+    .body-container {
+        background: #333333;
+    }
+
+    .bus-signal {
+        color: #333333;
+        background: #555555;
+        box-shadow: 2px 2px 1px rgba(10, 10, 10, 0.3);
+    }
+
+    .required::after {
+        color: #F96161
+    }
+
+    .bus-list-item {
+        background: #222222;
+        border: 1px solid transparent;
+
+        &.selected-js {
+            color: @blue;
+            border: 1px solid @blue;
+        }
+
+        &.invalid-js {
+            box-shadow: 0 0 4px rgba(255, 0, 0, 0.8);
+        }
+    }
+
+    .nav {
+        background: #252525;
+    }
+
+    .nav button {
+        background: #555555;
+        border: 1px solid #222222;
+        border-bottom: 0;
+        color: @green;
+
+        &.active-js {
+            background: #444444;
+            color: #cccccc;
+        }
+    }
+
+    .allowed-level {
+        color: #888888;
+
+        &.active-js {
+            color: @blue;
+            border: 1px solid #999999;
+            background: #333333;
+        }
+    }
+
+    .add-all {
+        color: @green;
+    }
+
+    .add-bus-btn {
+        color: @green;
+    }
+
+    select {
+        background: #292929;
+    }
+
+    .module-svg-pin {
+        fill: #999999;
+    }
+
+    .module-svg {
+        background: #353535;
+
+        polygon, path, line {
+            stroke: #888888;
+            stroke-width: 2px;
+        }
+    }
+
+    .progress-message {
+        color: #dddddd;
+
+        &.complete {
+            background: rgba(150, 255, 150, 0.3)
+        }
+
+        &.invalid {
+            background: rgba(225, 225, 100, 0.3);
+        }
+    }
+
+    .signal-error {
+        background: rgba(255, 255, 200, 0.1);
+        border: 1px solid #777777;
+    }
+
+    .pin-point-background {
+        fill: rgba(53, 53, 53, 0.3);
+    }
+}
+
+.voltage-domain-controls {
+    border-bottom: 1px solid #333333;
+    background: #444444;
+
+    .allowed-level {
+        border: 1px solid #666666;
+    }
+}
+
+.assignable-nets-module-svg-column {
+    .highlight,
+    .module-svg-pin:hover {
+        fill: @blue;
+
+        circle {
+            stroke: @blue;
+        }
+    }
+}
+
+.custom-module__nets-container {
+    background: #292929;
+}
+
+.custom-module__signals-container {
+    border: 1px solid #555555;
+}
+
+.board-signals-container {
+    border-right: 1px solid #555555;
+}
+
+.describe-module .preview {
+    background: #252525;
+    margin: 0;
+
+    .buses {
+        background: #333333;
+    }
+}

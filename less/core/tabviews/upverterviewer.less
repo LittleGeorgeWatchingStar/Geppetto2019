@@ -1,0 +1,101 @@
+.tabview.upverter-editor, #upverter-container {
+    .upverter-editor-container {
+        padding: 15px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-flow: column;
+
+        .header {
+            display: flex;
+            align-items: flex-end;
+            border-bottom: 1px solid @upverter-editor-tab-button-active-border-color;
+        }
+
+        .tab-button-container {
+            display: flex;
+            flex-grow: 1;
+        }
+
+        .tab-button {
+            display: inline-block;
+            padding: 0.25rem 1rem;
+            cursor: pointer;
+            border: 1px solid transparent;
+            border-bottom: 0;
+            margin-bottom: -1px;
+
+            &:hover {
+                background: @upverter-editor-tab-button-background-hover-color;
+                border: 1px solid @upverter-editor-tab-button-hover-border-color;
+                border-bottom: 0;
+                color: @upverter-editor-tab-button-hover-color;
+            }
+
+            &.active {
+                background: @upverter-editor-tab-button-background-active-color;
+                border: 1px solid @upverter-editor-tab-button-active-border-color;
+                border-bottom: 0;
+                color: @upverter-editor-tab-button-active-color;
+            }
+        }
+
+        .downloads-button-container {
+            padding-bottom: 0.5rem;
+            margin-right: 9rem;
+
+            a {
+                font-size: 0.84rem;
+                background-color: #3399cc;
+            }
+        }
+
+        .download-button {
+            display: block;
+        }
+
+        .upverter-editor-wrapper {
+            background: @upverter-editor-tab-button-background-active-color;
+            border: 1px solid @upverter-editor-tab-button-active-border-color;
+            border-top: 0;
+
+            flex-grow: 1;
+
+            & > div {
+                width: 100%;
+                height: 100%;
+            }
+
+            .loading,
+            .error {
+                margin: 1rem;
+            }
+        }
+    }
+
+    .multi-view-back-to-dashboard {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 0.3rem 0.6rem;
+        background: @dashboard-workspace-button-background;
+        font-size: 1.2rem;
+        box-shadow: @dashboard-workspace-button-box-shadow;
+
+        &:before {
+            .geppetto();
+            margin-right: 0.5rem;
+            height: 19px;
+            width: 18px;
+        }
+
+        &:hover {
+            color: @dashboard-workspace-button-hover;
+
+            &:before {
+                .to-dashboard-arrow();
+                font-size: 1rem;
+            }
+        }
+    }
+}

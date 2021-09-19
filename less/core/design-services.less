@@ -1,0 +1,109 @@
+.geppetto-services-dialog {
+    padding: 0;
+    background: @container-background;
+
+    .back {
+        font-size: 1rem;
+        font-weight: bold;
+        color: @theme-action-color;
+
+        &:before {
+            .left-chevron;
+            margin-right: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        &:hover {
+            color: @theme-action-color-light;
+        }
+    }
+}
+
+.design-services-header {
+    position: relative;
+    padding: 1rem 2rem;
+    margin-bottom: 2rem;
+    box-shadow: @container-box-shadow-light;
+    background: @container-background-light;
+
+    h2 {
+        padding-bottom: 0.5rem;
+        position: relative;
+    }
+
+    p {
+        max-width: 40rem;
+        position: relative;
+    }
+}
+
+.design-services-content {
+    position: relative;
+}
+
+.design-services-header-background {
+    background: url('../../image/chatterbox-pi-edge.png') no-repeat 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.design-services-columns {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    background: @container-background-light;
+    box-shadow: @container-box-shadow;
+    border-top: 5px solid @theme-action-color;
+}
+
+.design-services-column {
+    max-width: 22rem;
+    min-width: 19rem;
+    margin: 0 1rem;
+    padding: 2rem;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 34rem;
+
+    hr {
+        margin: 1rem 0;
+    }
+
+    .cta-container {
+        margin: 0 auto;
+    }
+
+    .image-container {
+        text-align: center;
+    }
+
+    img {
+        max-width: 14rem;
+    }
+}
+
+.design-services-info {
+    padding: 2rem;
+    background: @container-background-light;
+
+    h2 {
+        margin: 1rem 0;
+    }
+
+    ol {
+        margin-left: 2rem;
+        line-height: 1.5rem;
+        padding: 0.5rem 0;
+    }
+}
+
+.product-info,
+.purchase-info {
+    padding: 1rem 0;
+}

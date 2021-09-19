@@ -1,0 +1,124 @@
+<div class="reconnection-log">
+    <section>
+        <p class="num-connections">
+            {{numSuccesses}} of {{totalConnections}} connection(s) established successfully.
+        </p>
+    </section>
+
+    {{#if failures.length}}
+        <section class="failures">
+            <p>
+                <strong>Failed Reconnections</strong>
+            </p>
+            <table>
+                <thead>
+                <tr>
+                    <td colspan="2"></td>
+                    <td>Original</td>
+                    <td>Result</td>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each failures as |failure|}}
+                    <tr>
+                        <td class="status-icon"></td>
+                        <td class="target">
+                            <span>
+                                {{failure.target}}
+                            </span>
+                        </td>
+                        <td class="original">
+                            <span>
+                                {{failure.original}}
+                            </span>
+                        </td>
+                        <td class="replacement">
+                            <span>
+                                {{failure.replacement}}
+                            </span>
+                        </td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </section>
+    {{/if}}
+
+    {{#if changes.length}}
+        <section class="changes">
+            <p>
+                <strong>Successful Reconnections (by best match)</strong>
+            </p>
+            <table>
+                <thead>
+                <tr>
+                    <td colspan="2"></td>
+                    <td>Original</td>
+                    <td>Result</td>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each changes as |change|}}
+                    <tr>
+                        <td class="status-icon"></td>
+                        <td class="target">
+                            <span>
+                                {{change.target}}
+                            </span>
+                        </td>
+                        <td class="original">
+                            <span>
+                                {{change.original}}
+                            </span>
+                        </td>
+                        <td class="replacement">
+                            <span>
+                                {{change.replacement}}
+                            </span>
+                        </td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </section>
+    {{/if}}
+
+    {{#if successes.length}}
+        <section class="successes">
+            <p>
+                <strong>Exact Reconnections</strong>
+            </p>
+            <table>
+                <thead>
+                <tr>
+                    <td colspan="2"></td>
+                    <td>Original</td>
+                    <td>Result</td>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each successes as |success|}}
+                    <tr>
+                        <td class="status-icon"></td>
+                        <td class="target">
+                            <span>
+                                {{success.target}}
+                            </span>
+                        </td>
+                        <td class="original">
+                            <span>
+                                {{success.original}}
+                            </span>
+                        </td>
+                        <td class="replacement">
+                            <span>
+                                {{success.replacement}}
+                            </span>
+                        </td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </section>
+    {{/if}}
+</div>

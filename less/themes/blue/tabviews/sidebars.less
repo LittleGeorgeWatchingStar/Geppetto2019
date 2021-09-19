@@ -1,0 +1,77 @@
+.panel {
+    background-color: white;
+
+    .label:after {
+        color: white;
+    }
+
+    .filtered-library h3,
+    .search-library h3,
+    .category-header {
+        background-color: @main-blue;
+        color: white;
+    }
+}
+
+.panel-back {
+    color: @theme-color;
+
+    &:before {
+        background: white;
+    }
+
+    &:hover {
+        color: @theme-color-light;
+    }
+}
+
+.default-header {
+    background-color: white;
+
+    &:hover {
+        background-color: @main-blue;
+        color: white;
+    }
+}
+
+.default-library,
+.filtered-library,
+.search-library,
+.panel-cover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.functional-groups {
+    background: white;
+    border-bottom: 1px solid #cccccc;
+}
+
+.panel-category {
+    border-left: 2px solid @main-blue;
+    border-bottom: 1px solid @main-blue;
+    background-color: #b9d5eb;
+}
+
+.category-modules {
+    background: #eeeeee;
+}
+
+// these style seems not used anymore, leave here for now to prevent errors
+.module-info {
+    table {
+        border: 1px solid @light-blue;
+
+        .bus-title {
+            border-top: 1px solid @light-blue;
+            background-color: #D7EDFD;
+        }
+
+        .bus-info {
+            border-top: 1px solid @pale-blue;
+        }
+
+        td {
+            border-right: 1px solid @pale-blue;
+        }
+    }
+}

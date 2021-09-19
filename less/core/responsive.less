@@ -1,0 +1,129 @@
+/* The html tag has been added to increase specificity for overriding default properties.
+Note that media tags don't increase specificity. */
+
+@media screen and (max-width: 1575px) {
+
+    /* My Account header should be spaced consistent to the other tab headers by default,
+    but with the extra toolbar, it needs to respond differently to smaller screens: */
+    html .account {
+        .toolbar {
+            position: static;
+        }
+
+        .masthead {
+            margin-left: 0;
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    html {
+        .design-preview-list {
+            li {
+                width: 33.3%;
+            }
+        }
+
+        .masthead {
+            min-width: 50rem;
+
+            .count {
+                display: none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1150px) {
+
+    html {
+        .toolbar-icon {
+            padding: 0;
+
+            &:before {
+                font-size: 2vw;
+            }
+        }
+
+        .toolbar-group-divider {
+            margin: 0;
+        }
+
+        .workspace .toolbar-button {
+            min-width: 1%;
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    html {
+        .tabbutton {
+            font-size: 0.9rem;
+            padding: 0.1rem 0.75rem;
+        }
+
+        .toolbar-icon:before {
+            font-size: 1.25rem;
+        }
+
+        .toolbar-text {
+            font-size: 0.65rem;
+        }
+
+        .masthead {
+            min-width: 44rem;
+        }
+    }
+}
+
+@media screen and (max-width: 925px) {
+    html {
+        .masthead {
+            min-width: 40rem;
+
+            .search-container {
+                input {
+                    width: 10rem;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 850px) {
+
+    html {
+        body {
+            font-size: 0.9rem;
+        }
+
+        #workspace-module-info-container {
+            max-width: 200px;
+        }
+
+        .module-info {
+            padding: 0.3rem;
+            padding-right: 0;
+        }
+
+        .branding span {
+            display: none;
+        }
+
+        .design-preview-list {
+            margin-left: 0;
+
+            li {
+                width: 50%;
+            }
+        }
+
+        .masthead {
+            min-width: 36rem;
+
+            .title-prefix {
+                display: none;
+            }
+        }
+    }
+}

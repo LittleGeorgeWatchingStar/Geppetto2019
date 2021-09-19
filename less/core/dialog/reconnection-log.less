@@ -1,0 +1,53 @@
+/* Styles for the substitute connection report dialog. */
+
+.reconnection-log {
+    section {
+        margin: 1rem;
+    }
+
+    .num-connections {
+        padding: 1rem;
+    }
+
+    table {
+        width: 100%;
+
+        .target {
+            width: 250px;
+        }
+
+        td {
+            padding: 0.2rem;
+        }
+
+        .original:after {
+            font: 0.9rem 'Glyphicons Regular';
+            float: right;
+            content: "\E212";
+        }
+
+        .original,
+        .replacement {
+            width: 125px;
+        }
+    }
+
+    .status-icon {
+        text-align: center;
+        width: 30px;
+
+        &:after {
+            font: 0.9rem 'Glyphicons Regular';
+        }
+    }
+
+    .failures .status-icon:after {
+        content: "\E079";
+    }
+
+    .successes, .changes {
+        .status-icon:after {
+            content: "\E207";
+        }
+    }
+}

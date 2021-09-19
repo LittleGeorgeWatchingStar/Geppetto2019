@@ -1,0 +1,49 @@
+<div class="unsaved-changes">
+    <span class="error">You have unsaved changes!</span>
+    <div class="discard">Discard</div>
+</div>
+<div class="reset">Reset</div>
+<input type="button" class="save-changes" value="Save changes"/>
+
+<table>
+    <thead>
+    <tr>
+        <td class="select-all">
+            <label><input type="checkbox"/></label>
+        </td>
+        <td class="name">
+            Name
+        </td>
+        <td class="email">
+            Email
+        </td>
+        <td class="permission">
+            Permission
+        </td>
+        <td></td>
+    </tr>
+    </thead>
+</table>
+<div class="controls">
+    <div class="batch-actions">
+        <div class="widget">
+            <label>
+                <select>
+                    <option value="email">Resend Email (Max 10)</option>
+                    <option value="remove">Remove Selected</option>
+                    {{#if allowEdit}}
+                        <option value="view">Set Permission: View</option>
+                        <option value="edit">Set Permission: Edit</option>
+                    {{/if}}
+                </select>
+            </label>
+            <button class="apply">Apply</button>
+        </div>
+        <p class="error">No collaborators have been selected.</p>
+    </div>
+    <div class="navigation">
+        <em><span></span></em>
+        <button class="back"></button>
+        <button class="next"></button>
+    </div>
+</div>

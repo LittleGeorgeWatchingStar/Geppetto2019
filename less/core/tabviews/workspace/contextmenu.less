@@ -1,0 +1,210 @@
+.contextmenu {
+    z-index: @zindex-level-10;
+    position: absolute;
+    min-width: 130px;
+
+    .down {
+        margin-top: -1px;
+        border-top: 0.75rem solid rgba(130, 130, 130, 0.8);
+    }
+
+    .up {
+        margin-bottom: -1px;
+        border-bottom: 0.75rem solid rgba(130, 130, 130, 0.8);
+    }
+
+    .disabled-js {
+        pointer-events: none;
+        opacity: 0.65;
+    }
+
+    li {
+        padding: 0.25rem 0.5rem;
+        cursor: pointer;
+        .transition-speed(0.1s);
+        line-height: 1.3rem;
+        background: @regular-button-background;
+
+        &:before {
+            font: 0.85rem "Glyphicons Regular";
+            margin-right: 0.25rem;
+            vertical-align: text-top;
+            display: inline-block;
+            min-width: 15px;
+            text-align: center;
+        }
+
+        &.delete:before {
+            .delete-icon();
+        }
+
+        &.rotate:before {
+            .rotate-icon();
+        }
+
+        &.rename:before {
+            .tag-icon();
+        }
+
+        &.remove:before {
+            .x-icon();
+        }
+
+        &.connections:before {
+            .transfer();
+        }
+
+        &.substitute:before {
+            .transfer();
+        }
+
+        &.fit-edge:before {
+            .move-icon;
+        }
+
+        &.fit-corner:before,
+        &.fit-board:before {
+            .expand-icon();
+        }
+
+        // The actual locked icon is missing from the set for some reason.
+        &.lock:before,
+        &.unlock:before {
+            .unlock-icon();
+        }
+
+        &.refocus:before {
+            .focus-icon();
+        }
+
+        &.add-module:before {
+            .new-icon();
+        }
+
+        &.info:before {
+            .info();
+        }
+
+        &.view-module-data:before {
+            .builder();
+        }
+
+        &.buses:before {
+            .flag;
+        }
+
+        &.module-data:before {
+            .builder();
+        }
+
+        &.module-bus-pin-mapping:before {
+            .pin-icon();
+        }
+
+        &.duplicate:before {
+            .copy();
+        }
+
+        &:hover {
+            color: @regular-button-hover;
+            border-color: @regular-button-hover;
+        }
+    }
+}
+
+.contextmenu__item-list {
+    list-style-type: none;
+    text-decoration: none;
+    box-shadow: @container-box-shadow;
+    background: @container-background;
+
+    .block-tool-container {
+        display: inline-block;
+
+        &:not(:last-child) {
+            margin-right: 0.75rem;
+        }
+    }
+
+    .label {
+        margin-right: 0.25rem;
+        font-size: 0.9rem;
+    }
+}
+
+.contextmenu__list-header {
+    font-weight: bold;
+    padding: 0 0.5rem;
+    padding-top: 0.25rem;
+    display: inline-block;
+    background: @container-background;
+    box-shadow: @container-box-shadow;
+    clip-path: inset(-5px -5px 0 -5px);
+}
+
+.touch-mode-js .contextmenu,
+.contextmenu--horizontal {
+    width: unset;
+    pointer-events: none;
+
+    * {
+        pointer-events: initial;
+    }
+
+    .contextmenu__item-list {
+        padding: 0.3rem 0.5rem;
+    }
+
+    .rotation {
+        margin-right: 0.25rem;
+    }
+
+    ul {
+        display: inline-block;
+    }
+
+    li {
+        text-align: center;
+        display: inline-block;
+        box-shadow: @regular-button-box-shadow-light;
+        font-size: 0.85rem;
+        border-radius: @default-border-radius-small-content;
+        border: 1px solid @regular-button-border;
+
+        &:before {
+            display: inline;
+        }
+
+        &.delete:before {
+            margin-right: 0;
+        }
+    }
+
+    li:not(:last-child) {
+        margin-right: 0.4rem;
+    }
+
+    .pointer {
+        display: block;
+        border-right: 0.75rem solid transparent;
+        border-left: 0.75rem solid transparent;
+        width: 0;
+        margin: 0 auto;
+    }
+
+    .movement-item-container {
+        margin-top: 0.3rem;
+    }
+}
+
+.touch-mode-js .contextmenu {
+    max-width: 360px;
+
+    li {
+        margin: 0.3rem;
+    }
+}
+
+.touch-mode-js .contextmenu--horizontal {
+    max-width: unset;
+}
